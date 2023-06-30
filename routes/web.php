@@ -18,8 +18,8 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/home', function () {
-    return view('welcome', [
+Route::get('/', function () {
+    return view('home', [
         "title" => "Home"
     ]);
 });
@@ -47,13 +47,19 @@ Route::get('/mails', function () {
     ]);
 });
 
-//halaman surat
-Route::get('mails/{slug}', funtion($slug){
+// halaman surat
+Route::get('mails/{slug}', function($slug){
     return view('mail', [
-        "title" => "Surat".
+        "title" => "Surat",
         "mail" => Mail::find($slug)
     ]);
 });
+
+// Route::get('/daftar-surat', function () {
+//     return view('daftar-surat', [
+//     "mails" => "$surat_mails"
+//     ]);
+// });
 
 Route::get('/surat-masuk', function () {
     return view('surat-masuk');

@@ -12,8 +12,6 @@
   rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
   crossorigin="anonymous">
   
-    <h1>Hello, world!</h1>
-    
   <title>Arsip-Polda | {{$title}}</title>
 </head>
 <body>
