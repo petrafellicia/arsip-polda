@@ -18,8 +18,27 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
+});
+
+Route::get('/about', function () {
+    return view('about', [
+        "name" => "Alfrina Gracia",
+        "name" => "Petra Fellicia"
+    ]);
+});
+
+Route::get('/mails', function () {
+    return view('mails');
+});
+
+Route::get('/surat-masuk', function () {
+    return view('surat-masuk');
+});
+
+Route::get('/surat-keluar', function () {
+    return view('surat-keluar');
 });
 
 Route::get('/login', [LoginController::class, 'index']);
