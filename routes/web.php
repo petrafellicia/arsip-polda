@@ -19,18 +19,40 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/home', function () {
-    return view('welcome');
+    return view('welcome', [
+        "title" => "Home"
+    ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
+        "title" => "About",
         "name" => "Alfrina Gracia",
         "name" => "Petra Fellicia"
     ]);
 });
 
 Route::get('/mails', function () {
-    return view('mails');
+    // $surat_mails = [
+    //     [
+    //         "title" => "Daftar Surat",
+    //         "slug" => "daftar-surat",
+    //         "author" => "POLDA",
+    //         "body" => " "
+    //     ]
+    //     ];
+    return view('mails', [
+        "title" => "Mails",
+        "mails" => Mail::all()
+    ]);
+});
+
+//halaman surat
+Route::get('mails/{slug}', funtion($slug){
+    return view('mail', [
+        "title" => "Surat".
+        "mail" => Mail::find($slug)
+    ]);
 });
 
 Route::get('/surat-masuk', function () {

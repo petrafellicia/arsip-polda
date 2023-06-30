@@ -7,6 +7,9 @@ body {
   max-width: 330px;
   padding: 1rem;
 } */
+body{
+  background-color: navy;
+}
 
 .form-signin .form-floating:focus-within {
   z-index: 2;
