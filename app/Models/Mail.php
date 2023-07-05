@@ -8,26 +8,33 @@ namespace App\Models;
 class Mail {
     // use HasFactory;
     private static $surat_mails =[
-    [
-        "title" => "Daftar Surat",
-        "slug" => "daftar-surat",
-        "author" => "POLDA",
-        "body" => " "
-    ]
+        [
+                "title" => "Daftar Surat Masuk",
+                "slug" => "daftar-surat-masuk",
+                "author" => "POLDA",
+                "body" => "lorem"
+        ],
+        [
+                "title" => "Daftar Surat Keluar",
+                "slug" => "daftar-surat-keluar",
+                "author" => "POLDA",
+                "body" => "lorem2"
+        ]
     ];
 
     public static function all(){
-        return self::$surat_mails;
+        return collect(self::$surat_mails);
     }
     
     public static function find($slug){
-        $mails = self::$surat_mails;
-        $mail=[];
-        foreach($mails as $m){
-            if($m["slug"] === $slug){
-                $mail = $m;
-            }
-        }
+        $mails = static::all();
+        // $mail=[];
+        // foreach($mails as $m){
+        //     if($m["slug"] === $slug){
+        //         $mail = $m;
+        //     }
+        // }
+        return $mails->firstWhere('slug', $slug);
     }
 
 }

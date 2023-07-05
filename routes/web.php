@@ -27,18 +27,23 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
-        "name" => "Alfrina Gracia",
-        "name" => "Petra Fellicia"
+        "name" => "Alfrina - Petra",
     ]);
 });
 
 Route::get('/mails', function () {
     // $surat_mails = [
     //     [
-    //         "title" => "Daftar Surat",
-    //         "slug" => "daftar-surat",
+    //         "title" => "Daftar Surat Masuk",
+    //         "slug" => "daftar-surat-masuk",
     //         "author" => "POLDA",
-    //         "body" => " "
+    //         "body" => "lorem"
+    //     ],
+    //     [
+    //     "title" => "Daftar Surat Keluar",
+    //         "slug" => "daftar-surat-keluar",
+    //         "author" => "POLDA",
+    //         "body" => "lorem2"
     //     ]
     //     ];
     return view('mails', [
@@ -47,13 +52,10 @@ Route::get('/mails', function () {
     ]);
 });
 
+Route::get('/mails', [MailController::class, 'index']);
+
 // halaman surat
-Route::get('mails/{slug}', function($slug){
-    return view('mail', [
-        "title" => "Surat",
-        "mail" => Mail::find($slug)
-    ]);
-});
+Route::get('/mails/{slug}', [MailController::class, 'show']);
 
 // Route::get('/daftar-surat', function () {
 //     return view('daftar-surat', [
