@@ -11,7 +11,7 @@
   <div class="container">
     <img src="../image/background.jpg" alt="background" width="">
     <div class="text">
-      <h1>WELCOOME TO THE E-ARCHIVE</h1>
+      <h1>WELCOME TO THE E-ARCHIVE</h1>
       <h1>POLDA DIY</h1>
       <button>Login</button>
     </div>
