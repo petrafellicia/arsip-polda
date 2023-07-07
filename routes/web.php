@@ -63,6 +63,10 @@ Route::get('/mails/{slug}', [MailController::class, 'show']);
 //     ]);
 // });
 
+Route::get('/depan', function(){
+    return view('depan');
+});
+
 Route::get('/surat-masuk', function () {
     return view('surat-masuk');
 });
