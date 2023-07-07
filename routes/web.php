@@ -19,6 +19,10 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
+    return view('depan');
+});
+
+Route::get('/home', function(){
     return view('home', [
         "title" => "Home"
     ]);
@@ -62,10 +66,6 @@ Route::get('/mails/{slug}', [MailController::class, 'show']);
 //     "mails" => "$surat_mails"
 //     ]);
 // });
-
-Route::get('/depan', function(){
-    return view('depan');
-});
 
 Route::get('/surat-masuk', function () {
     return view('surat-masuk');
