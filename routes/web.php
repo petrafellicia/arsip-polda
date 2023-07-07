@@ -20,9 +20,12 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('depan');
-    // return view('home', [
-    //     "title" => "Home"
-    // ]);
+});
+
+Route::get('/home', function(){
+    return view('home', [
+        "title" => "Home"
+    ]);
 });
 
 Route::get('/about', function () {
@@ -62,10 +65,6 @@ Route::get('/mails/{slug}', [MailController::class, 'show']);
 //     return view('daftar-surat', [
 //     "mails" => "$surat_mails"
 //     ]);
-// });
-
-// Route::get('/depan', function(){
-//     return view('depan');
 // });
 
 Route::get('/surat-masuk', function () {
