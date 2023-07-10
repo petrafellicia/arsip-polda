@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('background.jpg') ;
+    background-image: url("background.jpg");
 }
 
 .container {
@@ -23,12 +23,21 @@ body {
 
 .text {
     padding: 15px;
+    
 }
 
 .text h1 {
     color: white;
     justify-content: center;
     padding: 6px;
+   
+}
+
+.text a {
+    color: white;
+    justify-content: center;
+    padding: 6px;
+    text-decoration: none;
 }
 
 .text button {

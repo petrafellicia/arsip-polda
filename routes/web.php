@@ -22,6 +22,8 @@ Route::get('/', function () {
     return view('depan');
 });
 
+Route::get('/login', [LoginController::class, 'index']);
+
 Route::get('/home', function(){
     return view('home', [
         "title" => "Home"
@@ -75,4 +77,4 @@ Route::get('/surat-keluar', function () {
     return view('surat-keluar');
 });
 
-Route::get('/login', [LoginController::class, 'index']);
+
