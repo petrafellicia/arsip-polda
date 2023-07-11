@@ -9,6 +9,14 @@
 </head>
 <body>
   <div class="container">
+<nav class="navbar">
+  <div class="imageone">
+    <img src="image/logo_polda.png" alt="logo">
+  </div>
+  <div class="imagetwo">
+    <img src="image/tik.png" alt="tik">
+  </div>
+</nav>
     <div class="text">
       <h1>WELCOME TO THE E-ARCHIVE</h1>
       <h1>POLDA DIY</h1>
