@@ -18,7 +18,7 @@
         <input type="text" placeholder="username">
         <label for="">Password</label>
         <input type="password" placeholder="password">
-        <button>Login</button>
+        <button><a href="/mails">Login now!</a></button>
       </form>
     </div>
     <div class="right">
