@@ -11,4 +11,7 @@ body {
     background-color: navy;
 }
 
+#mails.blade.php.btn{
+  color: white;
+}
 

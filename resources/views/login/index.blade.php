@@ -18,7 +18,7 @@
         <input type="text" placeholder="username">
         <label for="">Password</label>
         <input type="password" placeholder="password">
-        <button>Login</button>
+        <button><a href="/mails">Login now!</a></button>
       </form>
     </div>
     <div class="right">
@@ -64,7 +64,7 @@
       <label for="floatingPassword">Password</label>
     </div>
 
-    <button class="btn btn-primary w-100 py-2 mt-3" type="submit">Login now!</button>
+    <button class="btn btn-primary w-100 py-2 mt-3" type="submit"><a href="/mails">Login now!</a></button>
     <!-- <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p> -->
   </form>
   </main>
