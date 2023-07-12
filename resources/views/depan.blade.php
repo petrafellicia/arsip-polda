@@ -24,8 +24,6 @@
       <h1>POLDA DIY</h1>
       <button type="button"><a href="/login">Login</a></button>
 </div>
-
-
  
 </body>
 </html>
