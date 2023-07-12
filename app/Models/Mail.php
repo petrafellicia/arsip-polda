@@ -12,13 +12,37 @@ class Mail {
                 "title" => "Daftar Surat Masuk",
                 "slug" => "daftar-surat-masuk",
                 "author" => "POLDA",
-                "body" => "lorem"
+                "body" => "elrum1"
+                // "[no_agenda" => "1",
+                // "no_surat" => "B/22/VI/AUM",
+                // "type_surat" => "Surat Biasa",
+                // "surat_dari" => "Kabid Humas",
+                // "perihal" => "News",
+                // "kka" => "OPS",
+                // "tgl_surat" => "9 Juni 2023",
+                // "waktu_terima" => "10.00",
+                // "disposisi_kpd" => "Ksbd Tekkom",
+                // "distribusi" => "Kapolda DIY",
+                // "isi_disposisi" => "ACC",
+                // "ket" => "sudah terlaksana"]"
         ],
         [
                 "title" => "Daftar Surat Keluar",
                 "slug" => "daftar-surat-keluar",
                 "author" => "POLDA",
-                "body" => "lorem2"
+                "body" => "elrum2"
+                // ["no_agenda" => "2",
+                // "no_surat" => "c/23/V/OPS",
+                // "type_surat" => "Surat Biasa",
+                // "surat_dari" => "Kabid Humas",
+                // "perihal" => "News",
+                // "kka" => "HUM",
+                // "tgl_surat" => "10 Juni 2023",
+                // "waktu_terima" => "12.00",
+                // "disposisi_kpd" => "Ksbd Tekkom",
+                // "distribusi" => "Kabid Kum",
+                // "isi_disposisi" => "Koordinasi",
+                // "ket" => "dalam proses"]"
         ]
     ];
 
