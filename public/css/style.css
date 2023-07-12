@@ -7,9 +7,9 @@ body {
   max-width: 330px;
   padding: 1rem;
 } */
-body {
+/* body {
     background-color: navy;
-}
+} */
 
 #mails.blade.php.btn{
   color: white;
