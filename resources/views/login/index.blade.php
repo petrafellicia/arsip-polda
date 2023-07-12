@@ -1,4 +1,34 @@
-@extends('layouts.main')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/login.css">
+  <title>Arsip-Polda | {{ $title }}</title>
+</head>
+<body>
+  <div class="container">
+    <div class="login">
+      <form action="">
+        <h1>Login</h1>
+        <hr>
+        <p>Arsip Surat</p>
+        <label for="">Username</label>
+        <input type="text" placeholder="username">
+        <label for="">Password</label>
+        <input type="password" placeholder="password">
+        <button>Login</button>
+      </form>
+    </div>
+    <div class="right">
+      <img src="image/polri.png" alt="polri">
+    </div>
+  </div>
+</body>
+</html>
+
+{{-- @extends('layouts.main')
 
 @section('container')
 <div class="row justify-content-center">
@@ -43,4 +73,4 @@
 </div>
 
 @endsection
-
+ --}}
