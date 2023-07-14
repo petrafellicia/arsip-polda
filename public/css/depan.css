@@ -6,7 +6,7 @@ body {
     background-image: url("background.jpg");
     flex-direction: column;
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: cover; */
 }
 
 .container {

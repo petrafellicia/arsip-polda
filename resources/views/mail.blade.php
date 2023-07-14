@@ -35,9 +35,9 @@
       <td>9 Juni 2023</td>
       <td>10.00 WIB</td>
       <td>Ksbd Tekkom</td>
-      <td></td>
+      <td>Kapolda DIY</td>
       <td>Accepted</td>
-      <td></td>
+      <td>Sudah terlaksana</td>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -49,9 +49,9 @@
       <td>10 Juni 2023</td>
       <td>12.00 WIB</td>
       <td>Ksbd Tekkom</td>
-      <td></td>
+      <td>Kabid Kum</td>
       <td>Koordinasi</td>
-      <td></td>
+      <td>Dalam Proses</td>
     </tr>
     <tr>
       <th scope="row">3</th>
