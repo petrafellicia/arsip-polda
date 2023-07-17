@@ -69,8 +69,10 @@ Route::get('/mails/{slug}', [MailController::class, 'show']);
 //     ]);
 // });
 
-Route::get('/surat-masuk', function () {
-    return view('surat-masuk');
+Route::get('/masuk', function () {
+    return view('masuk', [
+        "title" => "Input Surat Masuk"
+    ]);
 });
 
 Route::get('/surat-keluar', function () {
