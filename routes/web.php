@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
 Route::get('/home', function(){
     return view('home', [

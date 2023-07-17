@@ -10,15 +10,16 @@
 <body>
   <div class="container">
     <div class="login">
-      <form action="">
+      <form action="{{ route('postlogin') }}" method="post">
         <h1>Login</h1>
         <hr>
         <p>Arsip Surat</p>
-        <label for="">Username</label>
-        <input type="text" placeholder="username">
-        <label for="">Password</label>
-        <input type="password" placeholder="password">
-        <button><a href="/mails">Login now!</a></button>
+        @csrf
+        <label for="email">Email</label>
+        <input type="email" value="{{ Session::get('email') }}"name="email" placeholder="email">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="password">
+        <button name="submit" type="submit">Login now!</button>
       </form>
     </div>
     <div class="right">
