@@ -28,13 +28,14 @@ class LoginController extends Controller
     public function postLogin(Request $request){
        //validasi
        Session::flash('email', $request->email);
-       $request->validate([
-        'email'=>'required',
-        'password'=>'required'
-       ],[
-        'email.required'=>'email wajib diisi',
-        'password.required'=>'Password wajib diisi',
-       ]);
+            $request->validate([
+                'email'=>'required',
+                'password'=>'required'
+            ],
+            [
+                'email.required'=>'email wajib diisi',
+                'password.required'=>'Password wajib diisi',
+        ]);
 
        //autentikasi
        $infologin = [
@@ -47,7 +48,7 @@ class LoginController extends Controller
         return redirect('home')->with('Berhasil login');
        }else{
         //gagal
-        return redirect('login')->withErrors('Username atau password tidak vaid');
+        return redirect('login')->withErrors('Username atau password tidak valid');
        }
     }
 }

@@ -5,10 +5,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav ms-auto">
         <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" href="/home">Home</a>
         {{-- <a class="nav-link" {{ ($title === "About") ? 'active' : '' }}" href="/about">About</a> --}}
         <a class="nav-link" {{ ($title === "Mails") ? 'active' : '' }}" href="/mails">Daftar Surat</a>
+        <a class="nav-link" href="/"><i class="bi bi-person-circle"></i></a>
         </div>
     </div>
         {{-- <form class="d-flex" role="search">
