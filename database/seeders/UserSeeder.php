@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class UserSeeders extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +17,15 @@ class UserSeeders extends Seeder
      */
     public function run()
     {
+        DB::table('users')->delete();
+
         DB::table('users')->insert([
             'name' => 'admin',
             'level' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin123')
+            'password' => Hash::make('admin123'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }
