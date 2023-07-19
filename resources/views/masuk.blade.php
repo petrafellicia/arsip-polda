@@ -92,18 +92,18 @@
   </head>
   <body>
   <h2 style="margin-top: 5px; margin-left:400px;"><b>Input-Update Data Surat Masuk</b></h2>
-<form method ="post" action="">
- <fieldset>
- <legend>| Data Surat Masuk |</legend>
- <table>
+  <form method ="post" action="">
+  <fieldset>
+  <legend>| Data Surat Masuk |</legend>
+  <table>
     <tr>
          <td>Nomor Agenda </td>
-         <td>: <input type="text" name="noagenda" size ="40" placeholder=
+         <td>: <input type="text" name="nomoragenda" size ="40" placeholder=
           "isi nomor agenda" required></td>
     </tr>
     <tr>
          <td>Nomor Surat </td>
-         <td>: <input type="text" name="nosurat" size ="40" placeholder=
+         <td>: <input type="text" name="nomorsurat" size ="40" placeholder=
           "isi nomor surat" required></td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@
     </tr>
     <tr>
         <td>Asal Surat</td>
-        <td>: <input type="text" name="asal" size ="40"
+        <td>: <input type="text" name="asalsurat" size ="40"
          placeholder="isi asal surat lengkap" required></td>
     </tr>
     <tr>
@@ -158,7 +158,7 @@
     </tr>
     <tr>
         <td>Tanggal Surat</td>
-        <td>: <input type="date" name="tglsurat" size ="40"
+        <td>: <input type="date" name="tanggalsurat" size ="40"
          placeholder="isi tanggal" required></td>
     </tr>
     <tr>

@@ -15,18 +15,18 @@ return new class extends Migration
     {
         Schema::create('mails', function (Blueprint $table) {
             $table->id();
-            $table->string('Nomor Agenda');
-            $table->string('Nomor Surat');
-            $table->string('Jenis Surat');
-            $table->string('Asal Surat');
-            $table->text('Perihal');
-            $table->string('KKA');
-            $table->timestamp('Tanggal Surat');
-            $table->string('Jam Terima');
-            $table->string('Disposisi Kepada');
-            $table->string('Distribusi');
-            $table->text('Isi Disposisi');
-            $table->string('Keterangan');
+            $table->string('nomor_agenda');
+            $table->string('nomor_surat')->unique();
+            $table->string('jenis_surat');
+            $table->string('asal_surat');
+            $table->text('perihal');
+            $table->string('kka');
+            $table->timestamp('tanggal_surat');
+            $table->string('jam_terima');
+            $table->string('disposisi_kepada');
+            $table->string('distribusi');
+            $table->text('isi_disposisi');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }
