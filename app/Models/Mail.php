@@ -12,7 +12,7 @@ class Mail {
                 "title" => "Daftar Surat Masuk",
                 "slug" => "daftar-surat-masuk",
                 "author" => "POLDA",
-                "body" => "lorem1"
+                "body" => "elrum1"               
                 // ["no_agenda" => "1",
                 // "no_surat" => "B/22/VI/AUM",
                 // "type_surat" => "Surat Biasa",
@@ -30,7 +30,7 @@ class Mail {
                 "title" => "Daftar Surat Keluar",
                 "slug" => "daftar-surat-keluar",
                 "author" => "POLDA",
-                "body" => "lorem2"
+                "body" => "elrum2"
                 // ["no_agenda" => "2",
                 // "no_surat" => "c/23/V/OPS",
                 // "type_surat" => "Surat Biasa",
