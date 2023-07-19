@@ -5,24 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mail extends Model
+class SuratKeluar extends Model
 {
     use HasFactory;
-    protected $table = 'mails';
+
+    protected $table = 'surat_keluars';
 
     protected $fillable = [
-        'nomor_agenda',
-        'nomor_surat',
+        'no_agenda',
+        'no_surat',
         'jenis_surat',
         'asal_surat',
         'perihal',
         'kka',
-        'tanggal_surat',
+        'tgl_surat',
         'jam_surat',
-        'disposisi_kepada',
+        'disposisi',
         'distribusi',
         'isi_disposisi',
         'keterangan',
     ];
-    
+
 }

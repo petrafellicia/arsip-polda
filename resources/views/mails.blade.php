@@ -10,7 +10,7 @@
         <a style="color:white; justify-content:center; text-decoration:none;" href="/mails/{{ $mail["slug"] }}" > {{ $mail["title"] }}</a>
 </button>
 <!-- <button type="button" class="btn btn-primary btn-lg"></button> -->
-  <!-- <h5>by : {{  $mail["author"] }}</h5>
+  <!-- <h5>by : {{  $mail["author"] }}</h5> 
   <h5>{{ $mail["body"] }}</h5> -->
 @endforeach
     </div>
