@@ -93,6 +93,7 @@
   <body>
   <h2 style="margin-top: 5px; margin-left:400px;"><b>Input-Update Data Surat Masuk</b></h2>
   <form method ="post" action="">
+    
   <fieldset>
   <legend>| Data Surat Masuk |</legend>
   <table>

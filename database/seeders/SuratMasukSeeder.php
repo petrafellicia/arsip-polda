@@ -5,10 +5,9 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class MailSeeder extends Seeder
+class SuratMasukSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,9 +16,9 @@ class MailSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('mails')->delete();
+        DB::table('surat_masuks')->delete();
 
-        DB::table('mails')->insert([
+        DB::table('surat_masuks')->insert([
             'nomor_agenda' => '1',
             'nomor_surat' => 'B/22/VI/AUM',
             'jenis_surat' => 'Surat Biasa',
@@ -32,6 +31,7 @@ class MailSeeder extends Seeder
             'distribusi' => 'mabes POLRI',
             'isi_disposisi' => 'Tinjau',
             'keterangan' => 'mmmmmm',
+            'file' => '',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

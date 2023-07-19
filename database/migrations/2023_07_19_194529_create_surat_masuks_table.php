@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mails', function (Blueprint $table) {
+        Schema::create('surat_masuks', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_agenda');
             $table->string('nomor_surat')->unique();
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('distribusi');
             $table->text('isi_disposisi');
             $table->string('keterangan');
+            $table->string('file')->nullable(true);
             $table->timestamps();
         });
     }
@@ -38,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mails');
+        Schema::dropIfExists('surat_masuks');
     }
 };

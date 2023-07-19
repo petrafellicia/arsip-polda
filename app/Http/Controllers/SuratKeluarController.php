@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\surat_keluar;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Storesurat_keluarRequest;
 use App\Http\Requests\Updatesurat_keluarRequest;
 
