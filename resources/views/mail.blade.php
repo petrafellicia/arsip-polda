@@ -1,11 +1,15 @@
 @extends('layouts.main')
 
 @section('container')
-<h1>{{ $mail["title"] }}"</h1>
-<h5>{{ $mail["author"] }}"</h5>
-<p>{{ $mail["body"] }}"</p>
+<h1>{{ $mail["title"] }}</h1>
+{{-- <h5>{{ $mail["author"] }}"</h5>
+<p>{{ $mail["body"] }}"</p> --}}
+
 
 <a href="/mails">Back to Mails</a>
+<button type="button"
+style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
+<a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
 
 <table class="table">
   <thead>
