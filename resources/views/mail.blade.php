@@ -6,15 +6,9 @@
 <div class="container-fluid">
 <a href="/mails">Back to Mails</a>
 <button type="button"
-<<<<<<< Updated upstream
 style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
 <a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
 <form class="d-flex" style="margin-top:30px; margin-bottom:10px;" role="search">
-=======
-style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
-<a style="color:white; justify-content:center; text-decoration:none;" href="/keluar">Tambah Surat</a></button>
-<form class="d-flex" style="margin-top:20px" role="search">
->>>>>>> Stashed changes
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
