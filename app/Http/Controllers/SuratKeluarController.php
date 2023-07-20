@@ -2,86 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\surat_keluar;
+use Illuminate\Http\Request;
+use App\Models\SuratKeluar;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Storesurat_keluarRequest;
-use App\Http\Requests\Updatesurat_keluarRequest;
 
 class SuratKeluarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    //
+    public function index(){
+        $data = SuratKeluar::all();
+        return view('suratkeluar', compact('data'),
+    [
+        "title" => "Daftar Surat Keluar"
+    ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function tambahsuratkeluar(){
+        return view('keluar');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\Storesurat_keluarRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Storesurat_keluarRequest $request)
-    {
-        //
+    public function insertsuratkeluar(Request $request){
+        SuratKeluar::create($request->all());
+        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\surat_keluar  $surat_keluar
-     * @return \Illuminate\Http\Response
-     */
-    public function show(surat_keluar $surat_keluar)
-    {
-        //
+    public function simpan(Request $request){
+        $this->validate($request, [
+         'no_agenda' => 'unique:tb_suratkeluar',
+         'no_surat'=> 'required',
+         'jenis_surat' => 'required',
+         'asal_surat' => 'required',
+         'perihal' => 'required',
+         'kka' => 'required',
+         'tgl_surat' => 'required',
+         'jam_surat' => 'required',
+         'disposisi' => 'required',
+         'distribusi' => 'required',
+         'isi_disposisi' => 'required',
+         'keterangan' => 'required',
+         'dokumen' => 'mimes:pdf'
+        ]);
+    $dokumen =  $request->file('dokumen');
+    $nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
+    $dokumen->move('dokumen/', $nama_dokumen);
+
+    $data = new SuratKeluar();
+    $data->dokumen = $nama_dokumen;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\surat_keluar  $surat_keluar
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(surat_keluar $surat_keluar)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\Updatesurat_keluarRequest  $request
-     * @param  \App\Models\surat_keluar  $surat_keluar
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Updatesurat_keluarRequest $request, surat_keluar $surat_keluar)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\surat_keluar  $surat_keluar
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(surat_keluar $surat_keluar)
-    {
-        //
-    }
 }

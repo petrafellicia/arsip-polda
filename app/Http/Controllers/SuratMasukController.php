@@ -27,5 +27,4 @@ class SuratMasukController extends Controller
         SuratMasuk::create($request->all());
         return redirect()->route('surat');
     }
-
 }

@@ -19,6 +19,7 @@ class SuratMasukSeeder extends Seeder
         DB::table('surat_masuks')->delete();
 
         DB::table('surat_masuks')->insert([
+            'id' => '1',
             'nomor_agenda' => '1',
             'nomor_surat' => 'B/22/VI/AUM',
             'jenis_surat' => 'Surat Biasa',

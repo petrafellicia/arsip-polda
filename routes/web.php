@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 use App\Models\Mail;
 use App\Models\User;
 
@@ -65,23 +66,24 @@ Route::get('/mails', [MailController::class, 'index']);
 // halaman surat
 Route::get('/mails/{slug}', [MailController::class, 'show']);
 
+
 Route::get('/surat', [SuratMasukController::class, 'index'])->name('surat');
 Route::get('/masuk', [SuratMasukController::class, 'tambahdata']);
 Route::post('/insertsurat', [SuratMasukController::class, 'insertsurat'])->name('insertsurat');
 
 
-Route::get('/daftar-surat-keluar', function () {
-    return view('mailkeluar', [
-        "title" => "Daftar Surat Keluar"
-    ]);
-});
+Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index']);
 
 
-Route::get('/keluar', function () {
-    return view('keluar', [
-        "title" => "Input Surat Keluar"
-    ]);
-});
+Route::get('/keluar', [SuratKeluarController::class, 'tambahsuratkeluar'])->name('tambahsuratkeluar');
+
+Route::post('/insertsuratkeluar', [SuratKeluarController::class, 'insertsuratkeluar'])->name('insertsuratkeluar');
+
+// Route::get('/keluar', function () {
+//     return view('keluar', [
+//         "title" => "Input Surat Keluar"
+//     ]);
+// });
 
 
 

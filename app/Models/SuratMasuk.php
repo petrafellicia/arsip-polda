@@ -10,6 +10,7 @@ class SuratMasuk extends Model
     use HasFactory;
     protected $guarded =[];
     // protected $table = 'surat_masuks';
+    protected $table = 'surat_masuks';
 
     // protected $fillable = [
     //     'nomor_agenda',
@@ -26,4 +27,5 @@ class SuratMasuk extends Model
     //     'keterangan',
     //     'file'
     // ];
+
 }
