@@ -40,13 +40,13 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>{{ $row-> nomor_surat }}</td>
       <td>{{ $row-> jenis_surat}}</td>
       <td>{{ $row-> asal_surat}}</td>
-      <td>{{ $row-> perihal}}l</td>
+      <td>{{ $row-> perihal}}</td>
       <td>{{ $row-> kka}}</td>
       <td>{{ $row-> tanggal_surat}}</td>
       <td>{{ $row-> jam_terima}}</td>
       <td>{{ $row-> disposisi_kepada}}</td>
       <td>{{ $row-> distribusi}}</td>
-      <td>{{ $row-> isi_disposisi }}</td>
+      <td>{{ $row-> isi_disposisi}}</td>
       <td>{{ $row-> keterangan }}</td>
       <td>
         <button type="button" class="btn btn-success">Download</button>
