@@ -19,6 +19,7 @@ class SuratKeluarSeeder extends Seeder
         DB::table('surat_keluars')->delete();
 
         DB::table('surat_keluars')->insert([
+            'id' => '1',
             'no_agenda' => '1',
             'no_surat' => 'B/22/VI/AUM',
             'jenis_surat' => 'Surat Biasa',
@@ -29,8 +30,8 @@ class SuratKeluarSeeder extends Seeder
             'jam_surat' => '10.00 WIB',
             'disposisi' => 'Ksbd Tekkom',
             'distribusi' => 'Kapolda DIY',
-            'isi_disposisi' => 'Accepted',
-            'keterangan' => 'Sudah terlaksana',
+            'isi_disposisi' => 'Sudah Terlaksana',
+            'keterangan' => 'Oke',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

@@ -74,7 +74,7 @@ Route::get('/daftar-surat-masuk', [SuratMasukController::class, 'index']);
 //     ]);
 // });
 
-Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index']);
+Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index'])->name('daftar-surat-keluar');
 
 Route::get('/masuk', function () {
     return view('masuk', [

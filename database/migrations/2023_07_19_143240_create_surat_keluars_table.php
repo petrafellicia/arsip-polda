@@ -14,18 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('surat_keluars', function (Blueprint $table) {
+            $table->id();
             $table->string('no_agenda');
             $table->string('no_surat');
             $table->string('jenis_surat');
             $table->string('asal_surat');
             $table->text('perihal');
             $table->string('kka');
-            $table->timestamp('tgl_surat');
+            $table->date('tgl_surat');
             $table->string('jam_surat');
             $table->string('disposisi');
             $table->string('distribusi');
             $table->text('isi_disposisi');
             $table->string('keterangan');
+            $table->string('file')->nullable(true);
             $table->timestamps();
         });
     }

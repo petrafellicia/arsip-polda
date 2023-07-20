@@ -34,13 +34,13 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
     </tr>
   </thead>
   <tbody class="table-group-divider">
-    @foreach ($data as $row => $value)
+    @foreach ($data as $row)
     <tr>
       <th scope="row">{{ $row-> no_agenda }}</th>
       <td>{{ $row-> no_surat }}</td>
       <td>{{ $row-> jenis_surat}}</td>
       <td>{{ $row-> asal_surat}}</td>
-      <td>{{ $row-> perihal}}l</td>
+      <td>{{ $row-> perihal}}</td>
       <td>{{ $row-> kka}}</td>
       <td>{{ $row-> tgl_surat}}</td>
       <td>{{ $row-> jam_surat}}</td>
@@ -49,7 +49,7 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>{{ $row-> isi_disposisi}}</td>
       <td>{{ $row-> keterangan }}</td>
       <td>
-        <a href="dokumen/{{$value->dokumen}}"><button type="button" class="btn btn-success">Download</button></a>
+          <button type="button" class="btn btn-success">Download</button>
       </td>
       <td>
         <button type="button" class="btn btn-primary">Edit</button>

@@ -23,7 +23,7 @@ class SuratKeluarController extends Controller
 
     public function insertsuratkeluar(Request $request){
         SuratKeluar::create($request->all());
-        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil ditambahkan');
+        return redirect()->route('daftar-surat-keluar');
     }
 
     public function simpan(Request $request){

@@ -27,12 +27,12 @@
               <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
               <select class="form-select" name="jenis_surat" aria-label="Default select example">
                 <option selected>Open this select menu</option>
-                <option value="1">Surat Biasa</option>
-                <option value="2">Nota Dinas</option>
-                <option value="3">Telegram</option>
-                <option value="4">Sprin</option>
-                <option value="5">Surat Izin</option>
-                <option value="6">Surat Rahasia</option>
+                <option>Surat Biasa</option>
+                <option>Nota Dinas</option>
+                <option>Telegram</option>
+                <option>Sprin</option>
+                <option>Surat Izin</option>
+                <option>Surat Rahasia</option>
               </select>
             </div>
             <div class="mb-3">
@@ -40,6 +40,10 @@
               <input type="text" name="asal_surat" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Perihal</label>
+              <input type="text" name="perihal" class="form-control" id="exampleInputPassword1">
+            </div>
+            <!-- <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Perihal</label>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="perihal" id="flexRadioDefault1">
@@ -59,27 +63,27 @@
                  Tribut
                 </label>
               </div>
-            </div>
+            </div> -->
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">KKA</label>
               <select class="form-select" name="kka" aria-label="Default select example">
                 <option selected>Open this select menu</option>
-                <option value="1">KEP</option>
-                <option value="2">BIN</option>
-                <option value="3">OPS</option>
-                <option value="4">REN</option>
-                <option value="5">LOG</option>
-                <option value="6">HUM</option>
-                <option value="7">HUK</option>
-                <option value="8">TIK</option>
-                <option value="9">TUK</option>
-                <option value="10">WAS</option>
-                <option value="11">KEU</option>
-                <option value="12">DIK</option>
-                <option value="13">PAM</option>
-                <option value="14">YAN</option>
-                <option value="15">KES</option>
-                <option value="16">RES</option>
+                <option>KEP</option>
+                <option>BIN</option>
+                <option>OPS</option>
+                <option>REN</option>
+                <option>LOG</option>
+                <option>HUM</option>
+                <option>HUK</option>
+                <option>TIK</option>
+                <option>TUK</option>
+                <option>WAS</option>
+                <option>KEU</option>
+                <option>DIK</option>
+                <option>PAM</option>
+                <option>YAN</option>
+                <option>KES</option>
+                <option>RES</option>
               </select>
             </div>
             <div class="mb-3">
@@ -91,6 +95,10 @@
               <input type="text" name="jam_surat" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Disposisi Kepada</label>
+              <input type="text" name="disposisi" class="form-control" id="exampleInputPassword1">
+            </div>
+            <!-- <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Disposisi Kepada</label>
               <div class="form-check">
                 <input class="form-check-input" name="disposisi" type="checkbox" value="" id="flexCheckDefault">
@@ -109,52 +117,56 @@
                 <label class="form-check-label" for="flexCheckDefault">
                   Ksbg. Renmin
                 </label>
-              </div>
+              </div> 
               <div class="form-check">
                 <input class="form-check-input" name="disposisi" type="checkbox" value="" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                   Other
                 </label>
               </div>
-            </div>
+            </div> -->
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Distribusi</label>
               <select class="form-select" name="distribusi" aria-label="Default select example">
                 <option selected>Open this select menu</option>
-                <option value="1">Mabes POLRI</option>
-                <option value="2">Kapolda DIY</option>
-                <option value="3">Wakapolda DIY</option>
-                <option value="4">Irwasda</option>
-                <option value="5">Karo Ops</option>
-                <option value="6">Karo Rena</option>
-                <option value="7">Karo SDM</option>
-                <option value="8">Karo Log</option>
-                <option value="9">Dirintelkom</option>
-                <option value="10">Dirreskrimum</option>
-                <option value="11">Dirreskrimsus</option>
-                <option value="12">Dirresnarkoba</option>
-                <option value="13">Kabid Propam</option>
-                <option value="14">Kabid Humas</option>
-                <option value="15">Kabid TIK</option>
-                <option value="16">Kabid Dokkes</option>
-                <option value="17">Kabid Kum</option>
-                <option value="18">Kabid Keu</option>
-                <option value="19">Dittahti</option>
-                <option value="20">Kayanma</option>
-                <option value="21">Koorspripim</option>
-                <option value="22">Karumkit Bhayangkara</option>
-                <option value="23">KA SPKT POLDA DIY</option>
-                <option value="24">KA SPN</option>
-                <option value="25">Dansat Brimob</option>
-                <option value="26">Polrestu YKA</option>
-                <option value="27">Polrestu Sleman</option>
-                <option value="28">Polres Bantul</option>
-                <option value="29">Polres KLP</option>
-                <option value="30">Polres ONK/option>
-                <option value="31">Instansi Luar POLDA</option>
+                <option>Mabes POLRI</option>
+                <option>Kapolda DIY</option>
+                <option>Wakapolda DIY</option>
+                <option>Irwasda</option>
+                <option>Karo Ops</option>
+                <option>Karo Rena</option>
+                <option>Karo SDM</option>
+                <option>Karo Log</option>
+                <option>Dirintelkom</option>
+                <option>Dirreskrimum</option>
+                <option>Dirreskrimsus</option>
+                <option>Dirresnarkoba</option>
+                <option>Kabid Propam</option>
+                <option>Kabid Humas</option>
+                <option>Kabid TIK</option>
+                <option>Kabid Dokkes</option>
+                <option>Kabid Kum</option>
+                <option>Kabid Keu</option>
+                <option>Dittahti</option>
+                <option>Kayanma</option>
+                <option>Koorspripim</option>
+                <option>Karumkit Bhayangkara</option>
+                <option>KA SPKT POLDA DIY</option>
+                <option>KA SPN</option>
+                <option>Dansat Brimob</option>
+                <option>Polrestu YKA</option>
+                <option>Polrestu Sleman</option>
+                <option>Polres Bantul</option>
+                <option>Polres KLP</option>
+                <option>Polres ONK/option>
+                <option>Instansi Luar POLDA</option>
               </select>
             </div>
             <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Isi Disposisi</label>
+              <input type="text" name="isi_disposisi" class="form-control" id="exampleInputPassword1">
+            </div>
+            <!-- <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Isi Disposisi</label>
               <div class="form-check">
                 <input class="form-check-input" name="isi_disposisi" type="checkbox" value="" id="flexCheckDefault">
@@ -174,15 +186,15 @@
                   Menunggu Disposisi Pimpinan
                 </label>
               </div>
-            </div>
+            </div> -->
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-              <input type="password" name="keterangan" class="form-control" id="exampleInputPassword1">
+              <input type="text" name="keterangan" class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="formFile" class="form-label">Upload File</label>
               <input class="form-control" type="file" id="formFile">
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
          </div>
