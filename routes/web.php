@@ -67,11 +67,11 @@ Route::get('/mails/{slug}', [MailController::class, 'show']);
 
 Route::get('/suratmasuk', [SuratMasukController::class, 'index']);
 
-Route::get('/daftar-surat-masuk', function () {
-    return view('mail', [
-        "title" => "Daftar Surat Masuk"
-    ]);
-});
+// Route::get('/daftar-surat-masuk', function () {
+//     return view('mail', [
+//         "title" => "Daftar Surat Masuk"
+//     ]);
+// });
 
 Route::get('/daftar-surat-keluar', function () {
     return view('mailkeluar', [

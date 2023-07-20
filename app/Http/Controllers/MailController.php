@@ -16,6 +16,7 @@ class MailController extends Controller
             "mails" => Mail::all()
         ]);
     }
+    
 
     public function show($slug){
         return view('mail', [

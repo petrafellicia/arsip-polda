@@ -14,10 +14,4 @@ class SuratMasukController extends Controller
         return view('suratmasuk', compact('data'));
     }
 
-    public function show($slug){
-        return view('masuk', [
-            "title" => "Surat",
-            "mail" => Mail::find($slug)
-        ]);
-    }
 }
