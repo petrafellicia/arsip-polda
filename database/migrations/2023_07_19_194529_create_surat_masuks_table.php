@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('asal_surat');
             $table->text('perihal');
             $table->string('kka');
-            $table->timestamp('tanggal_surat');
+            $table->date('tanggal_surat');
             $table->string('jam_terima');
             $table->string('disposisi_kepada');
             $table->string('distribusi');

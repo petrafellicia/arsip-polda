@@ -7,18 +7,15 @@ use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class MailController extends Controller
+class SuratMasukController extends Controller
 {
-    //
     public function index(){
-        return view('mails', [
-            "title" => "Mails",
-            "mails" => Mail::all()
-        ]);
+        $data = SuratMasuk::all();
+        return view('suratmasuk', compact('data'));
     }
 
     public function show($slug){
-        return view('mail', [
+        return view('masuk', [
             "title" => "Surat",
             "mail" => Mail::find($slug)
         ]);

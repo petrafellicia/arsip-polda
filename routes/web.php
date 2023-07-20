@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SuratMasukController;
 use App\Models\Mail;
 use App\Models\User;
 
@@ -63,6 +64,7 @@ Route::get('/mails', [MailController::class, 'index']);
 
 // halaman surat
 Route::get('/mails/{slug}', [MailController::class, 'show']);
+<<<<<<< Updated upstream
 
 //halaman input
 Route::get('/mails/{slug}/masuk', [MailController::class, 'show']);
@@ -72,6 +74,9 @@ Route::get('/mails/{slug}/masuk', [MailController::class, 'show']);
 //     "mails" => "$surat_mails"
 //     ]);
 // });
+=======
+Route::get('/suratmasuk', [SuratMasukController::class, 'index']);
+>>>>>>> Stashed changes
 
 Route::get('/daftar-surat-masuk', function () {
     return view('mail', [

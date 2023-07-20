@@ -26,7 +26,7 @@ class SuratMasukSeeder extends Seeder
             'perihal' => 'Majalah',
             'kka' => 'KEP',
             'tanggal_surat' => '2023-06-09',
-            'jam_terima' => '10.00 WIB',
+            'jam_terima' => '10.00',
             'disposisi_kepada' => 'other',
             'distribusi' => 'mabes POLRI',
             'isi_disposisi' => 'Tinjau',
