@@ -9,6 +9,7 @@ class SuratKeluar extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     // protected $table = 'surat_keluars';
 
     // protected $fillable = [

@@ -82,11 +82,15 @@ Route::get('/masuk', function () {
     ]);
 });
 
-Route::get('/keluar', function () {
-    return view('keluar', [
-        "title" => "Input Surat Keluar"
-    ]);
-});
+Route::get('/keluar', [SuratKeluarController::class, 'tambahsuratkeluar'])->name('tambahsuratkeluar');
+
+Route::post('/insertsuratkeluar', [SuratKeluarController::class, 'insertsuratkeluar'])->name('insertsuratkeluar');
+
+// Route::get('/keluar', function () {
+//     return view('keluar', [
+//         "title" => "Input Surat Keluar"
+//     ]);
+// });
 
 
 

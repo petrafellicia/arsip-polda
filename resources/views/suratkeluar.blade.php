@@ -34,7 +34,7 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
     </tr>
   </thead>
   <tbody class="table-group-divider">
-    @foreach ($data as $row)
+    @foreach ($data as $row => $value)
     <tr>
       <th scope="row">{{ $row-> no_agenda }}</th>
       <td>{{ $row-> no_surat }}</td>
@@ -49,7 +49,7 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>{{ $row-> isi_disposisi}}</td>
       <td>{{ $row-> keterangan }}</td>
       <td>
-        <button type="button" class="btn btn-success">Download</button>
+        <a href="dokumen/{{$value->dokumen}}"><button type="button" class="btn btn-success">Download</button></a>
       </td>
       <td>
         <button type="button" class="btn btn-primary">Edit</button>
