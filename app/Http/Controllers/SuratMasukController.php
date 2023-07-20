@@ -25,6 +25,6 @@ class SuratMasukController extends Controller
     public function insertsurat(Request $request){
         // dd($request->all());
         SuratMasuk::create($request->all());
-        return redirect()->route('surat');
+        return redirect()->route('daftar-surat-masuk');
     }
 }

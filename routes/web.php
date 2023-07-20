@@ -40,34 +40,13 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/mails', function () {
-    // $surat_mails = [
-    //     [
-    //         "title" => "Daftar Surat Masuk",
-    //         "slug" => "daftar-surat-masuk",
-    //         "author" => "POLDA",
-    //         "body" => "lorem"
-    //     ],
-    //     [
-    //     "title" => "Daftar Surat Keluar",
-    //         "slug" => "daftar-surat-keluar",
-    //         "author" => "POLDA",
-    //         "body" => "lorem2"
-    //     ]
-    //     ];
-    return view('mails', [
-        "title" => "Mails",
-        "mails" => Mail::all()
-    ]);
-});
-
 Route::get('/mails', [MailController::class, 'index']);
 
 // halaman surat
 Route::get('/mails/{slug}', [MailController::class, 'show']);
 
 
-Route::get('/surat', [SuratMasukController::class, 'index'])->name('surat');
+Route::get('/daftar-surat-masuk', [SuratMasukController::class, 'index'])->name('daftar-surat-masuk');
 Route::get('/masuk', [SuratMasukController::class, 'tambahdata']);
 Route::post('/insertsurat', [SuratMasukController::class, 'insertsurat'])->name('insertsurat');
 
@@ -79,11 +58,6 @@ Route::get('/keluar', [SuratKeluarController::class, 'tambahsuratkeluar'])->name
 
 Route::post('/insertsuratkeluar', [SuratKeluarController::class, 'insertsuratkeluar'])->name('insertsuratkeluar');
 
-// Route::get('/keluar', function () {
-//     return view('keluar', [
-//         "title" => "Input Surat Keluar"
-//     ]);
-// });
 
 
 
