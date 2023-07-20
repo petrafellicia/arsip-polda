@@ -41,13 +41,13 @@ class SuratKeluarController extends Controller
          'isi_disposisi' => 'required',
          'keterangan' => 'required',
          'dokumen' => 'mimes:pdf'
-        ])
-    }
-
+        ]);
     $dokumen =  $request->file('dokumen');
     $nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
     $dokumen->move('dokumen/', $nama_dokumen);
 
+    $data = new SuratKeluar();
     $data->dokumen = $nama_dokumen;
-    
+    }
+
 }
