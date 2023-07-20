@@ -34,19 +34,20 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
     </tr>
   </thead>
   <tbody class="table-group-divider">
+    @foreach ($data as $row)
     <tr>
-      <th scope="row">1</th>
-      <td>B/22/VI/AUM</td>
-      <td>Surat Biasa</td>
-      <td>Kabid Humas</td>
-      <td>News</td>
-      <td>OPS</td>
-      <td>9 Juni 2023</td>
-      <td>10.00 WIB</td>
-      <td>Ksbd Tekkom</td>
-      <td>Kapolda DIY</td>
-      <td>Accepted</td>
-      <td>Sudah terlaksana</td>
+      <th scope="row">{{ $row-> no_agenda }}</th>
+      <td>{{ $row-> no_surat }}</td>
+      <td>{{ $row-> jenis_surat}}</td>
+      <td>{{ $row-> asal_surat}}</td>
+      <td>{{ $row-> perihal}}l</td>
+      <td>{{ $row-> kka}}</td>
+      <td>{{ $row-> tgl_surat}}</td>
+      <td>{{ $row-> jam_surat}}</td>
+      <td>{{ $row-> disposisi}}</td>
+      <td>{{ $row-> distribusi}}</td>
+      <td>{{ $row-> isi_disposisi}}</td>
+      <td>{{ $row-> keterangan }}</td>
       <td>
         <button type="button" class="btn btn-success">Download</button>
       </td>
@@ -55,30 +56,7 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
         <button type="button" class="btn btn-danger">Delete</button>
       </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>B/23/V/HUM</td>
-      <td>Surat Biasa</td>
-      <td>Kabid Humas</td>
-      <td>News</td>
-      <td>HUK</td>
-      <td>10 Juni 2023</td>
-      <td>12.00 WIB</td>
-      <td>Ksbd Tekkom</td>
-      <td>Kabid Kum</td>
-      <td>Koordinasi</td>
-      <td>Dalam Proses</td>
-      <td>
-        <button type="button" class="btn btn-success">Download</button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-    </tr>
+    @endforeach
   </tbody>
 </table>
 

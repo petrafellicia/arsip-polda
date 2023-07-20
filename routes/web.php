@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 use App\Models\Mail;
 use App\Models\User;
 
@@ -73,11 +74,7 @@ Route::get('/daftar-surat-masuk', [SuratMasukController::class, 'index']);
 //     ]);
 // });
 
-Route::get('/daftar-surat-keluar', function () {
-    return view('suratkeluar', [
-        "title" => "Daftar Surat Keluar"
-    ]);
-});
+Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index']);
 
 Route::get('/masuk', function () {
     return view('masuk', [
