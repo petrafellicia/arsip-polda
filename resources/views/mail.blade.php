@@ -5,16 +5,11 @@
 <hr></hr>
 <div class="container-fluid">
 <a href="/mails">Back to Mails</a>
+
 <button type="button"
-<<<<<<< Updated upstream
 style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
 <a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
 <form class="d-flex" style="margin-top:30px; margin-bottom:10px;" role="search">
-=======
-style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
-<a style="color:white; justify-content:center; text-decoration:none;" href="/keluar">Tambah Surat</a></button>
-<form class="d-flex" style="margin-top:20px" role="search">
->>>>>>> Stashed changes
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
@@ -47,7 +42,7 @@ style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50r
       <td>Kabid Humas</td>
       <td>News</td>
       <td>OPS</td>
-      <td>9 Juni 2023</td>
+      <td>2023-07-10</td>
       <td>10.00 WIB</td>
       <td>Ksbd Tekkom</td>
       <td>Kapolda DIY</td>
@@ -61,7 +56,6 @@ style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50r
         <button type="button" class="btn btn-danger">Delete</button>
       </td>
     </tr>
-<<<<<<< Updated upstream
     <tr>
       <th scope="row">2</th>
       <td>B/23/V/HUM</td>
@@ -69,7 +63,7 @@ style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50r
       <td>Kabid Humas</td>
       <td>News</td>
       <td>HUK</td>
-      <td>10 Juni 2023</td>
+      <td>2023-07-11</td>
       <td>12.00 WIB</td>
       <td>Ksbd Tekkom</td>
       <td>Kabid Kum</td>
@@ -86,8 +80,6 @@ style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50r
     <tr>
       <th scope="row">3</th>
     </tr>
-=======
->>>>>>> Stashed changes
   </tbody>
 </table>
 

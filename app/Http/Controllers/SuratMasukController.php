@@ -16,7 +16,7 @@ class SuratMasukController extends Controller
 
     public function show($slug){
         return view('masuk', [
-            "title" => "Surat",
+            "title" => "Daftar Surat Masuk",
             "mail" => Mail::find($slug)
         ]);
     }
