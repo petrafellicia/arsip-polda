@@ -31,6 +31,8 @@ style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50r
       <th scope="col">Distribusi</th>
       <th scope="col">Isi Disposisi</th>
       <th scope="col">Keterangan</th>
+      <th scope="col">File</th>
+      <th scope="col">Aksi</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
@@ -47,6 +49,13 @@ style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50r
       <td>Kapolda DIY</td>
       <td>Accepted</td>
       <td>Sudah terlaksana</td>
+      <td>
+        <button type="button" class="btn btn-success">Download</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </td>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -61,6 +70,13 @@ style=" width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50r
       <td>Kabid Kum</td>
       <td>Koordinasi</td>
       <td>Dalam Proses</td>
+      <td>
+        <button type="button" class="btn btn-success">Download</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </td>
     </tr>
     <tr>
       <th scope="row">3</th>
