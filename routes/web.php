@@ -65,7 +65,7 @@ Route::get('/mails', [MailController::class, 'index']);
 // halaman surat
 Route::get('/mails/{slug}', [MailController::class, 'show']);
 
-Route::get('/suratmasuk', [SuratMasukController::class, 'index']);
+Route::get('/daftar-surat-masuk', [SuratMasukController::class, 'index']);
 
 // Route::get('/daftar-surat-masuk', function () {
 //     return view('mail', [
@@ -74,7 +74,7 @@ Route::get('/suratmasuk', [SuratMasukController::class, 'index']);
 // });
 
 Route::get('/daftar-surat-keluar', function () {
-    return view('mailkeluar', [
+    return view('suratkeluar', [
         "title" => "Daftar Surat Keluar"
     ]);
 });

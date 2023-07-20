@@ -11,6 +11,9 @@ class SuratMasukController extends Controller
 {
     public function index(){
         $data = SuratMasuk::all();
-        return view('suratmasuk', compact('data'));
+        return view('suratmasuk', compact('data'),
+    [
+        "title" => "Daftar Surat Masuk"
+    ]);
     }
 }

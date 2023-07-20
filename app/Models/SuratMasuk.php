@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SuratMasuk extends Model
 {
     use HasFactory;
-    // protected $table = 'surat_masuks';
+    protected $table = 'surat_masuks';
 
     // protected $fillable = [
     //     'nomor_agenda',
@@ -25,4 +25,5 @@ class SuratMasuk extends Model
     //     'keterangan',
     //     'file'
     // ];
+
 }

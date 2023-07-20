@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<h1>{{ $mail["title"] }}</h1>
+<h1>Daftar Surat Masuk</h1>
 <hr></hr>
 <div class="container-fluid">
 <a href="/mails">Back to Mails</a>
