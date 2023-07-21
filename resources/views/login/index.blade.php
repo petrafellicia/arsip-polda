@@ -16,7 +16,7 @@
         <hr>
         <p>Arsip Surat</p>
         <label for="email">Email</label>
-        <input type="email"  value="{{ Session::get('email') }}" name="email" placeholder="email">
+        <input type="text"  value="{{ Session::get('email') }}" name="email" placeholder="email">
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="password">
         <button name="submit" type="submit">Login now!</button>
