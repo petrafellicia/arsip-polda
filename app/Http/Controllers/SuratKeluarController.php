@@ -34,12 +34,13 @@ class SuratKeluarController extends Controller
          'asal_surat' => 'required',
          'perihal' => 'required',
          'kka' => 'required',
+         'dasar_surat' => 'required',
          'tgl_surat' => 'required',
          'jam_surat' => 'required',
          'disposisi' => 'required',
          'distribusi' => 'required',
          'isi_disposisi' => 'required',
-         'keterangan' => 'required',
+         'feedback' => 'required',
          'dokumen' => 'mimes:pdf'
         ]);
     $dokumen =  $request->file('dokumen');

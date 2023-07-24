@@ -23,12 +23,13 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
       <th scope="col">Surat dari</th>
       <th scope="col">Perihal</th>
       <th scope="col">KKA</th>
+      <th scope="col">Dasar Pembuatan Surat</th>
       <th scope="col">Tanggal Surat</th>
       <th scope="col">Jam Diterima Surat</th>
       <th scope="col">Disposisi kepada</th>
       <th scope="col">Distribusi</th>
       <th scope="col">Isi Disposisi</th>
-      <th scope="col">Keterangan</th>
+      <th scope="col">Feedback</th>
       <th scope="col">File</th>
       <th scope="col">Aksi</th>
     </tr>
@@ -42,12 +43,13 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>{{ $row-> asal_surat}}</td>
       <td>{{ $row-> perihal}}</td>
       <td>{{ $row-> kka}}</td>
+      <td>{{ $row-> dasar_surat}}</td>
       <td>{{ $row-> tgl_surat}}</td>
       <td>{{ $row-> jam_surat}}</td>
       <td>{{ $row-> disposisi}}</td>
       <td>{{ $row-> distribusi}}</td>
       <td>{{ $row-> isi_disposisi}}</td>
-      <td>{{ $row-> keterangan }}</td>
+      <td>{{ $row-> feedback }}</td>
       <td>
           <button type="button" class="btn btn-success">Download</button>
       </td>

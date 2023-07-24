@@ -87,6 +87,10 @@
               </select>
             </div>
             <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Dasar Pembuatan Surat</label>
+              <input type="text" name="dasar_surat" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Tanggal Surat</label>
               <input type="date" name="tgl_surat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
@@ -188,8 +192,8 @@
               </div>
             </div> -->
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-              <input type="text" name="keterangan" class="form-control" id="exampleInputPassword1">
+              <label for="exampleInputPassword1" class="form-label">Feedback</label>
+              <input type="text" name="feedback" class="form-control" id="exampleInputPassword1">
             </div>
             <!-- <div class="mb-3">
               <label for="formFile" class="form-label">Upload File</label>

@@ -21,12 +21,13 @@ return new class extends Migration
             $table->string('asal_surat');
             $table->text('perihal');
             $table->string('kka');
+            $table->string('dasar_surat');
             $table->date('tgl_surat');
             $table->string('jam_surat');
             $table->string('disposisi');
             $table->string('distribusi');
             $table->text('isi_disposisi');
-            $table->string('keterangan');
+            $table->string('feedback');
             $table->string('file')->nullable(true);
             $table->timestamps();
         });
