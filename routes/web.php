@@ -64,3 +64,5 @@ Route::post('/updatedatamasuk/{id}', [SuratMasukController::class, 'updatedatama
 Route::get('/tampilkandatakeluar/{id}', [SuratKeluarController::class, 'tampilkandatakeluar'])->name('tampilkandatakeluar'); 
 Route::post('/updatedatakeluar/{id}', [SuratKeluarController::class, 'updatedatakeluar'])->name('updatedatakeluar'); 
 
+Route::get('/deletemasuk/{id}', [SuratMasukController::class, 'deletemasuk'])->name('deletemasuk'); 
+Route::get('/deletekeluar/{id}', [SuratKeluarController::class, 'deletekeluar'])->name('deletekeluar'); 

@@ -52,7 +52,7 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
         <button type="button" class="btn btn-success">Download</button>
       </td>
       <td><a href="/tampilkandatamasuk/{{ $row->nomor_agenda }}" class="btn btn-primary">Edit</button></td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
+      <td><a href="/deletemasuk/{{ $row->nomor_agenda }}" class="btn btn-danger">Delete</button></td>
     </tr>
     @endforeach
   </tbody>

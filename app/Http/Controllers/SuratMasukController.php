@@ -38,4 +38,10 @@ class SuratMasukController extends Controller
         $data->update($request->all());
         return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Update');
     }
+
+    public function deletemasuk($id){
+        $data = SuratMasuk::find($id);
+        $data->delete();
+        return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Hapus');
+    }
 }

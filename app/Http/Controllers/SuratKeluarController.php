@@ -61,4 +61,10 @@ class SuratKeluarController extends Controller
         return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
     }
 
+    public function deletekeluar($id){
+        $data = SuratKeluar::find($id);
+        $data->delete();
+        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');
+    }
+
 }
