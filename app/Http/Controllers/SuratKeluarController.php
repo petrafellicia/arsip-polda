@@ -23,7 +23,7 @@ class SuratKeluarController extends Controller
 
     public function insertsuratkeluar(Request $request){
         SuratKeluar::create($request->all());
-        return redirect()->route('daftar-surat-keluar');
+        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
     }
 
     public function simpan(Request $request){
@@ -49,6 +49,16 @@ class SuratKeluarController extends Controller
 
     $data = new SuratKeluar();
     $data->dokumen = $nama_dokumen;
+    }
+    public function tampilkandatakeluar($id){
+        $data = SuratKeluar::find($id);
+        return view('tampildatakeluar', compact('data'));
+    }
+
+    public function updatedatakeluar(Request $request, $id){
+        $data = SuratKeluar::find($id);
+        $data->update($request->all());
+        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
     }
 
 }

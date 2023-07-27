@@ -25,6 +25,17 @@ class SuratMasukController extends Controller
     public function insertsurat(Request $request){
         // dd($request->all());
         SuratMasuk::create($request->all());
-        return redirect()->route('daftar-surat-masuk');
+        return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');
+    }
+
+    public function tampilkandatamasuk($id){
+        $data = SuratMasuk::find($id);
+        return view('tampildatamasuk', compact('data'));
+    }
+
+    public function updatedatamasuk(Request $request, $id){
+        $data = SuratMasuk::find($id);
+        $data->update($request->all());
+        return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Update');
     }
 }

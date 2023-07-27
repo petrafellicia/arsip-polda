@@ -55,9 +55,12 @@ Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index'])->nam
 
 
 Route::get('/keluar', [SuratKeluarController::class, 'tambahsuratkeluar'])->name('tambahsuratkeluar');
-
+ 
 Route::post('/insertsuratkeluar', [SuratKeluarController::class, 'insertsuratkeluar'])->name('insertsuratkeluar');
 
+Route::get('/tampilkandatamasuk/{id}', [SuratMasukController::class, 'tampilkandatamasuk'])->name('tampilkandatamasuk'); 
+Route::post('/updatedatamasuk/{id}', [SuratMasukController::class, 'updatedatamasuk'])->name('updatedatamasuk'); 
 
-
+Route::get('/tampilkandatakeluar/{id}', [SuratKeluarController::class, 'tampilkandatakeluar'])->name('tampilkandatakeluar'); 
+Route::post('/updatedatakeluar/{id}', [SuratKeluarController::class, 'updatedatakeluar'])->name('updatedatakeluar'); 
 

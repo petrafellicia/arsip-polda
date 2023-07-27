@@ -53,10 +53,8 @@ style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>
           <button type="button" class="btn btn-success">Download</button>
       </td>
-      <td>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-      </td>
+      <td><a href="/tampilkandatakeluar/{{ $row->no_agenda }}" class="btn btn-primary">Edit</button></td>
+      <td><button type="button" class="btn btn-danger">Delete</button></td>
     </tr>
     @endforeach
   </tbody>
