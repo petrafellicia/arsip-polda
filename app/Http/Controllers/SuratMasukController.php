@@ -6,6 +6,7 @@ use App\Models\Mail;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class SuratMasukController extends Controller
 {
@@ -48,5 +49,9 @@ class SuratMasukController extends Controller
         }
         return redirect()->route('daftar-surat-masuk');
        
+    }
+
+    public function download(Request $request, $file){
+        return response()->download(public_path('assests/'.$file));
     }
 }

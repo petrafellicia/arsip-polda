@@ -49,8 +49,7 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>{{ $row-> isi_disposisi}}</td>
       <td>{{ $row-> keterangan }}</td>
       <td>
-        <a href="dokumensurat/{{ $row-> file }}">
-        <button type="button" class="btn btn-success">Download</button></a>
+        <a href="{{ asset('dokumensurat/'.$row->file }}" class="btn btn-success">Download</a>
       </td>
       <td>
         <button type="button" class="btn btn-primary">Edit</button>
