@@ -8,8 +8,8 @@
 <button type="button"
 style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
 <a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
-<form class="d-flex" style="margin-top:30px; margin-bottom:10px;" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<form action="/daftar-surat-masuk" method="GET" class="d-flex" style="margin-top:30px; margin-bottom:10px;" role="search">
+      <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 </div>
@@ -51,13 +51,11 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>
         <a href="{{ asset('dokumensurat/'.$row->file }}" class="btn btn-success">Download</a>
       </td>
-      <td>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-      </td>
+      <td><a href="/tampilkandatamasuk/{{ $row->nomor_agenda }}" class="btn btn-primary">Edit</button></td>
+      <td><a href="/deletemasuk/{{ $row->nomor_agenda }}" class="btn btn-danger">Delete</button></td>
     </tr>
     @endforeach
   </tbody>
 </table>
-
+{{ $data->links() }}
 @endsection

@@ -9,8 +9,13 @@ use App\Http\Controllers\Controller;
 class SuratKeluarController extends Controller
 {
     //
-    public function index(){
-        $data = SuratKeluar::all();
+    public function index(Request $request){
+        if($request->has('search')){
+            $data = SuratKeluar::where('no_surat', 'LIKE', '%' .$request->search.'%')->paginate(5);
+        }
+        else{
+            $data = SuratKeluar::paginate(5);
+        }
         return view('suratkeluar', compact('data'),
     [
         "title" => "Daftar Surat Keluar"
@@ -28,7 +33,7 @@ class SuratKeluarController extends Controller
             $data->file = $request->file('file')->getClientOriginalName();
             $data->save();
         }
-        return redirect()->route('daftar-surat-keluar');
+        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
     }
 
     public function simpan(Request $request){
@@ -54,6 +59,22 @@ class SuratKeluarController extends Controller
 
     // $data = new SuratKeluar();
     // $data->dokumen = $nama_dokumen;
+    }
+    public function tampilkandatakeluar($id){
+        $data = SuratKeluar::find($id);
+        return view('tampildatakeluar', compact('data'));
+    }
+
+    public function updatedatakeluar(Request $request, $id){
+        $data = SuratKeluar::find($id);
+        $data->update($request->all());
+        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
+    }
+
+    public function deletekeluar($id){
+        $data = SuratKeluar::find($id);
+        $data->delete();
+        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');
     }
 
 }
