@@ -16,17 +16,20 @@
           <form action="/insertsurat" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Nomor Agenda</label>
-              <input type="text" name="nomor_agenda" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="nomor_agenda" class="form-label">Nomor Agenda</label>
+              <input type="text" id="nomor_agenda" name="nomor_agenda" class="form-control 
+               @error('nomor_agenda') is-ivalid @enderror" value="{{ old('nomor_agenda') }}" required autofocus>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Nomor Surat</label>
-              <input type="text" name="nomor_surat" class="form-control" id="exampleInputPassword1">
+              <label for="nomor_surat" class="form-label">Nomor Surat</label>
+              <input type="text" id="nomor_surat" name="nomor_surat" class="form-control
+              @error('nomor_agenda') is-ivalid @enderror" value="{{ old('nomor_agenda') }}" >
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
-              <select class="form-select" name="jenis_surat" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+              <label for="jenis_surat" class="form-label">Jenis Surat</label>
+              <select class="form-select  @error('jenis_surat') is-ivalid @enderror" value="{{ old('jenis_surat') }}" 
+              name="jenis_surat" aria-label="Default select example">
+                <option selected>Pilih Jenis Surat</option>
                 <option >Surat Biasa</option>
                 <option >Nota Dinas</option>
                 <option >Telegram</option>
@@ -36,16 +39,19 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Asal Surat</label>
-              <input type="text" name="asal_surat" class="form-control" id="exampleInputPassword1">
+              <label for="asal_surat" class="form-label">Asal Surat</label>
+              <input type="text" name="asal_surat" class="form-control 
+              @error('asal_surat') is-ivalid @enderror" value="{{ old('asal_surat') }}" id="asal_surat">
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Perihal</label>
-              <input type="text" name="perihal" class="form-control" id="exampleInputPassword1">
+              <label for="perihal" class="form-label">Perihal</label>
+              <input type="text" name="perihal" class="form-control
+              @error('perihal') is-ivalid @enderror" value="{{ old('perihal') }}" id="periihal">
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">KKA</label>
-              <select class="form-select" name="kka" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+              <label for="kka" class="form-label">KKA</label>
+              <select class="form-select 
+              @error('kka') is-ivalid @enderror" value="{{ old('kka') }}"  name="kka" aria-label="Default select example">
+                <option selected>Pilih KKA</option>
                 <option >KEP</option>
                 <option >BIN</option>
                 <option >OPS</option>
@@ -65,21 +71,26 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Tanggal Surat</label>
-              <input type="date" name="tanggal_surat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="tanggal_surat" class="form-label">Tanggal Surat</label>
+              <input type="date" name="tanggal_surat" class="form-control
+              @error('tanggal_surat') is-ivalid @enderror" value="{{ old('tanggal_surat') }}"  id="tanggal_surat">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Jam Terima</label>
-              <input type="text" name="jam_terima" class="form-control" >
+              <label for="jam_terima" class="form-label">Jam Terima</label>
+              <input type="text" name="jam_terima" class="form-control 
+              @error('jam_terima') is-ivalid @enderror" value="{{ old('jam_terima') }}">
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Disposisi Kepada</label>
-              <input type="text" name="disposisi_kepada" class="form-control" id="exampleInputEmail1">
+              <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
+              <input type="text" name="disposisi_kepada" class="form-control
+              @error('disposisi_kepada') is-ivalid @enderror" value="{{ old('disposisi_kepada') }}"  id="disposisi_kepada">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Distribusi</label>
-              <select class="form-select" name="distribusi" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+              <label for="distribusi" class="form-label">Distribusi</label>
+              <select class="form-select 
+              @error('distribusi') is-ivalid @enderror" value="{{ old('distribusi') }}" 
+               name="distribusi" aria-label="Default select example">
+                <option selected>Pilih Distribusi</option>
                 <option >Mabes POLRI</option>
                 <option >Kapolda DIY</option>
                 <option >Wakapolda DIY</option>
@@ -114,17 +125,20 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Isi Disposisi</label>
-              <input type="text" name="isi_disposisi" class="form-control" id="exampleInputEmail1">
+              <label for="isi_disposisi" class="form-label">Isi Disposisi</label>
+              <input type="text" name="isi_disposisi" class="form-control
+               @error('isi_disposisi') is-ivalid @enderror" value="{{ old('isi_disposisi') }}"  id="isi_disposisi">
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Keterangan</label>
-              <input type="text" name="keterangan" class="form-control" >
+              <label for="keterangan" class="form-label">Keterangan</label>
+              <input type="text" name="keterangan" class="form-control 
+              @error('keterangan') is-ivalid @enderror" value="{{ old('keterangan') }}"  id="keterangan">
             </div>
-            {{-- <div class="mb-3">
-              <label for="formFile" class="form-label">Upload File</label>
-              <input class="form-control" name="file" type="file" id="formFile">
-            </div> --}}
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload Dokumen</label>
+              <input class="form-control 
+              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
          </div>
