@@ -6,6 +6,7 @@ use App\Models\Mail;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class SuratMasukController extends Controller
 {
@@ -31,8 +32,33 @@ class SuratMasukController extends Controller
 
     public function insertsurat(Request $request){
         // dd($request->all());
-        SuratMasuk::create($request->all());
+        $request->validate([
+            'nomor_agenda' => 'required',
+            'nomor_surat' => 'required',
+            'jenis_surat' => 'required',
+            'asal_surat' => 'required',
+            'perihal' => 'required',
+            'kka' => 'required',
+            'tanggal_surat' => 'required',
+            'jam_terima' => 'required',
+            'disposisi_kepada' => 'required',
+            'distribusi' => 'required',
+            'isi_disposisi' => 'required',
+            'keterangan' => 'required',
+            'file' => 'mimes:pdf',
+        ]);
+
+        $data = SuratMasuk::create($request->all());
+        if ($request->hasFile('file')){
+            $request->file('file')->move('dokumensurat/', $request->file('file')->getClientOriginalName());
+            $data-> file = $request->file('file')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');
+    }
+
+    public function download(Request $request, $file){
+        return response()->download(public_path('assests/'.$file));
     }
 
     public function tampilkandatamasuk($id){
@@ -50,5 +76,6 @@ class SuratMasukController extends Controller
         $data = SuratMasuk::find($id);
         $data->delete();
         return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Hapus');
-    }
+    } 
+    
 }

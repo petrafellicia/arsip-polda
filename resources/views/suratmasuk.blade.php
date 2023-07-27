@@ -14,7 +14,7 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
     </form>
 </div>
 
-<table class="table-responsive" style="text-align:center;">
+<table class="table-responsive " style="text-align:center;">
   <thead>
     <tr>
       <th scope="col">Nomor Agenda</th>
@@ -29,7 +29,7 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
       <th scope="col">Distribusi</th>
       <th scope="col">Isi Disposisi</th>
       <th scope="col">Keterangan</th>
-      <th scope="col">File</th>
+      <th scope="col">Dokumen</th>
       <th scope="col">Aksi</th>
     </tr>
   </thead>
@@ -49,7 +49,7 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>{{ $row-> isi_disposisi}}</td>
       <td>{{ $row-> keterangan }}</td>
       <td>
-        <button type="button" class="btn btn-success">Download</button>
+        <a href="{{ asset('dokumensurat/'.$row->file }}" class="btn btn-success">Download</a>
       </td>
       <td><a href="/tampilkandatamasuk/{{ $row->nomor_agenda }}" class="btn btn-primary">Edit</button></td>
       <td><a href="/deletemasuk/{{ $row->nomor_agenda }}" class="btn btn-danger">Delete</button></td>

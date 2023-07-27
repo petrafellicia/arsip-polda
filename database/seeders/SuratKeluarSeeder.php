@@ -33,6 +33,7 @@ class SuratKeluarSeeder extends Seeder
             'distribusi' => 'Kapolda DIY',
             'isi_disposisi' => 'Sudah Terlaksana',
             'feedback' => 'Oke',
+            'file' => '',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

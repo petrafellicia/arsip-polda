@@ -15,10 +15,10 @@
         <h1>Login</h1>
         <hr>
         <p>Arsip Surat</p>
-        <label for="email">Email</label>
-        <input type="text"  value="{{ Session::get('email') }}" name="email" placeholder="email">
+        <label for="username">Username</label>
+        <input type="text"  value="{{ Session::get('username') }}" name="username" placeholder="Username">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="password">
+        <input type="password" name="password" placeholder="Password">
         <button name="submit" type="submit">Login now!</button>
       </form>
     </div>

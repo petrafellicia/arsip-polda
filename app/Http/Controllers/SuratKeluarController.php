@@ -27,7 +27,12 @@ class SuratKeluarController extends Controller
     }
 
     public function insertsuratkeluar(Request $request){
-        SuratKeluar::create($request->all());
+        $data = SuratKeluar::create($request->all());
+        if($request->hasFile('file')){
+            $request->file('file')->move('dokumensurat/', $request->file('file')->getClientOriginalExtension());
+            $data->file = $request->file('file')->getClientOriginalName();
+            $data->save();
+        }
         return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
     }
 
@@ -48,12 +53,12 @@ class SuratKeluarController extends Controller
          'feedback' => 'required',
          'dokumen' => 'mimes:pdf'
         ]);
-    $dokumen =  $request->file('dokumen');
-    $nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
-    $dokumen->move('dokumen/', $nama_dokumen);
+    // $dokumen =  $request->file('dokumen');
+    // $nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
+    // $dokumen->move('dokumen/', $nama_dokumen);
 
-    $data = new SuratKeluar();
-    $data->dokumen = $nama_dokumen;
+    // $data = new SuratKeluar();
+    // $data->dokumen = $nama_dokumen;
     }
     public function tampilkandatakeluar($id){
         $data = SuratKeluar::find($id);

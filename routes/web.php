@@ -49,6 +49,7 @@ Route::get('/mails/{slug}', [MailController::class, 'show']);
 Route::get('/daftar-surat-masuk', [SuratMasukController::class, 'index'])->name('daftar-surat-masuk');
 Route::get('/masuk', [SuratMasukController::class, 'tambahdata']);
 Route::post('/insertsurat', [SuratMasukController::class, 'insertsurat'])->name('insertsurat');
+Route::get('/download{file}', [SuratMasukController::class, 'download']);
 
 
 Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index'])->name('daftar-surat-keluar');

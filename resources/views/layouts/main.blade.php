@@ -20,7 +20,7 @@
 <body>
     @include('partials.navbar')
 
-<div class="container mt-4">
+<div class="container-fluid mt-4 ">
   @yield('container')
 </div>
 

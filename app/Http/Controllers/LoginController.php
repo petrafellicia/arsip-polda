@@ -27,19 +27,19 @@ class LoginController extends Controller
 
     public function postLogin(Request $request){
        //validasi
-       Session::flash('email', $request->email);
+       Session::flash('username', $request->username);
             $request->validate([
-                'email'=>'required',
+                'username'=>'required',
                 'password'=>'required'
             ],
             [
-                'email.required'=>'email wajib diisi',
+                'username.required'=>'username wajib diisi',
                 'password.required'=>'Password wajib diisi',
         ]);
 
        //autentikasi
        $infologin = [
-        'email' => $request->email,
+        'username' => $request->username,
         'password' => $request->password
        ];
 
