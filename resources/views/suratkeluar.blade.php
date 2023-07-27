@@ -9,7 +9,7 @@
 style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
 <a style="color:white; justify-content:center; text-decoration:none;" href="/keluar">Tambah Surat</a></button>
 <form action="/daftar-surat-keluar" method="GET" class="d-flex" style="margin-top:30px; margin-bottom:10px;" role="search">
-      <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+      <input class="form-control me-2" type="search" name="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 </div>

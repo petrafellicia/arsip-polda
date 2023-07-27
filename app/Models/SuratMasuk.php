@@ -12,6 +12,13 @@ class SuratMasuk extends Model
     // protected $table = 'surat_masuks';
     protected $table = 'surat_masuks';
 
+    // public function scopeFilter($query, array $filters){
+    //     $query->when($filters['search'] ?? false, function($query, $search){
+    //         return $query->where('nomor_surat', 'LIKE', '%' .$search.'%')->paginate(5)
+    //                     ->orWhere('kka', 'LIKE', '%' .$search.'%')->paginate(5);
+    //     });
+    // }
+
     // protected $fillable = [
     //     'nomor_agenda',
     //     'nomor_surat',
