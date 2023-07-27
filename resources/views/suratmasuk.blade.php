@@ -8,8 +8,8 @@
 <button type="button"
 style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
 <a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
-<form class="d-flex" style="margin-top:30px; margin-bottom:10px;" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<form action="/daftar-surat-masuk" method="GET" class="d-flex" style="margin-top:30px; margin-bottom:10px;" role="search">
+      <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 </div>
@@ -57,5 +57,5 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
     @endforeach
   </tbody>
 </table>
-
+{{ $data->links() }}
 @endsection

@@ -9,8 +9,13 @@ use App\Http\Controllers\Controller;
 class SuratKeluarController extends Controller
 {
     //
-    public function index(){
-        $data = SuratKeluar::all();
+    public function index(Request $request){
+        if($request->has('search')){
+            $data = SuratKeluar::where('no_surat', 'LIKE', '%' .$request->search.'%')->paginate(5);
+        }
+        else{
+            $data = SuratKeluar::paginate(5);
+        }
         return view('suratkeluar', compact('data'),
     [
         "title" => "Daftar Surat Keluar"
