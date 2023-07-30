@@ -29,11 +29,15 @@ class SuratKeluarController extends Controller
     public function insertsuratkeluar(Request $request){
         $data = SuratKeluar::create($request->all());
         if($request->hasFile('file')){
-            $request->file('file')->move('dokumensurat/', $request->file('file')->getClientOriginalExtension());
-            $data->file = $request->file('file')->getClientOriginalName();
+            $request->file('file')->move('dokumensuratkeluar/', $request->file('file')->getClientOriginalName());
+            $data-> file = $request->file('file')->getClientOriginalName();
             $data->save();
         }
         return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
+    }
+
+    public function download(Request $request, $file){
+        return response()->download(public_path('dokumensuratkeluar/'.$file));
     }
 
     public function simpan(Request $request){

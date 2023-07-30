@@ -50,7 +50,7 @@ class SuratMasukController extends Controller
 
         $data = SuratMasuk::create($request->all());
         if ($request->hasFile('file')){
-            $request->file('file')->move('dokumensurat/', $request->file('file')->getClientOriginalName());
+            $request->file('file')->move('dokumensuratmasuk/', $request->file('file')->getClientOriginalName());
             $data-> file = $request->file('file')->getClientOriginalName();
             $data->save();
         }
@@ -58,7 +58,7 @@ class SuratMasukController extends Controller
     }
 
     public function download(Request $request, $file){
-        return response()->download(public_path('assests/'.$file));
+        return response()->download(public_path('dokumensuratmasuk/'.$file));
     }
 
     public function tampilkandatamasuk($id){
@@ -79,3 +79,4 @@ class SuratMasukController extends Controller
     } 
     
 }
+

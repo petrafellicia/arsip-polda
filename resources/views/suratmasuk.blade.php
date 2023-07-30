@@ -49,7 +49,7 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
       <td>{{ $row-> isi_disposisi}}</td>
       <td>{{ $row-> keterangan }}</td>
       <td>
-        <a href="{{ asset('dokumensurat/'.$row->file }}" class="btn btn-success">Download</a>
+        <a href="dokumensuratmasuk/{{ $row-> file }}" class="btn btn-success">Download</a>
       </td>
       <td><a href="/tampilkandatamasuk/{{ $row->nomor_agenda }}" class="btn btn-primary">Edit</button></td>
       <td><a href="/deletemasuk/{{ $row->nomor_agenda }}" class="btn btn-danger">Delete</button></td>

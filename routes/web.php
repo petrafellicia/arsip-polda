@@ -50,6 +50,7 @@ Route::get('/daftar-surat-masuk', [SuratMasukController::class, 'index'])->name(
 Route::get('/masuk', [SuratMasukController::class, 'tambahdata']);
 Route::post('/insertsurat', [SuratMasukController::class, 'insertsurat'])->name('insertsurat');
 Route::get('/download{file}', [SuratMasukController::class, 'download']);
+Route::get('/download{file}', [SuratKeluarController::class, 'download']);
 
 
 Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index'])->name('daftar-surat-keluar');
