@@ -51,4 +51,5 @@ class LoginController extends Controller
         return redirect('login')->withErrors('Username atau password tidak valid');
        }
     }
+
 }

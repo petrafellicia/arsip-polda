@@ -27,5 +27,15 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'operator',
+            'level' => 'operator',
+            'username' => 'operator',
+            'password' => Hash::make('operator456'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
     }
 }
