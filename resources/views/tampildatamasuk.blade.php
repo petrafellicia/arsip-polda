@@ -125,6 +125,11 @@
               <label for="formFile" class="form-label">Upload File</label>
               <input class="form-control" name="file" value="{{ $data->file }}" type="file" id="formFile">
             </div> --}}
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload Dokumen</label>
+              <input class="form-control 
+              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
          </div>

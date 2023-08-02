@@ -68,7 +68,12 @@ class SuratMasukController extends Controller
 
     public function updatedatamasuk(Request $request, $id){
         $data = SuratMasuk::find($id);
-        $data->update($request->all());
+        if ($request->hasFile('file')){
+            $request->file('file')->move('dokumensuratmasuk/', $request->file('file')->getClientOriginalName());
+            $data-> file = $request->file('file')->getClientOriginalName();
+            $data->save();
+        }
+       // $data->update($request->all());
         return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Update');
     }
 

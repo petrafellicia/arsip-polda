@@ -195,6 +195,11 @@
               <label for="exampleInputPassword1" class="form-label">Feedback</label>
               <input type="text" name="feedback" value="{{ $data->feedback }}" class="form-control" id="exampleInputPassword1">
             </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Upload Dokumen</label>
+              <input class="form-control 
+              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile">
+            </div>
             <!-- <div class="mb-3">
               <label for="formFile" class="form-label">Upload File</label>
               <input class="form-control" type="file" id="formFile">

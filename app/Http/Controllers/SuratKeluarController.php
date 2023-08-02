@@ -71,7 +71,12 @@ class SuratKeluarController extends Controller
 
     public function updatedatakeluar(Request $request, $id){
         $data = SuratKeluar::find($id);
-        $data->update($request->all());
+        if($request->hasFile('file')){
+            $request->file('file')->move('dokumensuratkeluar/', $request->file('file')->getClientOriginalName());
+            $data-> file = $request->file('file')->getClientOriginalName();
+            $data->save();
+        }
+        //$data->update($request->all());
         return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
     }
 

@@ -16,7 +16,7 @@
 </button> 
     </div>
     <div class="right">
-      <img src="image/polri.png" alt="polri" style="width:500px; height:400px; margin-right:50px">
+      <img src="image/polri.png" alt="polri" style="width:500px; height:400px; margin-right:80px">
     </div>
   </div>
 
