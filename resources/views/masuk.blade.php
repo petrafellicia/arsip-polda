@@ -83,26 +83,26 @@
                                         class="form-control">
                                 </div>
                                 <div class="mb-3">
-                            <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
+                            <label for="disposisi" class="form-label">Disposisi Kepada</label>
                                 
                                 <br>
 
                                 <label>
-                                    <input type="checkbox" name="disposisi_kepada[]" value="Ksbd. Tekkom">
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
                                     Yth. Ksbd. Tekkom
                                 </label>
 
                                 <br>
 
                                 <label>
-                                    <input type="checkbox" name="disposisi_kepada[]" value="Ksbd. Tekinfo">
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
                                     Yth. Ksbd. Tekinfo
                                 </label>
 
                                 <br>
 
                                 <label>
-                                    <input type="checkbox" name="disposisi_kepada[]" value="Ksbg. Renmin">
+                                    <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
                                     Yth. Ksbg. Renmin
                                 </label>
 
@@ -113,7 +113,7 @@
                                     Yth. ...
                                 </label>
 
-                                <input type="text" name="disposisi_kepada[]" id="other_text_input"
+                                <input type="text" name="disposisi[]" id="other_text_input"
                                     style="display: none;">
 
                                 <br>
