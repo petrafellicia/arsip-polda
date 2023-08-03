@@ -141,20 +141,56 @@ class SuratKeluarController extends Controller
     public function updatedatakeluar(Request $request, $id)
     {
         $data = SuratKeluar::find($id);
+        // if ($request->hasFile('file')) {
+        //     $request->file('file')->move('dokumensuratkeluar/', $request->file('file')->getClientOriginalName());
+        //     $data->file = $request->file('file')->getClientOriginalName();
+        //     $data->save();
+        // }
+
+        $disposisi = "";
+        for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
+            if ($request->get('disposisi')[$i] != null) {
+                $disposisi .= $request->get('disposisi')[$i] . ";";
+            }
+        }
+
+        $data->update(
+            [
+                'no_agenda' => $request->no_agenda,
+                'no_surat' => $request->no_surat,
+                'jenis_surat' => $request->jenis_surat,
+                'asal_surat' => $request->asal_surat,
+                'perihal' => $request->perihal,
+                'kka' => $request->kka,
+                'dasar_surat' => $request->dasar_surat,
+                'tgl_surat' => $request->tgl_surat,
+                'jam_surat' => $request->jam_surat,
+                'disposisi' => $disposisi,
+                'distribusi' => $request->distribusi,
+                'isi_disposisi' => $request->isi_disposisi,
+                'feedback' => $request->feedback,
+            ]
+        );
+
         if ($request->hasFile('file')) {
-            $request->file('file')->move('dokumensuratkeluar/', $request->file('file')->getClientOriginalName());
-            $data->file = $request->file('file')->getClientOriginalName();
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move('dokumensuratkeluar/', $filename);
+            $data->file = $filename;
             $data->save();
         }
-        //$data->update($request->all());
-        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
+
+        // $data->update($request->all());
+        return redirect('/daftar-surat-keluar');
+        // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
     }
 
     public function deletekeluar($id)
     {
         $data = SuratKeluar::find($id);
         $data->delete();
-        return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');
+        return redirect('/daftar-surat-keluar');
+        // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');
     }
 
 }

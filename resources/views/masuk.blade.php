@@ -97,44 +97,41 @@
               @error('jam_terima') is-ivalid @enderror"
                                         value="{{ old('jam_terima') }}">
                                 </div>
-
                                 <div class="mb-3">
-                                    <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="disposisi[]"
-                                            value="Ksbd. Tekkom" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Ksbd. Tekkom
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="disposisi[]"
-                                            value="Ksbd. Tekinfo" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Ksbd. Tekinfo
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="disposisi[]"
-                                            value="Ksbg. Renmin" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Ksbg. Renmin
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="disposisi[]"
-                                            value="Other" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Other
-                                        </label>
-                                    </div>
+                            <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
+                                
+                                <br>
 
-                                    <input type="text" name="disposisi[]" id="other_text_input"
-                                        style="display: none;">
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
+                                    Yth. Ksbd. Tekkom
+                                </label>
 
-                                    {{-- <input type="text" name="disposisi_kepada" class="form-control
-              @error('disposisi_kepada') is-ivalid @enderror" value="{{ old('disposisi_kepada') }}"  id="disposisi_kepada"> --}}
-                                </div>
+                                <br>
+
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
+                                    Yth. Ksbd. Tekinfo
+                                </label>
+
+                                <br>
+
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
+                                    Yth. Ksbg. Renmin
+                                </label>
+
+                                <br>
+
+                                <label>
+                                    <input type="checkbox" id="other_checkbox">
+                                    Yth. ...
+                                </label>
+
+                                <input type="text" name="disposisi[]" id="other_text_input"
+                                    style="display: none;">
+
+                            </div>
                                 <div class="mb-3">
                                     <label for="distribusi" class="form-label">Distribusi</label>
                                     <select class="form-select 

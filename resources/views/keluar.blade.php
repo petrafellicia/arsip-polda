@@ -106,7 +106,7 @@
                                     id="exampleInputPassword1">
                             </div>
                             <div class="mb-3">
-                            <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
+                            <label for="disposisi" class="form-label">Disposisi Kepada</label>
                                 
                                 <br>
 

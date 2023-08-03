@@ -71,11 +71,46 @@
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Jam Terima</label>
               <input type="text" name="jam_terima" value="{{ $data->jam_terima }}" class="form-control" >
-            </div>
-            <div class="mb-3">
+            </div>              
+                <div class="mb-3">
+                            <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
+                                
+                                <br>
+
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
+                                    Yth. Ksbd. Tekkom
+                                </label>
+
+                                <br>
+
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
+                                    Yth. Ksbd. Tekinfo
+                                </label>
+
+                                <br>
+
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
+                                    Yth. Ksbg. Renmin
+                                </label>
+
+                                <br>
+
+                                <label>
+                                    <input type="checkbox" id="other_checkbox">
+                                    Yth. ...
+                                </label>
+
+                                <input type="text" name="disposisi[]" id="other_text_input"
+                                    style="display: none;">
+
+                            </div>
+            <!-- <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Disposisi Kepada</label>
               <input type="text" name="disposisi_kepada" value="{{ $data->disposisi_kepada }}" class="form-control" id="exampleInputEmail1">
-            </div>
+            </div> -->
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Distribusi</label>
               <select class="form-select" name="distribusi" aria-label="Default select example">
@@ -138,5 +173,12 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('other_checkbox').addEventListener('change', function() {
+            var otherTextInput = document.getElementById('other_text_input');
+            otherTextInput.style.display = this.checked ? 'block' : 'none';
+            otherTextInput.value = this.checked ? '' : '';
+        });
+    </script>
   </body>
 </html>
