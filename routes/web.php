@@ -20,16 +20,16 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+Route::get('/', function () {
+    return view('depan');
+});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
-Route::group(['middleware'=>['auth', 'hakakses:admin,operator']], function(){
-    Route::get('/', function () {
-        return view('depan');
-    });
-    
-    Route::get('/login', [LoginController::class, 'index']);
-    Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
-    
-    Route::get('/home', function(){
+Route::group(['middleware' => ['auth', 'hakakses:admin,operator']], function () {
+
+
+    Route::get('/home', function () {
         return view('home', [
             "title" => "Home"
         ]);
@@ -49,19 +49,19 @@ Route::group(['middleware'=>['auth', 'hakakses:admin,operator']], function(){
     Route::get('/daftar-surat-keluar', [SuratKeluarController::class, 'index'])->name('daftar-surat-keluar');
 
     Route::get('/keluar', [SuratKeluarController::class, 'tambahsuratkeluar'])->name('tambahsuratkeluar');
- 
+
     Route::post('/insertsuratkeluar', [SuratKeluarController::class, 'insertsuratkeluar'])->name('insertsuratkeluar');
 });
 
-Route::group(['middleware'=>['auth', 'hakakses:admin']], function(){    
-    Route::get('/tampilkandatamasuk/{id}', [SuratMasukController::class, 'tampilkandatamasuk'])->name('tampilkandatamasuk'); 
-    Route::post('/updatedatamasuk/{id}', [SuratMasukController::class, 'updatedatamasuk'])->name('updatedatamasuk'); 
+Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
+    Route::get('/tampilkandatamasuk/{id}', [SuratMasukController::class, 'tampilkandatamasuk'])->name('tampilkandatamasuk');
+    Route::post('/updatedatamasuk/{id}', [SuratMasukController::class, 'updatedatamasuk'])->name('updatedatamasuk');
 
-    Route::get('/tampilkandatakeluar/{id}', [SuratKeluarController::class, 'tampilkandatakeluar'])->name('tampilkandatakeluar'); 
-    Route::post('/updatedatakeluar/{id}', [SuratKeluarController::class, 'updatedatakeluar'])->name('updatedatakeluar'); 
+    Route::get('/tampilkandatakeluar/{id}', [SuratKeluarController::class, 'tampilkandatakeluar'])->name('tampilkandatakeluar');
+    Route::post('/updatedatakeluar/{id}', [SuratKeluarController::class, 'updatedatakeluar'])->name('updatedatakeluar');
 
-    Route::get('/deletemasuk/{id}', [SuratMasukController::class, 'deletemasuk'])->name('deletemasuk'); 
-    Route::get('/deletekeluar/{id}', [SuratKeluarController::class, 'deletekeluar'])->name('deletekeluar'); 
+    Route::get('/deletemasuk/{id}', [SuratMasukController::class, 'deletemasuk'])->name('deletemasuk');
+    Route::get('/deletekeluar/{id}', [SuratKeluarController::class, 'deletekeluar'])->name('deletekeluar');
 });
 Route::get('/about', function () {
     return view('about', [

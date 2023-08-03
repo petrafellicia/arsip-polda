@@ -1,14 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-
 <body>
     <h2 class="text-center">Input-Update Data Surat Keluar</h2>
     <div class="container">
@@ -16,7 +14,7 @@
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="/insertsuratkeluar" enctype="multipart/form-data">
+                        <form action="/insertsuratkeluar" method="post">
                             @csrf
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nomor Agenda</label>
@@ -47,27 +45,6 @@
                                 <label for="exampleInputPassword1" class="form-label">Perihal</label>
                                 <input type="text" name="perihal" class="form-control" id="exampleInputPassword1">
                             </div>
-                            <!-- <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Perihal</label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="perihal" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Majalah
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="perihal" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                  News
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="perihal" id="flexRadioDefault2">
-                  <label class="form-check-label" for="flexRadioDefault2">
-                  Tribut
-                  </label>
-                </div>
-              </div> -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">KKA</label>
                                 <select class="form-select" name="kka" aria-label="Default select example">
@@ -106,73 +83,38 @@
                                     id="exampleInputPassword1">
                             </div>
                             <div class="mb-3">
-                            <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
-                                
-                                <br>
-
+                                <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
                                 <label>
-                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
+                                    <input type="checkbox" name="options[]" value="option_1">
                                     Yth. Ksbd. Tekkom
                                 </label>
 
                                 <br>
 
                                 <label>
-                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
+                                    <input type="checkbox" name="options[]" value="option_2">
                                     Yth. Ksbd. Tekinfo
                                 </label>
 
                                 <br>
 
                                 <label>
-                                    <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
+                                    <input type="checkbox" name="options[]" value="option_3">
                                     Yth. Ksbg. Renmin
                                 </label>
 
                                 <br>
 
                                 <label>
-                                    <input type="checkbox" id="other_checkbox">
+                                    <input type="checkbox" name="options[]" value="other" id="other_checkbox">
                                     Yth. ...
                                 </label>
 
-                                <input type="text" name="disposisi[]" id="other_text_input"
+                                <input type="text" name="other_text" id="other_text_input"
                                     style="display: none;">
 
                                 <br>
-
                             </div>
-                            <!-- <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Disposisi Kepada</label>
-              <input type="text" name="disposisi" class="form-control" id="exampleInputPassword1">
-            </div> -->
-                            <!-- <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Disposisi Kepada</label>
-              <div class="form-check">
-                <input class="form-check-input" name="disposisi" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Ksbd. Tekkom
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="disposisi" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Ksbd. Tekinfo
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="disposisi" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Ksbg. Renmin
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="disposisi" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Other
-                </label>
-              </div>
-            </div> -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Distribusi</label>
                                 <select class="form-select" name="distribusi" aria-label="Default select example">
@@ -215,27 +157,6 @@
                                 <input type="text" name="isi_disposisi" class="form-control"
                                     id="exampleInputPassword1">
                             </div>
-                            <!-- <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Isi Disposisi</label>
-              <div class="form-check">
-                <input class="form-check-input" name="isi_disposisi" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sudah Terlaksana
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="isi_disposisi" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Dalam Proses
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="isi_disposisi" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Menunggu Disposisi Pimpinan
-                </label>
-              </div>
-            </div> -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Feedback</label>
                                 <input type="text" name="feedback" class="form-control"
@@ -243,9 +164,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Upload Dokumen</label>
-                                <!-- <input class="form-control 
-              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile"> -->
-                                <input class="form-control" name="file" type="file" id="formFile">
+                                <input class="form-control 
+              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -254,16 +174,5 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-     <script>
-        document.getElementById('other_checkbox').addEventListener('change', function() {
-            var otherTextInput = document.getElementById('other_text_input');
-            otherTextInput.style.display = this.checked ? 'block' : 'none';
-            otherTextInput.value = this.checked ? '' : '';
-        });
-    </script>
 </body>
-
 </html>

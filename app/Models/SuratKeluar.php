@@ -12,19 +12,21 @@ class SuratKeluar extends Model
     protected $guarded = [];
     // protected $table = 'surat_keluars';
 
-    // protected $fillable = [
-    //     'no_agenda',
-    //     'no_surat',
-    //     'jenis_surat',
-    //     'asal_surat',
-    //     'perihal',
-    //     'kka',
-    //     'tgl_surat',
-    //     'jam_surat',
-    //     'disposisi',
-    //     'distribusi',
-    //     'isi_disposisi',
-    //     'keterangan',
-    // ];
+    protected $fillable = [
+        'no_agenda',
+        'no_surat',
+        'jenis_surat',
+        'asal_surat',
+        'perihal',
+        'kka',
+        'dasar_surat',
+        'tgl_surat',
+        'jam_surat',
+        'disposisi',
+        'distribusi',
+        'isi_disposisi',
+        'feedback',
+        'file'
+    ];
 
 }

@@ -26,6 +26,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin123'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
+            'role' => 'admin',
         ]);
 
         DB::table('users')->insert([
@@ -35,6 +36,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('operator456'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
+            'role' => 'operator',
         ]);
 
     }
