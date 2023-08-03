@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class SuratMasukController extends Controller
 {
     public function index(Request $request){
-          $query = SuratMasuk::query();
+          $data = SuratMasuk::query();
 
         // if ($request->has('nomor_surat')){
         //     $query->where('nomor_surat', 'LIKE', '%' . $request->nomor_surat . '%')->paginate(5);
@@ -25,9 +25,9 @@ class SuratMasukController extends Controller
         //                             // ->orWhere('kka', 'LIKE', '%' .$request->search.'%')->paginate(5);
         // }
             // else{
-                $query = SuratMasuk::paginate(5);
+                $data = SuratMasuk::paginate(5);
             // }
-            return view('suratmasuk', compact('query'),
+            return view('suratmasuk', compact('data'),
         [
             "title" => "Daftar Surat Masuk"
         ]);
@@ -102,7 +102,8 @@ class SuratMasukController extends Controller
             $data->save();
         }
 
-        return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');
+        // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');
+        return redirect('/daftar-surat-masuk');
 
     }
 
