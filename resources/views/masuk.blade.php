@@ -111,6 +111,8 @@
                 </label>
               </div>
 
+                                <input type="text" name="disposisi[]" id="other_text_input"
+                                    style="display: none;">
 
               {{-- <input type="text" name="disposisi_kepada" class="form-control
               @error('disposisi_kepada') is-ivalid @enderror" value="{{ old('disposisi_kepada') }}"  id="disposisi_kepada"> --}}

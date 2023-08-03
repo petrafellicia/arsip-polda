@@ -53,26 +53,26 @@ class SuratMasukController extends Controller
     public function insertsurat(Request $request)
     {
         // dd($request->all());
-        $request->validate([
-            'nomor_agenda' => 'required',
-            'nomor_surat' => 'required',
-            'jenis_surat' => 'required',
-            'asal_surat' => 'required',
-            'perihal' => 'required',
-            'kka' => 'required',
-            'tanggal_surat' => 'required',
-            'jam_terima' => 'required',
-            'disposisi_kepada' => 'required',
-            'distribusi' => 'required',
-            'isi_disposisi' => 'required',
-            'keterangan' => 'required',
-            'file' => 'mimes:pdf',
-        ]);
+        // $request->validate([
+        //     'nomor_agenda' => 'required',
+        //     'nomor_surat' => 'required',
+        //     'jenis_surat' => 'required',
+        //     'asal_surat' => 'required',
+        //     'perihal' => 'required',
+        //     'kka' => 'required',
+        //     'tanggal_surat' => 'required',
+        //     'jam_terima' => 'required',
+        //     'disposisi_kepada' => 'required',
+        //     'distribusi' => 'required',
+        //     'isi_disposisi' => 'required',
+        //     'keterangan' => 'required',
+        //     'file' => 'mimes:pdf',
+        // ]);
 
         $disposisi_kepada = "";
-        for ($i = 0; $i < sizeof($request->get('disposisi_kepada')); $i++) {
-            if ($request->get('disposisi_kepada')[$i] != null) {
-                $disposisi_kepada .= $request->get('disposisi_kepada')[$i] . ";";
+        for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
+            if ($request->get('disposisi')[$i] != null) {
+                $disposisi_kepada .= $request->get('disposisi')[$i] . ";";
             }
         }
 
@@ -86,7 +86,7 @@ class SuratMasukController extends Controller
                 'kka' => $request->kka,
                 'tanggal_surat' => $request->tanggal_surat,
                 'jam_terima' => $request->jam_terima,
-                'disposisi_kepada' => $request->disposisi_kepada,
+                'disposisi_kepada' => $disposisi_kepada,
                 'distribusi' => $request->distribusi,
                 'isi_disposisi' => $request->isi_disposisi,
                 'keterangan' => $request->keterangan,
