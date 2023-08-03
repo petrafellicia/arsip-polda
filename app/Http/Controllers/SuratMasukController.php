@@ -12,14 +12,22 @@ use Illuminate\Support\Facades\Storage;
 class SuratMasukController extends Controller
 {
     public function index(Request $request){
-        if($request->has('search')){
-                $data = SuratMasuk::where('nomor_surat', 'LIKE', '%' .$request->search.'%')->paginate(5);
-                                    // ->orWhere('kka', 'LIKE', '%' .$request->search.'%')->paginate(5);
-        }
-            else{
-                $data = SuratMasuk::paginate(5);
-            }
-            return view('suratmasuk', compact('data'),
+          $query = SuratMasuk::query();
+
+        // if ($request->has('nomor_surat')){
+        //     $query->where('nomor_surat', 'LIKE', '%' . $request->nomor_surat . '%')->paginate(5);
+        // }
+        // if ($request->has('tanggal_surat')){
+        //     $query->whereDate('tanggal_surat', 'LIKE', '%' . $request->tanggal_surat . '%')->paginate(5);
+        // }
+        // if($request->has('search')){
+        //         $data = SuratMasuk::where('nomor_surat', 'LIKE', '%' .$request->search.'%')->paginate(5);
+        //                             // ->orWhere('kka', 'LIKE', '%' .$request->search.'%')->paginate(5);
+        // }
+            // else{
+                $query = SuratMasuk::paginate(5);
+            // }
+            return view('suratmasuk', compact('query'),
         [
             "title" => "Daftar Surat Masuk"
         ]);

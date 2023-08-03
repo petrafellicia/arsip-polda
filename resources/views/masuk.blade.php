@@ -83,10 +83,37 @@
               <input type="text" name="jam_terima" class="form-control 
               @error('jam_terima') is-ivalid @enderror" value="{{ old('jam_terima') }}">
             </div>
+
             <div class="mb-3">
               <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
-              <input type="text" name="disposisi_kepada" class="form-control
-              @error('disposisi_kepada') is-ivalid @enderror" value="{{ old('disposisi_kepada') }}"  id="disposisi_kepada">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="disposisi_kepada[]" value="Ksbd. Tekkom" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Ksbd. Tekkom
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="disposisi_kepada[]" value="Ksbd. Tekinfo" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Ksbd. Tekinfo
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="disposisi_kepada[]" value="Ksbg. Renmin" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Ksbg. Renmin
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="disposisi_kenpada[]" value="Other" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Other
+                </label>
+              </div>
+
+
+              {{-- <input type="text" name="disposisi_kepada" class="form-control
+              @error('disposisi_kepada') is-ivalid @enderror" value="{{ old('disposisi_kepada') }}"  id="disposisi_kepada"> --}}
             </div>
             <div class="mb-3">
               <label for="distribusi" class="form-label">Distribusi</label>
