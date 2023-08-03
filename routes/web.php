@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin,operator']], function () 
     Route::get('/mails/{slug}', [MailController::class, 'show']);
 
     Route::get('/daftar-surat-masuk', [SuratMasukController::class, 'index'])->name('daftar-surat-masuk');
+    Route::get('/daftar-surat-masuk/search', [SuratMasukController::class, 'cari'])->name('daftar-surat-masuk');
     Route::get('/masuk', [SuratMasukController::class, 'tambahdata']);
     Route::post('/insertsurat', [SuratMasukController::class, 'insertsurat'])->name('insertsurat');
     Route::get('/download{file}', [SuratMasukController::class, 'download']);

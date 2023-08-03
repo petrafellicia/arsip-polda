@@ -6,6 +6,7 @@ use App\Models\Mail;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class SuratMasukController extends Controller
@@ -19,6 +20,16 @@ class SuratMasukController extends Controller
                 $data = SuratMasuk::paginate(5);
             }
             return view('suratmasuk', compact('data'),
+        [
+            "title" => "Daftar Surat Masuk"
+        ]);
+    }
+
+    public function cari(Request $request)
+    {
+        $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
+        
+        return view('suratmasuk', compact('data'),
         [
             "title" => "Daftar Surat Masuk"
         ]);
