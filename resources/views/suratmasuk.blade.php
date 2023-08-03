@@ -34,7 +34,7 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
     </tr>
   </thead>
   <tbody class="table-group-divider">
-    @foreach ($data as $row)
+    @foreach ($query as $row)
     <tr>
       <th scope="row">{{ $row-> nomor_agenda }}</th>
       <td>{{ $row-> nomor_surat }}</td>
@@ -57,5 +57,5 @@ style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-pa
     @endforeach
   </tbody>
 </table>
-{{ $data->links() }}
+{{ $query->links() }}
 @endsection

@@ -10,21 +10,18 @@ use Illuminate\Support\Facades\Storage;
 
 class SuratMasukController extends Controller
 {
-    public function index(Request $request)
-    {
-        if ($request->has('search')) {
-            $data = SuratMasuk::where('nomor_surat', 'LIKE', '%' . $request->search . '%')->paginate(5);
-            // ->orWhere('kka', 'LIKE', '%' .$request->search.'%')->paginate(5);
-        } else {
-            $data = SuratMasuk::paginate(5);
+    public function index(Request $request){
+        if($request->has('search')){
+                $data = SuratMasuk::where('nomor_surat', 'LIKE', '%' .$request->search.'%')->paginate(5);
+                                    // ->orWhere('kka', 'LIKE', '%' .$request->search.'%')->paginate(5);
         }
-        return view(
-            'suratmasuk',
-            compact('data'),
-            [
-                "title" => "Daftar Surat Masuk"
-            ]
-        );
+            else{
+                $data = SuratMasuk::paginate(5);
+            }
+            return view('suratmasuk', compact('data'),
+        [
+            "title" => "Daftar Surat Masuk"
+        ]);
     }
 
     public function tambahdata()
