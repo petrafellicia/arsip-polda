@@ -36,6 +36,7 @@ class SuratMasukController extends Controller
     public function cari(Request $request)
     {
         $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
+        $data = SuratMasuk::paginate(5);
         
         return view('suratmasuk', compact('data'),
         [

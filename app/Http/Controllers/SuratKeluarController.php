@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\SuratKeluar;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SuratKeluarController extends Controller
@@ -11,18 +12,26 @@ class SuratKeluarController extends Controller
     //
     public function index(Request $request)
     {
-        if ($request->has('search')) {
-            $data = SuratKeluar::where('no_surat', 'LIKE', '%' . $request->search . '%')->paginate(5);
-        } else {
+        $data = SuratKeluar::query();
+
+        // if ($request->has('search')) {
+        //     $data = SuratKeluar::where('no_surat', 'LIKE', '%' . $request->search . '%')->paginate(5);
+        // } else {
             $data = SuratKeluar::paginate(5);
-        }
-        return view(
-            'suratkeluar',
-            compact('data'),
+        //}
+        return view('suratkeluar',compact('data'),
             [
                 "title" => "Daftar Surat Keluar"
             ]
         );
+    }
+
+    public function cari(Request $request) {
+        $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
+        $data = SuratKeluar::paginate(5);
+        return view('suratkeluar', compact('data'),[
+            "title" => "Daftar Surat Keluar"
+        ]);
     }
 
     public function tambahsuratkeluar()
