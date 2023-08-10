@@ -39,12 +39,18 @@ class SuratMasukController extends Controller
 
     public function cari(Request $request)
     {
-        $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$request->search, $request->search, $request->search]);
-       // $data = SuratMasuk::paginate(5);
+        $searchTerm = $request->search;
+        $data = [];
+
+        if ($searchTerm) {
+            $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$searchTerm, $searchTerm, $searchTerm]);
+        }
+
+        $pesan = empty($data) ? "File tidak ditemukan" : "";
 
         return view(
             'suratmasuk',
-            compact('data'),
+            compact('data', 'pesan', 'searchTerm'),
             [
                 "title" => "Daftar Surat Masuk"
             ]

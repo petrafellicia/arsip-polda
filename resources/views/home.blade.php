@@ -2,15 +2,28 @@
 
 @section('container')
   {{-- <h1>Grafik Surat Masuk dan Keluar Polda DIY</h1> --}}
+
 <div class="S">
-  <div id="chartSurat">
+  <div id="grafikSurat">
   </div>
 </div>
 @endsection
 
 @section('footer')
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+
+<div style="width: 80%; margin: auto;">
+        <h2>{{ $title }}</h2>
+        <div id="chart-container">
+            {!! $chart->container() !!}
+        </div>
+    </div>
+
+    {!! $chart->script() !!}
+
+    <script>
   Highcharts.chart('chartSurat', {
     chart: {
         type: 'column'
@@ -54,7 +67,6 @@
     ]
 });
 </script>
-
 @endsection
 
 
