@@ -27,12 +27,16 @@ class SuratKeluarController extends Controller
     }
 
     public function cari(Request $request) {
-        $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
-        //$data = SuratKeluar::paginate(5);
-        //nanti di perbaiki
+        
+        if($request->has('search')){
+            $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
+        } else{
+            $data = DB::paginate(5);
+        }
         return view('suratkeluar', compact('data'),[
             "title" => "Daftar Surat Keluar"
         ]);
+        
     }
 
     public function tambahsuratkeluar()

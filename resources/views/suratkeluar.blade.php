@@ -47,7 +47,7 @@
                     <td>{{ $row->perihal }}</td>
                     <td>{{ $row->kka }}</td>
                     <td>{{ $row->dasar_surat }}</td>
-                    <td>{{ $row->tgl_surat }}</td>
+                    <td>{{ date('d-m-Y', strtotime($row->tgl_surat )}}</td>
                     <td>{{ $row->jam_surat }}</td>
                     <td>{{ $row->disposisi }}</td>
                     <td>{{ $row->distribusi }}</td>

@@ -45,7 +45,7 @@
                     <td>{{ $row->asal_surat }}</td>
                     <td>{{ $row->perihal }}</td>
                     <td>{{ $row->kka }}</td>
-                    <td>{{ $row->tanggal_surat }}</td>
+                    <td>{{date('d-m-Y', strtotime($row->tanggal_surat))  }}</td>
                     <td>{{ $row->jam_terima }}</td>
                     <td>{{ $row->disposisi_kepada }}</td>
                     <td>{{ $row->distribusi }}</td>
@@ -61,4 +61,8 @@
         </tbody>
     </table>
     {{-- {{ $data->links() }} --}}
+@endsection
+
+@section('footer')
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></>
 @endsection

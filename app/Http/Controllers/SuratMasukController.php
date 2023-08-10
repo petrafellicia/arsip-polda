@@ -37,6 +37,11 @@ class SuratMasukController extends Controller
         );
     }
 
+    // public function cetakSuratMasuk(){
+    //     $data=SuratMasuk::with('suratMasuk')->get();
+    //     return view('cetakSuratMasuk', compact('data'));
+    // }
+
     public function cari(Request $request)
     {
         $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$request->search, $request->search, $request->search]);

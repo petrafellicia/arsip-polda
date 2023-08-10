@@ -98,40 +98,40 @@
                                         value="{{ old('jam_terima') }}">
                                 </div>
                                 <div class="mb-3">
-                            <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
-                                
-                                <br>
+                                    <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
 
-                                <label>
-                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
-                                    Yth. Ksbd. Tekkom
-                                </label>
+                                    <br>
 
-                                <br>
+                                    <label>
+                                        <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
+                                        Yth. Ksbd. Tekkom
+                                    </label>
 
-                                <label>
-                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
-                                    Yth. Ksbd. Tekinfo
-                                </label>
+                                    <br>
 
-                                <br>
+                                    <label>
+                                        <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
+                                        Yth. Ksbd. Tekinfo
+                                    </label>
 
-                                <label>
-                                    <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
-                                    Yth. Ksbg. Renmin
-                                </label>
+                                    <br>
 
-                                <br>
+                                    <label>
+                                        <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
+                                        Yth. Ksbg. Renmin
+                                    </label>
 
-                                <label>
-                                    <input type="checkbox" id="other_checkbox">
-                                    Yth. ...
-                                </label>
+                                    <br>
 
-                                <input type="text" name="disposisi[]" id="other_text_input"
-                                    style="display: none;">
+                                    <label>
+                                        <input type="checkbox" id="other_checkbox">
+                                        Yth. ...
+                                    </label>
 
-                            </div>
+                                    <input type="text" name="disposisi[]" id="other_text_input"
+                                        style="display: none;">
+
+                                </div>
                                 <div class="mb-3">
                                     <label for="distribusi" class="form-label">Distribusi</label>
                                     <select class="form-select 
@@ -207,7 +207,11 @@
             var otherTextInput = document.getElementById('other_text_input');
             otherTextInput.style.display = this.checked ? 'block' : 'none';
             otherTextInput.value = this.checked ? '' : '';
-        });
+        }); <
+        script src = "https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity = "sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE="
+        crossorigin = "anonymous" >
+    </script>
     </script>
 </body>
 
