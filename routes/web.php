@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Http\Controllers\GrafikController;
 use App\Models\Mail;
 use App\Models\User;
 
@@ -34,6 +35,10 @@ Route::group(['middleware' => ['auth', 'hakakses:admin,operator']], function () 
             "title" => "Home"
         ]);
     });
+
+    Route::get('/home', [GrafikController::class, 'grafikSurat']);
+    //   Route::post('/sync-monthly-data', [GrafikController::class, 'syncMonthlyData']);
+
 
     Route::get('/mails', [MailController::class, 'index']);
 

@@ -33,6 +33,8 @@
 
     @yield('footer')
 
+    @yield('content')
+    @yield('footer')
 </body>
 
 </html>
