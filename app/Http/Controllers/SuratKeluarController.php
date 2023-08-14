@@ -28,14 +28,30 @@ class SuratKeluarController extends Controller
 
     public function cari(Request $request) {
         
-        if($request->has('search')){
-            $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
-        } else{
-            $data = DB::paginate(5);
+        // if($request->has('search')){
+        //     $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
+        // } else{
+        //     $data = DB::paginate(5);
+        // }
+        // return view('suratkeluar', compact('data'),[
+        //     "title" => "Daftar Surat Keluar"
+        // ]);
+        $searchTerm = $request->search;
+        $data = [];
+
+        if ($searchTerm) {
+            $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$searchTerm, $searchTerm, $searchTerm]);
         }
-        return view('suratkeluar', compact('data'),[
-            "title" => "Daftar Surat Keluar"
-        ]);
+
+        $message = empty($data) ? "File tidak ditemukan" : "";
+
+        return view(
+            'suratkeluar',
+            compact('data', 'pesan', 'searchTerm'),
+            [
+                "title" => "Daftar Surat Keluar"
+            ]
+        );
         
     }
 

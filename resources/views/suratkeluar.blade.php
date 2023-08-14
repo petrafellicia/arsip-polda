@@ -9,14 +9,16 @@
         <button type="button"
             style=" width:150px; float:right; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
             <a style="color:white; justify-content:center; text-decoration:none;" href="/keluar">Tambah Surat</a></button>
-        <form action="/daftar-surat-keluar/search" method="GET" class="d-flex" style="margin-top:30px; margin-bottom:10px;"
+        <form action="/daftar-surat-keluar/search" method="GET" class="d-flex justify-content-end" style="margin-top:30px; margin-bottom:10px;"
             role="search">
-            <input class="form-control me-2" type="search" name="search" value="{{ request('search') }}"
+            <input class="form-control w-25 me-2" type="search" name="search" value="{{ request('search') }}"
                 placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
-
+    @if (!empty($message))
+        <p>{{ $message }}</p>
+    @elseif (!empty($data))
     <table class="table-responsive" style="text-align:center;">
         <thead>
             <tr>
@@ -56,10 +58,11 @@
                     <td>
                         <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success">Download</a>
                     </td>
-                    <td><a href="/tampilkandatakeluar/{{ $row->no_agenda }}" class="btn btn-primary">Edit</button></td>
-                    <td><a href="/deletekeluar/{{ $row->no_agenda }}" class="btn btn-danger">Delete</button></td>
+                    <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary">Edit</button></td>
+                    <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger">Delete</button></td>
                 </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
     {{-- {{ $data->links() }} --}}
