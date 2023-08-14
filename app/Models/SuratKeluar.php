@@ -10,7 +10,7 @@ class SuratKeluar extends Model
 {
     use HasFactory;
 
-    $->notify(new DataBerhasilDieksekusi());
+    // $->notify(new DataBerhasilDieksekusi());
 
     protected $guarded = [];
     // protected $table = 'surat_keluars';

@@ -49,9 +49,4 @@ crossorigin="anonymous"> -->
 
 <title>Arsip-Polda Blog | {{ $title }}</title> -->
 
-<script>
-    // toastr.success('Have fun storming the castle!', 'Miracle max says')
-    @if (SuratMasuk::has('success'))
-        toastr.success("{(SuratMasuk::get('success')})")
-    @endif
-</script>
+<!--  -->
