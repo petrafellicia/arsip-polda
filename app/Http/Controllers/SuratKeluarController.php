@@ -17,17 +17,20 @@ class SuratKeluarController extends Controller
         // if ($request->has('search')) {
         //     $data = SuratKeluar::where('no_surat', 'LIKE', '%' . $request->search . '%')->paginate(5);
         // } else {
-            $data = SuratKeluar::paginate(5);
+        $data = SuratKeluar::paginate(5);
         //}
-        return view('suratkeluar',compact('data'),
+        return view(
+            'suratkeluar',
+            compact('data'),
             [
                 "title" => "Daftar Surat Keluar"
             ]
         );
     }
 
-    public function cari(Request $request) {
-        
+    public function cari(Request $request)
+    {
+
         // if($request->has('search')){
         //     $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
         // } else{
@@ -40,19 +43,24 @@ class SuratKeluarController extends Controller
         $data = [];
 
         if ($searchTerm) {
-            $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$searchTerm, $searchTerm, $searchTerm]);
+            $data = DB::table('surat_keluars')
+                ->where('no_surat', $searchTerm)
+                ->orWhere('tgl_surat', $searchTerm)
+                ->orWhere('kka', $searchTerm)
+                ->paginate(5);
+        } else {
+            $data = DB::table('surat_keluars')->paginate(5);
         }
-
-        $message = empty($data) ? "File tidak ditemukan" : "";
+        $message = $data->isEmpty() ? "File tidak ditemukan" : "";
 
         return view(
             'suratkeluar',
-            compact('data', 'pesan', 'searchTerm'),
+            compact('data', 'message', 'searchTerm'),
             [
                 "title" => "Daftar Surat Keluar"
             ]
         );
-        
+
     }
 
     public function tambahsuratkeluar()

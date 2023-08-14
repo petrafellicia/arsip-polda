@@ -69,6 +69,6 @@
             
             </tbody>
         </table>
-        {{-- {{ $data->links() }} --}}
-        
+        @include('sweetalert::alert')
+         {{ $data->links() }}
         @endsection

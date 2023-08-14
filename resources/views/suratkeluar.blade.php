@@ -65,5 +65,5 @@
             @endif
         </tbody>
     </table>
-    {{-- {{ $data->links() }} --}}
+     {{ $data->links() }}
 @endsection

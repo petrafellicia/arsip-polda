@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+// use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SuratMasukController extends Controller
 {
@@ -47,8 +49,18 @@ class SuratMasukController extends Controller
         $searchTerm = $request->search;
         $data = [];
 
+        // if ($searchTerm) {
+        //     $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$searchTerm, $searchTerm, $searchTerm]);
+        // }
+
         if ($searchTerm) {
-            $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$searchTerm, $searchTerm, $searchTerm]);
+            $data = DB::table('surat_masuks')
+                ->where('nomor_surat', $searchTerm)
+                ->orWhere('tanggal_surat', $searchTerm)
+                ->orWhere('kka', $searchTerm)
+                ->paginate(5);
+        } else {
+            $data = DB::table('surat_masuks')->paginate(5);
         }
 
         $pesan = empty($data) ? "File tidak ditemukan" : "";
@@ -183,7 +195,12 @@ class SuratMasukController extends Controller
     public function deletemasuk($id)
     {
         $data = SuratMasuk::find($id);
-        $data->delete();
+        if (!$data) {
+            Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
+        } else {
+            $data->delete();
+            Alert::success('Data berhasil dihapus', 'Data surat masuk telah dihapus.');
+        }
         return redirect('/daftar-surat-masuk');
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Hapus');
     }
