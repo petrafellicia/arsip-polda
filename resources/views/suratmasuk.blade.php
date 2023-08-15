@@ -63,12 +63,14 @@
                     </td>
                     <td><a href="/tampilkandatamasuk/{{ $row->id }}" class="btn btn-primary">Edit</button></td>
                     <td><a href="/deletemasuk/{{ $row->id }}" class="btn btn-danger">Delete</button></td>
+                   
                 </tr>
                 @endforeach
                 @endif
-            
+                
             </tbody>
         </table>
         @include('sweetalert::alert')
          {{ $data->links() }}
         @endsection
+

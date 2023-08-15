@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-  {{-- <h1>Grafik Surat Masuk dan Keluar Polda DIY</h1> --}}
+  <h2>Grafik Surat Masuk dan Surat Keluar Polda DIY</h2>
 
 <div class="S">
   <div id="grafikSurat">
@@ -15,7 +15,7 @@
 
 
 <div style="width: 80%; margin: auto;">
-        <h2>{{ $title }}</h2>
+        <!-- <h2>{{ $title }}</h2> -->
         <div id="chart-container">
             {!! $chart->container() !!}
         </div>
