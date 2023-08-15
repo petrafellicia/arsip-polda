@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-  <h2>Grafik Surat Masuk dan Surat Keluar Polda DIY</h2>
+  <h2 style="margin-left:7rem; padding-bottom:1rem;">Grafik Surat Masuk dan Surat Keluar Polda DIY</h2>
 
 <div class="S">
   <div id="grafikSurat">
