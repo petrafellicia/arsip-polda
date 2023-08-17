@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 // use Alert;
 
@@ -233,5 +234,14 @@ class SuratMasukController extends Controller
     //     // Redirect kembali ke halaman form dengan pesan sukses
     //     return redirect()->route('showFormMasuk')->with('success', 'Form berhasil dikirim');
     // }
+
+    public function exportpdfmasuk(){
+        $data = SuratMasuk::all();
+
+        view()->share('data', $data);
+        $pdf = PDF::loadview('cetaksuratmasuk');
+        return $pdf->download('suratmasuk.pdf');
+        
+    }
 
 }

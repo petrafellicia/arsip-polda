@@ -17,6 +17,10 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
 
         </form>
+
+        <div class="col-auto">
+            <a href="/exportpdfkeluar" class="btn btn-info">Rekap Surat</a>
+        </div>
     </div>
     @if (!empty($message))
         <p>{{ $message }}</p>
@@ -64,9 +68,9 @@
                                 style="font-size: 13px;">Download</a>
                         </td>
                         <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary"
-                            style="font-size: 13px;">Edit</button></td>
+                                style="font-size: 13px;">Edit</button></td>
                         <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger"
-                            style="font-size: 13px;">Delete</button></td>
+                                style="font-size: 13px;">Delete</button></td>
                     </tr>
                 @endforeach
     @endif
