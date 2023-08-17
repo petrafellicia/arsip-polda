@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-// use Alert;
 use RealRashid\SweetAlert\Facades\Alert;
+
+// use Alert;
 
 class SuratMasukController extends Controller
 {
@@ -133,6 +134,7 @@ class SuratMasukController extends Controller
             $data->save();
         }
 
+        Alert::success('Data Berhasil Disimpan', 'Data surat masuk telah berhasil disimpan ke database.')->toHtml();
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');
         return redirect('/daftar-surat-masuk');
 
@@ -187,6 +189,7 @@ class SuratMasukController extends Controller
             $data->file = $filename;
             $data->save();
         }
+        Alert::success('Data Berhasil DiUpdate', 'Data surat masuk telah berhasil diupdate ke database.')->toHtml();
         // $data->update($request->all());
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Update');
         return redirect('/daftar-surat-masuk');

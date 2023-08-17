@@ -240,6 +240,7 @@
               <input class="form-control" type="file" id="formFile">
             </div> -->
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/daftar-surat-keluar" type="submit" class="btn btn-danger">Cancel</button></a>
           </form>
          </div>
         </div>

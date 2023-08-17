@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class SuratKeluarController extends Controller
 {
     //
@@ -118,6 +120,8 @@ class SuratKeluarController extends Controller
             $data->save();
         }
 
+        Alert::success('Data Berhasil Disimpan', 'Data surat keluar telah berhasil disimpan ke database.')->toHtml();
+
         return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
 
         // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
@@ -218,6 +222,7 @@ class SuratKeluarController extends Controller
             $data->save();
         }
 
+        Alert::success('Data Berhasil DiUpdate', 'Data surat keluar telah berhasil diupdate ke database.')->toHtml();
         // $data->update($request->all());
         return redirect('/daftar-surat-keluar');
         // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
@@ -226,8 +231,15 @@ class SuratKeluarController extends Controller
     public function deletekeluar($id)
     {
         $data = SuratKeluar::find($id);
-        $data->delete();
+        if (!$data) {
+            Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
+        } else {
+            $data->delete();
+            Alert::success('Data berhasil dihapus', 'Data surat keluar telah dihapus.');
+        }
         return redirect('/daftar-surat-keluar');
+        // $data->delete();
+        // return redirect('/daftar-surat-keluar');
         // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');
     }
 

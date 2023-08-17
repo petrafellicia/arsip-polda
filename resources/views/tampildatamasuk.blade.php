@@ -14,6 +14,7 @@
         <div class="card">
          <div class="card-body">
           <form action="/updatedatamasuk/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+          <!-- <form action="{{ route('updatedatamasuk', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data"> -->
             @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Nomor Agenda</label>
@@ -162,10 +163,10 @@
             </div> --}}
             <div class="mb-3">
               <label for="formFile" class="form-label">Upload Dokumen</label>
-              <input class="form-control 
-              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile">
+              <input class="form-control" name="file" type="file" id="formFile">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/daftar-surat-masuk" type="submit" class="btn btn-danger">Cancel</button></a>
           </form>
          </div>
         </div>

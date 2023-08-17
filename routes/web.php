@@ -72,9 +72,11 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::post('/updatedatakeluar/{id}', [SuratKeluarController::class, 'updatedatakeluar'])->name('updatedatakeluar');
 
     Route::get('/deletemasuk/{id}', [SuratMasukController::class, 'deletemasuk'])->name('deletemasuk');
+    // Route::delete('/deletemasuk/{id}', [SuratMasukController::class, 'deletemasuk'])->name('deletemasuk');
+
     Route::get('/deletekeluar/{id}', [SuratKeluarController::class, 'deletekeluar'])->name('deletekeluar');
 
-    Route::get('cetakSuratMasuk',[SuratMasukController::class, 'cetakSuratMasuk'])->name('cetakSuratMasuk');
+    Route::get('cetakSuratMasuk', [SuratMasukController::class, 'cetakSuratMasuk'])->name('cetakSuratMasuk');
 });
 Route::get('/about', function () {
     return view('about', [
