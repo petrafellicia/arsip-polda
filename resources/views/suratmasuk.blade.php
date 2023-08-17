@@ -78,7 +78,7 @@
 
     </tbody>
     </table>
-    <!-- @include('sweetalert::alert') -->
+    @include('sweetalert::alert')
     <!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
