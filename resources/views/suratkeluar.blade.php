@@ -19,7 +19,7 @@
     @if (!empty($message))
         <p>{{ $message }}</p>
     @elseif (!empty($data))
-    <table class="table-responsive" style="text-align:center;">
+    <table class="table-responsive" style="text-align:center; font-size:14px;">
         <thead>
             <tr>
                 <th scope="col">Nomor Agenda</th>
@@ -56,10 +56,10 @@
                     <td>{{ $row->isi_disposisi }}</td>
                     <td>{{ $row->feedback }}</td>
                     <td>
-                        <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success">Download</a>
+                        <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success" style="font-size:13px;">Download</a>
                     </td>
-                    <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary">Edit</button></td>
-                    <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger">Delete</button></td>
+                    <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary" style="font-size:13px;">Edit</button></td>
+                    <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger" style="font-size:13px;">Delete</button></td>
                 </tr>
             @endforeach
             @endif

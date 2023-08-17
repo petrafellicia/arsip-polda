@@ -21,7 +21,7 @@
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
     @elseif (!empty($data))
-        <table class="table " style="text-align:center; font-size:14px; ">
+        <table class="table" style="text-align:center; font-size:14px; ">
             <thead>
                 <tr>
                     <th scope="col">Nomor Agenda</th>

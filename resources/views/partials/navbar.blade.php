@@ -9,8 +9,10 @@
         <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" href="/home">Home</a>
         {{-- <a class="nav-link" {{ ($title === "About") ? 'active' : '' }}" href="/about">About</a> --}}
         <a class="nav-link" {{ ($title === "Mails") ? 'active' : '' }}" href="/mails">Daftar Surat</a>
-        <a class="nav-link" href="/"><i class="bi bi-person-circle"></i></a>
-        </div>
+        <!-- <a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i></a> -->
+        <a class="nav-link" href="#" id="logout-link"><i class="bi bi-box-arrow-right"></i> Logout</a>
+  
+      </div>
     </div>
         {{-- <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -18,3 +20,19 @@
         </form> --}}
   </div>
 </nav>
+
+<!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var logoutLink = document.getElementById("logout-link");
+        
+        if (logoutLink) {
+            logoutLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                if (confirm("Apakah Anda yakin ingin logout?")) {
+                    window.location.href = '/logout'; // Ganti dengan URL logout yang sesuai
+                }
+            });
+        }
+    });
+</script>
