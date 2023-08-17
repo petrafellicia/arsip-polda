@@ -59,12 +59,34 @@
                         <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success" style="font-size:13px;">Download</a>
                     </td>
                     <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary" style="font-size:13px;">Edit</button></td>
-                    <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger" style="font-size:13px;">Delete</button></td>
+                    <!-- <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger" style="font-size:13px;">Delete</button></td> -->
+                    <td scope="row">
+    <a href="#" class="btn btn-danger delete-button"
+       data-id="{{ $row->id }}" style="font-size: 13px">Delete</a>
+</td>
                 </tr>
             @endforeach
             @endif
         </tbody>
     </table>
     @include('sweetalert::alert')
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteButtons = document.querySelectorAll(".delete-button");
+
+        deleteButtons.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
+                if (confirmDelete) {
+                    var dataId = this.getAttribute("data-id");
+                    window.location.href = '/deletekeluar/' + dataId; // Ganti dengan URL delete yang sesuai
+                }
+            });
+        });
+    });
+</script>
+
      {{ $data->links() }}
 @endsection
