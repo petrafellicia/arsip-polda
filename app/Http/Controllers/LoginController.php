@@ -19,39 +19,49 @@ class LoginController extends Controller
     //     return view('auth.login');
     // }
 
-  
 
-    public function index(){
+
+    public function index()
+    {
         return view('login.index', [
             'title' => 'Login'
         ]);
     }
 
-    public function postLogin(Request $request){
-       //validasi
-       Session::flash('username', $request->username);
-            $request->validate([
-                'username'=>'required',
-                'password'=>'required'
+    public function postLogin(Request $request)
+    {
+        //validasi
+        Session::flash('username', $request->username);
+        $request->validate(
+            [
+                'username' => 'required',
+                'password' => 'required'
             ],
             [
-                'username.required'=>'username wajib diisi',
-                'password.required'=>'Password wajib diisi',
-        ]);
+                'username.required' => 'username wajib diisi',
+                'password.required' => 'Password wajib diisi',
+            ]
+        );
 
-       //autentikasi
-       $infologin = [
-        'username' => $request->username,
-        'password' => $request->password
-       ];
+        //autentikasi
+        $infologin = [
+            'username' => $request->username,
+            'password' => $request->password
+        ];
 
-       if(Auth::attempt($infologin)){
-        //sukses
-        return redirect('home')->with('Berhasil login');
-       }else{
-        //gagal
-        return redirect('login')->withErrors('Username atau password tidak valid');
-       }
+        if (Auth::attempt($infologin)) {
+            //sukses
+            return redirect('home')->with('Berhasil login');
+        } else {
+            //gagal
+            return redirect('login')->withErrors('Username atau password tidak valid');
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('login');
     }
 
 }

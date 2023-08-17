@@ -230,14 +230,18 @@ class SuratKeluarController extends Controller
 
     public function deletekeluar($id)
     {
-        $data = SuratKeluar::find($id);
-        if (!$data) {
-            Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
-        } else {
-            $data->delete();
-            Alert::success('Data berhasil dihapus', 'Data surat keluar telah dihapus.');
-        }
-        return redirect('/daftar-surat-keluar');
+        $suratKeluar = SuratKeluar::findOrFail($id);
+        $suratKeluar->delete();
+
+        return redirect()->back()->with('success', 'Data surat keluar berhasil dihapus.');
+        // $data = SuratKeluar::find($id);
+        // if (!$data) {
+        //     Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
+        // } else {
+        //     $data->delete();
+        //     Alert::success('Data berhasil dihapus', 'Data surat keluar telah dihapus.');
+        // }
+        // return redirect('/daftar-surat-keluar');
         // $data->delete();
         // return redirect('/daftar-surat-keluar');
         // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');

@@ -21,7 +21,7 @@
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
     @elseif (!empty($data))
-        <table class="table " style="text-align:center; font-size:14px; ">
+        <table class="table" style="text-align:center; font-size:14px; ">
             <thead>
                 <tr>
                     <th scope="col">Nomor Agenda</th>
@@ -64,8 +64,13 @@
                         </td>
                         <td scope="row"><a href="/tampilkandatamasuk/{{ $row->id }}" class="btn btn-primary"
                                 style="font-size: 13px">Edit</td>
-                        <td scope="row"><a href="/deletemasuk/{{ $row->id }}" class="btn btn-danger"
-                                style="font-size: 13px">Delete
+                        <!-- <td scope="row"><a href="/deletemasuk/{{ $row->id }}" class="btn btn-danger"
+                                style="font-size: 13px">Delete -->
+                                <td scope="row">
+    <a href="#" class="btn btn-danger delete-button"
+       data-id="{{ $row->id }}" style="font-size: 13px">Delete</a>
+</td>
+
                         </td>
                     </tr>
                 @endforeach
@@ -74,5 +79,24 @@
     </tbody>
     </table>
     @include('sweetalert::alert')
+    <!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteButtons = document.querySelectorAll(".delete-button");
+
+        deleteButtons.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
+                if (confirmDelete) {
+                    var dataId = this.getAttribute("data-id");
+                    window.location.href = '/deletemasuk/' + dataId; // Ganti dengan URL delete yang sesuai
+                }
+            });
+        });
+    });
+</script>
+
     {{ $data->links() }}
 @endsection
