@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class SuratKeluarController extends Controller
 {
@@ -250,6 +251,15 @@ class SuratKeluarController extends Controller
         // $data->delete();
         // return redirect('/daftar-surat-keluar');
         // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');
+    }
+
+    public function exportpdfkeluar(){
+        $data = SuratKeluar::all();
+
+        view()->share('data', $data);
+        $pdf = PDF::loadview('cetaksuratkeluar');
+        return $pdf->download('suratkeluar.pdf');
+        
     }
 
 }

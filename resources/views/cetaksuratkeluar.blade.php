@@ -44,22 +44,23 @@
 
 <body>
     <div class="form-group">
-        <p align="center"><b>Laporan Surat Masuk</b></p>
+        <p align="center"><b>Laporan Surat Keluar</b></p>
         <table id="customers">
             <tr>
                 <th>No</th>
                 <th>Nomor Agenda</th>
                 <th>Nomor Surat</th>
                 <th>Jenis Surat</th>
-                <th>Surat Dari</th>
+                <th>Surat dari</th>
                 <th>Perihal</th>
                 <th>KKA</th>
+                <th>Dasar Pembuatan Surat</th>
                 <th>Tanggal Surat</th>
-                <th>Jam Diterima</th>
-                <th>Disposisi</th>
+                <th>Jam Diterima Surat</th>
+                <th>Disposisi kepada</th>
                 <th>Distribusi</th>
                 <th>Isi Disposisi</th>
-                <th>Keterangan</th>
+                <th>Feedback</th>
             </tr>
             @php
                 $no = 1;
@@ -67,18 +68,19 @@
             @foreach ($data as $row)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td scope="row">{{ $row->nomor_agenda }}</td>
-                    <td scope="row">{{ $row->nomor_surat }}</td>
-                    <td scope="row">{{ $row->jenis_surat }}</td>
-                    <td scope="row">{{ $row->asal_surat }}</td>
-                    <td scope="row">{{ $row->perihal }}</td>
-                    <td scope="row">{{ $row->kka }}</td>
-                    <td scope="row">{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
-                    <td scope="row">{{ $row->jam_terima }}</td>
-                    <td scope="row">{{ $row->disposisi_kepada }}</td>
-                    <td scope="row">{{ $row->distribusi }}</td>
-                    <td scope="row">{{ $row->isi_disposisi }}</td>
-                    <td scope="row">{{ $row->keterangan }}</td>
+                    <td>{{ $row->no_agenda }}</td>
+                    <td>{{ $row->no_surat }}</td>
+                    <td>{{ $row->jenis_surat }}</td>
+                    <td>{{ $row->asal_surat }}</td>
+                    <td>{{ $row->perihal }}</td>
+                    <td>{{ $row->kka }}</td>
+                    <td>{{ $row->dasar_surat }}</td>
+                    <td>{{ date('d-m-Y', strtotime($row->tgl_surat)) }}</td>
+                    <td>{{ $row->jam_surat }}</td>
+                    <td>{{ $row->disposisi }}</td>
+                    <td>{{ $row->distribusi }}</td>
+                    <td>{{ $row->isi_disposisi }}</td>
+                    <td>{{ $row->feedback }}</td>
                 </tr>
             @endforeach
 

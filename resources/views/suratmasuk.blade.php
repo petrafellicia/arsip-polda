@@ -9,19 +9,27 @@
         <button type="button"
             style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
             <a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
-        <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
-            style="margin-top:30px; margin-bottom:10px;" role="search">
 
-            <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
-                placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+        
+            
+                <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
+                    style="margin-top:30px; margin-bottom:10px;" role="search">
 
-        </form>
+                    <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
+                        placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+
+                </form>
+           
+
+            <div class="col-auto">
+                <a href="/exportpdfmasuk" class="btn btn-info">Rekap Surat</a>
+            </div>
+       
     </div>
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
     @elseif (!empty($data))
-    <div class="table-responsive">
         <table class="table" style="text-align:center; font-size:14px; ">
             <thead>
                 <tr>
@@ -71,6 +79,8 @@
     <a href="#" class="btn btn-danger delete-button"
        data-id="{{ $row->id }}" style="font-size: 13px">Delete</a>
 </td>
+
+                        </td>
                     </tr>
                 @endforeach
     @endif
@@ -79,24 +89,5 @@
     </table>
 </div>
     @include('sweetalert::alert')
-    <!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var deleteButtons = document.querySelectorAll(".delete-button");
-
-        deleteButtons.forEach(function(button) {
-            button.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
-                if (confirmDelete) {
-                    var dataId = this.getAttribute("data-id");
-                    window.location.href = '/deletemasuk/' + dataId; // Ganti dengan URL delete yang sesuai
-                }
-            });
-        });
-    });
-</script>
-
     {{ $data->links() }}
 @endsection
