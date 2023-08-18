@@ -11,16 +11,14 @@
             <a style="color:white; justify-content:center; text-decoration:none;" href="/keluar">Tambah Surat</a></button>
         <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
             style="margin-top:30px; margin-bottom:10px;" role="search">
-
+            <div class="col-auto">
+                <a href="/pilih-bulan-keluar" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem;">Rekap Surat</a>
+            </div>
             <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
                 placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
 
         </form>
-
-        <div class="col-auto">
-            <a href="/exportpdfkeluar" class="btn btn-info" style="margin-bottom:1rem;">Rekap Surat</a>
-        </div>
     </div>
     @if (!empty($message))
         <p>{{ $message }}</p>

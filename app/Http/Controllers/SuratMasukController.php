@@ -209,14 +209,28 @@ class SuratMasukController extends Controller
 
     }
 
-
-    public function exportpdfmasuk(){
-        $data = SuratMasuk::all();
-
-        view()->share('data', $data);
-        $pdf = PDF::loadview('cetaksuratmasuk');
-        return $pdf->download('suratmasuk.pdf');
-        
+    public function showForm()
+    {
+        return view('pilih-bulan-masuk');
     }
+
+    public function exportpdfmasuk(Request $request)
+    {
+        $bulan = $request->input('bulan');
+        $data = SuratMasuk::whereMonth('tanggal_surat', $bulan)->get();
+
+        $pdf = PDF::loadView('cetaksuratmasuk', ['data' => $data, 'bulan' => $bulan]);
+
+        return $pdf->download('suratmasuk' . $bulan . '.pdf');
+    }
+
+    // public function exportpdfmasuk(){
+    //     $data = SuratMasuk::all();
+
+    //     view()->share('data', $data);
+    //     $pdf = PDF::loadview('cetaksuratmasuk');
+    //     return $pdf->download('suratmasuk.pdf');
+
+    // }
 
 }

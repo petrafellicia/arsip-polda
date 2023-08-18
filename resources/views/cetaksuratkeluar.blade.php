@@ -44,7 +44,7 @@
 
 <body>
     <div class="form-group">
-        <p align="center"><b>Laporan Surat Keluar</b></p>
+        <p align="center"><b>Laporan Surat Keluar Bulan {{ date('F', mktime(0, 0, 0, $bulan, 1)) }}</b></p>
         <table id="customers">
             <tr>
                 <th>No</th>
@@ -68,7 +68,7 @@
             @foreach ($data as $row)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $row->no_agenda }}</td>
+                    <td scope="row">{{ $row->no_agenda }}</td>
                     <td>{{ $row->no_surat }}</td>
                     <td>{{ $row->jenis_surat }}</td>
                     <td>{{ $row->asal_surat }}</td>
