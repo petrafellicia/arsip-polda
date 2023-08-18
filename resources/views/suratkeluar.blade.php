@@ -26,7 +26,7 @@
         <p>{{ $message }}</p>
     @elseif (!empty($data))
     <div class="table-responsive">
-    <table class="table-responsive" style="text-align:center; font-size:14px;">
+    <table class="table" style="text-align:center; font-size:14px;">
         <thead>
             <tr>
                 <th scope="col">Nomor Agenda</th>
