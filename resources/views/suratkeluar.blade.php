@@ -19,6 +19,7 @@
     @if (!empty($message))
         <p>{{ $message }}</p>
     @elseif (!empty($data))
+    <div class="table-responsive">
     <table class="table-responsive" style="text-align:center; font-size:14px;">
         <thead>
             <tr>
@@ -69,6 +70,7 @@
             @endif
         </tbody>
     </table>
+</div>
     @include('sweetalert::alert')
     <script>
     document.addEventListener("DOMContentLoaded", function() {

@@ -21,6 +21,7 @@
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
     @elseif (!empty($data))
+    <div class="table-responsive">
         <table class="table" style="text-align:center; font-size:14px; ">
             <thead>
                 <tr>
@@ -47,18 +48,18 @@
                 @foreach ($data as $row)
                     <tr>
                         <th scope="row">{{ $row->nomor_agenda }}</th>
-                        <td scope="row">{{ $row->nomor_surat }}</td>
-                        <td scope="row">{{ $row->jenis_surat }}</td>
-                        <td scope="row">{{ $row->asal_surat }}</td>
-                        <td scope="row">{{ $row->perihal }}</td>
-                        <td scope="row">{{ $row->kka }}</td>
-                        <td scope="row">{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
-                        <td scope="row">{{ $row->jam_terima }}</td>
-                        <td scope="row">{{ $row->disposisi_kepada }}</td>
-                        <td scope="row">{{ $row->distribusi }}</td>
-                        <td scope="row">{{ $row->isi_disposisi }}</td>
-                        <td scope="row">{{ $row->keterangan }}</td>
-                        <td scope="row">
+                        <td>{{ $row->nomor_surat }}</td>
+                        <td>{{ $row->jenis_surat }}</td>
+                        <td>{{ $row->asal_surat }}</td>
+                        <td>{{ $row->perihal }}</td>
+                        <td>{{ $row->kka }}</td>
+                        <td>{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
+                        <td>{{ $row->jam_terima }}</td>
+                        <td>{{ $row->disposisi_kepada }}</td>
+                        <td>{{ $row->distribusi }}</td>
+                        <td>{{ $row->isi_disposisi }}</td>
+                        <td>{{ $row->keterangan }}</td>
+                        <td>
                             <a href="dokumensuratmasuk/{{ $row->file }}" class="btn btn-success"
                                 style="font-size: 13px">Download</a>
                         </td>
@@ -70,14 +71,13 @@
     <a href="#" class="btn btn-danger delete-button"
        data-id="{{ $row->id }}" style="font-size: 13px">Delete</a>
 </td>
-
-                        </td>
                     </tr>
                 @endforeach
     @endif
 
     </tbody>
     </table>
+</div>
     @include('sweetalert::alert')
     <!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
 <script>
