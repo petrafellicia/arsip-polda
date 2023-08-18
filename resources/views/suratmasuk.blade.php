@@ -14,18 +14,14 @@
             
                 <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
                     style="margin-top:30px; margin-bottom:10px;" role="search">
-
+                    <div class="col-auto">
+                <a href="/exportpdfmasuk" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem;">Rekap Surat</a>
+            </div>
                     <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
                         placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-
-                </form>
-           
-
-            <div class="col-auto">
-                <a href="/exportpdfmasuk" class="btn btn-info" style="margin-bottom:1rem;">Rekap Surat</a>
-            </div>
-       
+                    <button class="btn btn-outline-success" type="submit">Search</button>       
+            
+            </form>
     </div>
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
