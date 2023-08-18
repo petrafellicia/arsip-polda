@@ -23,13 +23,14 @@
            
 
             <div class="col-auto">
-                <a href="/exportpdfmasuk" class="btn btn-info">Rekap Surat</a>
+                <a href="/exportpdfmasuk" class="btn btn-info" style="margin-bottom:1rem;">Rekap Surat</a>
             </div>
        
     </div>
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
     @elseif (!empty($data))
+    <div class="table-responsive">
         <table class="table" style="text-align:center; font-size:14px; ">
             <thead>
                 <tr>
@@ -79,8 +80,6 @@
     <a href="#" class="btn btn-danger delete-button"
        data-id="{{ $row->id }}" style="font-size: 13px">Delete</a>
 </td>
-
-                        </td>
                     </tr>
                 @endforeach
     @endif
@@ -89,5 +88,24 @@
     </table>
 </div>
     @include('sweetalert::alert')
+    <!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteButtons = document.querySelectorAll(".delete-button");
+
+        deleteButtons.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
+                if (confirmDelete) {
+                    var dataId = this.getAttribute("data-id");
+                    window.location.href = '/deletemasuk/' + dataId; // Ganti dengan URL delete yang sesuai
+                }
+            });
+        });
+    });
+</script>
+
     {{ $data->links() }}
 @endsection

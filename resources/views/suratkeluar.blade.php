@@ -8,7 +8,7 @@
         <a href="/mails">Back to Mails</a>
         <button type="button"
             style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
-            <a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
+            <a style="color:white; justify-content:center; text-decoration:none;" href="/keluar">Tambah Surat</a></button>
         <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
             style="margin-top:30px; margin-bottom:10px;" role="search">
 
@@ -19,7 +19,7 @@
         </form>
 
         <div class="col-auto">
-            <a href="/exportpdfkeluar" class="btn btn-info">Rekap Surat</a>
+            <a href="/exportpdfkeluar" class="btn btn-info" style="margin-bottom:1rem;">Rekap Surat</a>
         </div>
     </div>
     @if (!empty($message))
@@ -48,28 +48,6 @@
         </thead>
         <tbody class="table-group-divider">
             @foreach ($data as $row)
-                <tr>
-                    <th scope="col">Nomor Agenda</th>
-                    <th scope="col">Nomor Surat</th>
-                    <th scope="col">Jenis Surat</th>
-                    <th scope="col">Surat dari</th>
-                    <th scope="col">Perihal</th>
-                    <th scope="col">KKA</th>
-                    <th scope="col">Dasar Pembuatan Surat</th>
-                    <th scope="col">Tanggal Surat</th>
-                    <th scope="col">Jam Diterima Surat</th>
-                    <th scope="col">Disposisi kepada</th>
-                    <th scope="col">Distribusi</th>
-                    <th scope="col">Isi Disposisi</th>
-                    <th scope="col">Feedback</th>
-                    <th scope="col">File</th>
-                    <th scope="col">Aksi</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
-
-
-                @foreach ($data as $row)
                     <tr>
                         <th scope="row">{{ $row->no_agenda }}</th>
                         <td>{{ $row->no_surat }}</td>
