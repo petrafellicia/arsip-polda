@@ -238,19 +238,7 @@ class SuratKeluarController extends Controller
             $suratKeluar->delete();
             Alert::success('Data Berhasil Dihapus', 'Data surat keluar telah berhasil dihapus dari database.')->toHtml();
         }
-
-        return redirect()->back()->with('success', 'Data surat keluar berhasil dihapus.');
-        // $data = SuratKeluar::find($id);
-        // if (!$data) {
-        //     Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
-        // } else {
-        //     $data->delete();
-        //     Alert::success('Data berhasil dihapus', 'Data surat keluar telah dihapus.');
-        // }
-        // return redirect('/daftar-surat-keluar');
-        // $data->delete();
-        // return redirect('/daftar-surat-keluar');
-        // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Hapus');
+        return redirect()->back()->with('success', 'Data surat masuk berhasil dihapus.');
     }
 
     public function exportpdfkeluar(){

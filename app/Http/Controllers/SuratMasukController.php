@@ -206,38 +206,9 @@ class SuratMasukController extends Controller
             Alert::success('Data Berhasil Dihapus', 'Data surat masuk telah berhasil dihapus dari database.')->toHtml();
         }
         return redirect()->back()->with('success', 'Data surat masuk berhasil dihapus.');
-        // $data = SuratMasuk::find($id);
-        // if (!$data) {
-        //     Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
-        // } else {
-        //     $data->delete();
-        //     Alert::success('Data berhasil dihapus', 'Data surat masuk telah dihapus.');
-        // }
-        // return redirect('/daftar-surat-masuk');
-        // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Hapus');
+
     }
 
-    // public function showFormMasuk()
-    // {
-    //     return view('formmwasuk');
-    // }
-
-    // public function processFormMasuk(Request $request)
-    // {
-    //     $selectedOptions = $request->input('options', []);
-
-    //     // Cek apakah "other" dicentang, jika ya, maka ambil nilainya dari input teks
-    //     if (in_array('other', $selectedOptions) && $request->has('other_text')) {
-    //         $otherOptionValue = $request->input('other_text');
-
-    //         // Lakukan operasi atau simpan nilai "other" sesuai kebutuhan Anda
-    //     }
-
-    //     // Lakukan operasi atau simpan nilai opsi lain sesuai kebutuhan Anda
-
-    //     // Redirect kembali ke halaman form dengan pesan sukses
-    //     return redirect()->route('showFormMasuk')->with('success', 'Form berhasil dikirim');
-    // }
 
     public function exportpdfmasuk(){
         $data = SuratMasuk::all();
