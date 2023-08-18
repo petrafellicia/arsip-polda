@@ -44,7 +44,7 @@
 
 <body>
     <div class="form-group">
-        <p align="center"><b>Laporan Surat Masuk</b></p>
+        <p align="center"><b>Laporan Surat Masuk Bulan {{ date('F', mktime(0, 0, 0, $bulan, 1)) }}</b></p>
         <table id="customers">
             <tr>
                 <th>No</th>
@@ -68,17 +68,17 @@
                 <tr>
                     <td>{{ $no++ }}</td>
                     <td scope="row">{{ $row->nomor_agenda }}</td>
-                    <td scope="row">{{ $row->nomor_surat }}</td>
-                    <td scope="row">{{ $row->jenis_surat }}</td>
-                    <td scope="row">{{ $row->asal_surat }}</td>
-                    <td scope="row">{{ $row->perihal }}</td>
-                    <td scope="row">{{ $row->kka }}</td>
-                    <td scope="row">{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
-                    <td scope="row">{{ $row->jam_terima }}</td>
-                    <td scope="row">{{ $row->disposisi_kepada }}</td>
-                    <td scope="row">{{ $row->distribusi }}</td>
-                    <td scope="row">{{ $row->isi_disposisi }}</td>
-                    <td scope="row">{{ $row->keterangan }}</td>
+                    <td>{{ $row->nomor_surat }}</td>
+                    <td>{{ $row->jenis_surat }}</td>
+                    <td>{{ $row->asal_surat }}</td>
+                    <td>{{ $row->perihal }}</td>
+                    <td>{{ $row->kka }}</td>
+                    <td>{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
+                    <td>{{ $row->jam_terima }}</td>
+                    <td>{{ $row->disposisi_kepada }}</td>
+                    <td>{{ $row->distribusi }}</td>
+                    <td>{{ $row->isi_disposisi }}</td>
+                    <td>{{ $row->keterangan }}</td>
                 </tr>
             @endforeach
 

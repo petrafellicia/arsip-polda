@@ -241,13 +241,28 @@ class SuratKeluarController extends Controller
         return redirect()->back()->with('success', 'Data surat masuk berhasil dihapus.');
     }
 
-    public function exportpdfkeluar(){
-        $data = SuratKeluar::all();
-
-        view()->share('data', $data);
-        $pdf = PDF::loadview('cetaksuratkeluar');
-        return $pdf->download('suratkeluar.pdf');
-        
+    public function showForm()
+    {
+        return view('pilih-bulan-keluar');
     }
+
+    public function exportpdfkeluar(Request $request)
+    {
+        $bulan = $request->input('bulan');
+        $data = SuratKeluar::whereMonth('tgl_surat', $bulan)->get();
+
+        $pdf = PDF::loadView('cetaksuratkeluar', ['data' => $data, 'bulan' => $bulan]);
+
+        return $pdf->download('suratkeluar' . $bulan . '.pdf');
+    }
+    // public function exportpdfkeluar()
+    // {
+    //     $data = SuratKeluar::all();
+
+    //     view()->share('data', $data);
+    //     $pdf = PDF::loadview('cetaksuratkeluar');
+    //     return $pdf->download('suratkeluar.pdf');
+
+    // }
 
 }

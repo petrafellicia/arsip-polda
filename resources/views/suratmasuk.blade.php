@@ -15,7 +15,8 @@
                 <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
                     style="margin-top:30px; margin-bottom:10px;" role="search">
                     <div class="col-auto">
-                <a href="/exportpdfmasuk" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem;">Rekap Surat</a>
+                    <a href="/pilih-bulan-masuk" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem;">Rekap Surat</a>
+                <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
             </div>
                     <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
                         placeholder="Search" aria-label="Search">
@@ -102,6 +103,52 @@
         });
     });
 </script>
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var rekapButton = document.getElementById("rekapButton");
+        var card = document.getElementById("card");
+
+        rekapButton.addEventListener("click", function() {
+            card.style.display = "block";
+        });
+    });
+</script>
+<style>
+    .card {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+</style>
+<div id="card" class="card">
+    <h4>Pilih Bulan untuk Rekap Surat</h4>
+    <form action="{{ route('exportpdfmasuk') }}" method="post">
+        @csrf
+        <label for="bulan">Pilih Bulan:</label>
+        <select name="bulan" id="bulan">
+            <option value="1">Januari</option>
+         <option value="02">Februari</option>
+        <option value="03">Maret</option>
+        <option value="04">April</option>
+        <option value="05">Mei</option>
+        <option value="06">Juni</option>
+        <option value="07">Juli</option>
+        <option value="08">Agustus</option>
+        <option value="09">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Generate PDF</button>
+    </form>
+</div> -->
 
     {{ $data->links() }}
 @endsection
