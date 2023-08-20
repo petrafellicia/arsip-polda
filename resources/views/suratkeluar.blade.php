@@ -17,16 +17,36 @@
             </div>
             <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
                 placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit" style="margin-bottom:1rem; font-size:14px;">Search</button>
 
         </form>
     </div>
     @if (!empty($message))
         <p>{{ $message }}</p>
     @elseif (!empty($data))
-        <div class="table-responsive">
-            <table class="table" style="text-align:center; font-size:14px;">
-                <thead>
+    <div class="table-responsive">
+    <table class="table" style="text-align:center; font-size:14px;">
+        <thead>
+            <tr style="text-wrap:nowrap;">
+                <th scope="col">Nomor Agenda</th>
+                <th scope="col">Nomor Surat</th>
+                <th scope="col">Jenis Surat</th>
+                <th scope="col">Surat dari</th>
+                <th scope="col">Perihal</th>
+                <th scope="col">KKA</th>
+                <th scope="col">Dasar Pembuatan Surat</th>
+                <th scope="col">Tanggal Surat</th>
+                <th scope="col">Jam Diterima Surat</th>
+                <th scope="col">Disposisi kepada</th>
+                <th scope="col">Distribusi</th>
+                <th scope="col">Isi Disposisi</th>
+                <th scope="col">Feedback</th>
+                <th scope="col">File</th>
+                <th scope="col">Aksi</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach ($data as $row)
                     <tr>
                         <th scope="col">Nomor Agenda</th>
                         <th scope="col">Nomor Surat</th>
