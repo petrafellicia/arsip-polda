@@ -12,8 +12,7 @@
         <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
             style="margin-top:30px; margin-bottom:10px;" role="search">
             <div class="col-auto">
-                <a href="/pilih-bulan-keluar" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem;">Rekap
-                    Surat</a>
+                <a href="/pilih-bulan-keluar" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem;">Rekap Surat</a>
             </div>
             <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
                 placeholder="Search" aria-label="Search">
@@ -48,77 +47,56 @@
         <tbody class="table-group-divider">
             @foreach ($data as $row)
                     <tr>
-                        <th scope="col">Nomor Agenda</th>
-                        <th scope="col">Nomor Surat</th>
-                        <th scope="col">Jenis Surat</th>
-                        <th scope="col">Surat dari</th>
-                        <th scope="col">Perihal</th>
-                        <th scope="col">KKA</th>
-                        <th scope="col">Dasar Pembuatan Surat</th>
-                        <th scope="col">Tanggal Surat</th>
-                        <th scope="col">Jam Diterima Surat</th>
-                        <th scope="col">Disposisi kepada</th>
-                        <th scope="col">Distribusi</th>
-                        <th scope="col">Isi Disposisi</th>
-                        <th scope="col">Feedback</th>
-                        <th scope="col">File</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="row">{{ $row->no_agenda }}</th>
+                        <td>{{ $row->no_surat }}</td>
+                        <td>{{ $row->jenis_surat }}</td>
+                        <td>{{ $row->asal_surat }}</td>
+                        <td>{{ $row->perihal }}</td>
+                        <td>{{ $row->kka }}</td>
+                        <td>{{ $row->dasar_surat }}</td>
+                        <td>{{ date('d-m-Y', strtotime($row->tgl_surat)) }}</td>
+                        <td>{{ $row->jam_surat }}</td>
+                        <td>{{ $row->disposisi }}</td>
+                        <td>{{ $row->distribusi }}</td>
+                        <td>{{ $row->isi_disposisi }}</td>
+                        <td>{{ $row->feedback }}</td>
+                        <td>
+                            <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success"
+                                style="font-size: 13px;">Download</a>
+                        </td>
+                        <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary"
+                                style="font-size: 13px;">Edit</button></td>
+                        <!-- <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger"
+                                style="font-size: 13px;">Delete</button></td> -->
+                                <td scope="row">
+    <a href="#" class="btn btn-danger delete-button"
+       data-id="{{ $row->id }}" style="font-size: 13px">Delete</a>
+</td>
                     </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    @foreach ($data as $row)
-                        <tr>
-                            <th scope="row">{{ $row->no_agenda }}</th>
-                            <td>{{ $row->no_surat }}</td>
-                            <td>{{ $row->jenis_surat }}</td>
-                            <td>{{ $row->asal_surat }}</td>
-                            <td>{{ $row->perihal }}</td>
-                            <td>{{ $row->kka }}</td>
-                            <td>{{ $row->dasar_surat }}</td>
-                            <td>{{ date('d-m-Y', strtotime($row->tgl_surat)) }}</td>
-                            <td>{{ $row->jam_surat }}</td>
-                            <td>{{ $row->disposisi }}</td>
-                            <td>{{ $row->distribusi }}</td>
-                            <td>{{ $row->isi_disposisi }}</td>
-                            <td>{{ $row->feedback }}</td>
-                            <td>
-                                <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success"
-                                    style="font-size: 13px;">Download</a>
-                            </td>
-                            <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary"
-                                    style="font-size: 13px;">Edit</button></td>
-                            <!-- <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger"
-                                    style="font-size: 13px;">Delete</button></td> -->
-                            <td scope="row">
-                                <a href="#" class="btn btn-danger delete-button" data-id="{{ $row->id }}"
-                                    style="font-size: 13px">Delete</a>
-                            </td>
-                        </tr>
-                    @endforeach
+                @endforeach
     @endif
     </tbody>
     </table>
-    </div>
+</div>
     @include('sweetalert::alert')
     <!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var deleteButtons = document.querySelectorAll(".delete-button");
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteButtons = document.querySelectorAll(".delete-button");
 
-            deleteButtons.forEach(function(button) {
-                button.addEventListener("click", function(event) {
-                    event.preventDefault();
+        deleteButtons.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
 
-                    var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
-                    if (confirmDelete) {
-                        var dataId = this.getAttribute("data-id");
-                        window.location.href = '/deletefilekeluar/' +
-                        dataId; // Ganti dengan URL delete yang sesuai
-                    }
-                });
+                var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
+                if (confirmDelete) {
+                    var dataId = this.getAttribute("data-id");
+                    window.location.href = '/deletekeluar/' + dataId; // Ganti dengan URL delete yang sesuai
+                }
             });
         });
-    </script>
+    });
+</script>
 
     {{ $data->links() }}
 @endsection
