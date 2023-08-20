@@ -16,7 +16,7 @@
             </div>
             <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
                 placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit" style="margin-bottom:1rem; font-size:14px;">Search</button>
 
         </form>
     </div>
@@ -26,7 +26,7 @@
     <div class="table-responsive">
     <table class="table" style="text-align:center; font-size:14px;">
         <thead>
-            <tr>
+            <tr style="text-wrap:nowrap;">
                 <th scope="col">Nomor Agenda</th>
                 <th scope="col">Nomor Surat</th>
                 <th scope="col">Jenis Surat</th>
