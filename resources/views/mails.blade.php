@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="daftar" style="width:style; display:flex;">
+<div class="content" style="width:style; display:flex; padding-top:4rem;">
     <div class="daftar" style="margin:auto;">
         <h1 style="font-size:35px;">Silakan pilih keperluan Anda</h1>
 

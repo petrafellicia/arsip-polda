@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 
     <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -52,8 +52,8 @@ integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDiYZCxYbOOl7+AMvyTG2
 crossorigin="anonymous"> -->
 
 <!-- My Style -->
-<!-- <link rel="stylesheet" href="/css/style.css">
+ <!-- <link rel="stylesheet" href="/css/style.css"> -->
 
-<title>Arsip-Polda Blog | {{ $title }}</title> -->
+<!-- <title>Arsip-Polda Blog | {{ $title }}</title> -->
 
 <!--  -->
