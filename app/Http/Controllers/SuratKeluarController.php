@@ -87,6 +87,23 @@ class SuratKeluarController extends Controller
         //     $data->save();
         // }
 
+        $request->validate([
+            'no_agenda' => 'required',
+            'no_surat' => 'required',
+            'jenis_surat' => 'required',
+            'asal_surat' => 'required',
+            'perihal' => 'required',
+            'kka' => 'required',
+            'dasar_surat' => 'required',
+            'tgl_surat' => 'required',
+            'jam_surat' => 'required',
+            'disposisi' => 'required',
+            'distribusi' => 'required',
+            'isi_disposisi' => 'required',
+            'feedback' => 'required',
+            'file' => 'required|mimes:pdf,jpeg,jpg'
+        ]);
+
         $disposisi = "";
         for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
             if ($request->get('disposisi')[$i] != null) {
@@ -119,9 +136,8 @@ class SuratKeluarController extends Controller
             $file->move('dokumensuratkeluar/', $filename);
             $data->file = $filename;
             $data->save();
+            Alert::success('Data Berhasil Disimpan', 'Data surat keluar telah berhasil disimpan ke database.')->toHtml();
         }
-
-        Alert::success('Data Berhasil Disimpan', 'Data surat keluar telah berhasil disimpan ke database.')->toHtml();
 
         return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
 
@@ -152,22 +168,22 @@ class SuratKeluarController extends Controller
 
     public function simpan(Request $request)
     {
-        $this->validate($request, [
-            'no_agenda' => 'unique:tb_suratkeluar',
-            'no_surat' => 'required',
-            'jenis_surat' => 'required',
-            'asal_surat' => 'required',
-            'perihal' => 'required',
-            'kka' => 'required',
-            'dasar_surat' => 'required',
-            'tgl_surat' => 'required',
-            'jam_surat' => 'required',
-            'disposisi' => 'required',
-            'distribusi' => 'required',
-            'isi_disposisi' => 'required',
-            'feedback' => 'required',
-            'dokumen' => 'mimes:pdf'
-        ]);
+        // $this->validate($request, [
+        //     'no_agenda' => 'unique:tb_suratkeluar',
+        //     'no_surat' => 'required',
+        //     'jenis_surat' => 'required',
+        //     'asal_surat' => 'required',
+        //     'perihal' => 'required',
+        //     'kka' => 'required',
+        //     'dasar_surat' => 'required',
+        //     'tgl_surat' => 'required',
+        //     'jam_surat' => 'required',
+        //     'disposisi' => 'required',
+        //     'distribusi' => 'required',
+        //     'isi_disposisi' => 'required',
+        //     'feedback' => 'required',
+        //     'dokumen' => 'mimes:pdf'
+        // ]);
         // $dokumen =  $request->file('dokumen');
         // $nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
         // $dokumen->move('dokumen/', $nama_dokumen);
@@ -221,9 +237,10 @@ class SuratKeluarController extends Controller
             $file->move('dokumensuratkeluar/', $filename);
             $data->file = $filename;
             $data->save();
+            Alert::success('Data Berhasil DiUpdate', 'Data surat keluar telah berhasil diupdate ke database.')->toHtml();
         }
 
-        Alert::success('Data Berhasil DiUpdate', 'Data surat keluar telah berhasil diupdate ke database.')->toHtml();
+
         // $data->update($request->all());
         return redirect('/daftar-surat-keluar');
         // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
@@ -235,10 +252,14 @@ class SuratKeluarController extends Controller
         if (!$suratKeluar) {
             Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
         } else {
+            $file = SuratKeluar::find($id)->file;
+            if (file_exists(public_path('dokumensuratkeluar/' . $file))) {
+                unlink(public_path('dokumensuratkeluar/' . $file));
+            }
             $suratKeluar->delete();
             Alert::success('Data Berhasil Dihapus', 'Data surat keluar telah berhasil dihapus dari database.')->toHtml();
         }
-        return redirect()->back()->with('success', 'Data surat masuk berhasil dihapus.');
+        return redirect()->back()->with('success', 'Data surat keluar berhasil dihapus.');
     }
 
     public function showForm()

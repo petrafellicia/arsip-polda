@@ -30,13 +30,13 @@
                                 <input type="text" id="nomor_surat" name="nomor_surat"
                                     class="form-control
               @error('nomor_agenda') is-ivalid @enderror"
-                                    value="{{ old('nomor_agenda') }}">
+                                    value="{{ old('nomor_agenda') }}" required>
                             </div>
                             <div class="mb-3">
                                 <label for="jenis_surat" class="form-label">Jenis Surat</label>
                                 <select class="form-select  @error('jenis_surat') is-ivalid @enderror"
                                     value="{{ old('jenis_surat') }}" name="jenis_surat"
-                                    aria-label="Default select example">
+                                    aria-label="Default select example" required>
                                     <option selected>Pilih Jenis Surat</option>
                                     <option>Surat Biasa</option>
                                     <option>Nota Dinas</option>
@@ -51,7 +51,7 @@
                                 <input type="text" name="asal_surat"
                                     class="form-control 
               @error('asal_surat') is-ivalid @enderror"
-                                    value="{{ old('asal_surat') }}" id="asal_surat">
+                                    value="{{ old('asal_surat') }}" id="asal_surat" required>
                             </div>
                             <div class="mb-3">
                                 <label for="perihal" class="form-label">Perihal</label>
@@ -63,7 +63,7 @@
                                     <label for="kka" class="form-label">KKA</label>
                                     <select class="form-select 
               @error('kka') is-ivalid @enderror"
-                                        value="{{ old('kka') }}" name="kka" aria-label="Default select example">
+                                        value="{{ old('kka') }}" name="kka" aria-label="Default select example" required>
                                         <option selected>Pilih KKA</option>
                                         <option>KEP</option>
                                         <option>BIN</option>
@@ -88,14 +88,14 @@
                                     <input type="date" name="tanggal_surat"
                                         class="form-control
               @error('tanggal_surat') is-ivalid @enderror"
-                                        value="{{ old('tanggal_surat') }}" id="tanggal_surat">
+                                        value="{{ old('tanggal_surat') }}" id="tanggal_surat" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jam_terima" class="form-label">Jam Terima</label>
                                     <input type="text" name="jam_terima"
                                         class="form-control 
               @error('jam_terima') is-ivalid @enderror"
-                                        value="{{ old('jam_terima') }}">
+                                        value="{{ old('jam_terima') }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
@@ -137,7 +137,7 @@
                                     <select class="form-select 
               @error('distribusi') is-ivalid @enderror"
                                         value="{{ old('distribusi') }}" name="distribusi"
-                                        aria-label="Default select example">
+                                        aria-label="Default select example" required>
                                         <option selected>Pilih Distribusi</option>
                                         <option>Mabes POLRI</option>
                                         <option>Kapolda DIY</option>
@@ -177,20 +177,20 @@
                                     <input type="text" name="isi_disposisi"
                                         class="form-control
                @error('isi_disposisi') is-ivalid @enderror"
-                                        value="{{ old('isi_disposisi') }}" id="isi_disposisi">
+                                        value="{{ old('isi_disposisi') }}" id="isi_disposisi" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="keterangan" class="form-label">Keterangan</label>
                                     <input type="text" name="keterangan"
                                         class="form-control 
               @error('keterangan') is-ivalid @enderror"
-                                        value="{{ old('keterangan') }}" id="keterangan">
+                                        value="{{ old('keterangan') }}" id="keterangan" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Dokumen</label>
                                     <input class="form-control 
               @error('file') is-ivalid @enderror"
-                                        value="{{ old('file') }}" name="file" type="file" id="formFile">
+                                        value="{{ old('file') }}" name="file" type="file" id="formFile" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -211,7 +211,6 @@
         script src = "https://code.jquery.com/jquery-3.7.0.slim.min.js"
         integrity = "sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE="
         crossorigin = "anonymous" >
-    </script>
     </script>
 </body>
 

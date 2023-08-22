@@ -86,6 +86,7 @@ class SuratMasukController extends Controller
     public function insertsurat(Request $request)
     {
         // dd($request->all());
+
         // $request->validate([
         //     'nomor_agenda' => 'required',
         //     'nomor_surat' => 'required',
@@ -99,7 +100,7 @@ class SuratMasukController extends Controller
         //     'distribusi' => 'required',
         //     'isi_disposisi' => 'required',
         //     'keterangan' => 'required',
-        //     'file' => 'mimes:pdf',
+        //     'file' => 'required|mimes:pdf,jpeg,jpg'
         // ]);
 
         $disposisi_kepada = "";
@@ -133,9 +134,9 @@ class SuratMasukController extends Controller
             $file->move('dokumensuratmasuk/', $filename);
             $data->file = $filename;
             $data->save();
+            Alert::success('Data Berhasil Disimpan', 'Data surat masuk telah berhasil disimpan ke database.')->toHtml();
         }
 
-        Alert::success('Data Berhasil Disimpan', 'Data surat masuk telah berhasil disimpan ke database.')->toHtml();
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');
         return redirect('/daftar-surat-masuk');
 
@@ -189,8 +190,9 @@ class SuratMasukController extends Controller
             $file->move('dokumensuratmasuk/', $filename);
             $data->file = $filename;
             $data->save();
+            Alert::success('Data Berhasil DiUpdate', 'Data surat masuk telah berhasil diupdate ke database.')->toHtml();
         }
-        Alert::success('Data Berhasil DiUpdate', 'Data surat masuk telah berhasil diupdate ke database.')->toHtml();
+
         // $data->update($request->all());
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Update');
         return redirect('/daftar-surat-masuk');
@@ -202,6 +204,11 @@ class SuratMasukController extends Controller
         if (!$suratMasuk) {
             Alert::error('Data tidak ditemukan', 'Data dengan ID yang diberikan tidak ditemukan.');
         } else {
+            $file = SuratMasuk::find($id)->file;
+            if (file_exists(public_path('dokumensuratmasuk/' . $file))) {
+                unlink(public_path('dokumensuratmasuk/' . $file));
+            }
+
             $suratMasuk->delete();
             Alert::success('Data Berhasil Dihapus', 'Data surat masuk telah berhasil dihapus dari database.')->toHtml();
         }
