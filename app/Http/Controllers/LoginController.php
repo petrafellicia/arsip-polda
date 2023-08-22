@@ -50,6 +50,7 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
+            // if (Auth::attempt($request->only('email', 'password'))) {
             //sukses
             return redirect('home')->with('Berhasil login');
         } else {

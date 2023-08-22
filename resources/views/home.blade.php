@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
 @section('container')
-  <h2 style="margin-left:7rem; padding-bottom:1rem;">Grafik Surat Masuk dan Surat Keluar Polda DIY</h2>
+<div>
+<h1 style="font-size:35px; margin-left:2.9rem;">Welcome, {{ Auth::user()->name }}!</h1>
+</div>
+<br></br>
+  <h2 style="margin-left:6.5rem; padding-bottom:1rem;">Grafik Surat Masuk dan Surat Keluar Polda DIY</h2>
 
 <div class="S">
   <div id="grafikSurat">
