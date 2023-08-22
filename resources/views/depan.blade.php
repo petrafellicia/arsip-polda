@@ -19,10 +19,10 @@
   </div>
   </div>
 </nav>
-      <div class="text">
+      <div class="text" style="font-family: Times New Roman, Times, serif;">
       <h1>WELCOME TO THE E-ARCHIVE</h1>
       <h1>POLDA DIY</h1>
-      <button type="button"><a href="/login">Login</a></button>
+      <button type="button"><a href="/login" style="font-family: Times New Roman, Times, serif; font-size:20px;">Login</a></button>
 </div>
  
 </body>

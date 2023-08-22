@@ -12,14 +12,14 @@
     <div class="login">
       <form action="{{ route('postlogin') }}" method="post">
        @csrf
-        <h1>Login</h1>
+        <h1 style="font-family: Times New Roman, Times, serif;">Login</h1>
         <hr>
-        <p>Arsip Surat</p>
-        <label for="username">Username</label>
-        <input type="text"  value="{{ Session::get('username') }}" name="username" placeholder="Username">
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password">
-        <button name="submit" type="submit">Login now!</button>
+        <p style="font-family: Times New Roman, Times, serif;">Arsip Surat</p>
+        <label for="username" style="font-family: Times New Roman, Times, serif;">Username</label>
+        <input type="text"  value="{{ Session::get('username') }}" name="username" placeholder="Username" style="font-family: Times New Roman, Times, serif;">
+        <label for="password" style="font-family: Times New Roman, Times, serif;">Password</label>
+        <input type="password" name="password" placeholder="Password" style="font-family: Times New Roman, Times, serif;">
+        <button name="submit" type="submit" style="font-family: Times New Roman, Times, serif;">Login now!</button>
       </form>
     </div>
     <div class="right">

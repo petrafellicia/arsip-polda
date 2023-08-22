@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/pilih-bulan.css">
 </head>
 <body>
-<div class="container">
+<div class="container" style="font-family: Times New Roman, Times, serif;">
     <div class="bulan">
     <form action="{{ route('exportpdfkeluar') }}" method="post">
         @csrf

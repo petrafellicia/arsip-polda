@@ -2,10 +2,10 @@
 
 @section('container')
 <div>
-<h1 style="font-size:35px; margin-left:4rem; padding-top:4rem;">Welcome, {{ Auth::user()->name }}!</h1>
+<h1 style="font-size:35px; margin-left:4rem; padding-top:4rem; font-family: Times New Roman, Times, serif;">Welcome, {{ Auth::user()->name }}!</h1>
 </div>
 <br></br>
-  <h2 style="text-align:center; padding-bottom:1rem;">Grafik Surat Masuk dan Surat Keluar Polda DIY</h2>
+  <h2 style="text-align:center; padding-bottom:1rem; font-family: Times New Roman, Times, serif;">Grafik Surat Masuk dan Surat Keluar Polda DIY</h2>
 
 <div class="S">
   <div id="grafikSurat">

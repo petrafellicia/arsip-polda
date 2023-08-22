@@ -1,26 +1,26 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Daftar Surat Masuk</h1>
+    <h1 style="font-family: Times New Roman, Times, serif; padding-top:2rem;">Daftar Surat Masuk</h1>
     <hr>
     </hr>
     <div class="container-fluid">
-        <a href="/mails">Back to Mails</a>
+        <a href="/mails" style="font-family: Times New Roman, Times, serif;">Back to Mails</a>
         <button type="button"
             style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
-            <a style="color:white; justify-content:center; text-decoration:none;" href="/masuk">Tambah Surat</a></button>
+            <a style="color:white; justify-content:center; text-decoration:none;font-family: Times New Roman, Times, serif;" href="/masuk">Tambah Surat</a></button>
 
         
             
                 <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
                     style="margin-top:30px; margin-bottom:10px;" role="search">
                     <div class="col-auto">
-                    <a href="/pilih-bulan-masuk" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem;">Rekap Surat</a>
+                    <a href="/pilih-bulan-masuk" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem; font-family: Times New Roman, Times, serif;">Rekap Surat</a>
                 <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
             </div>
                     <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
-                        placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" style="margin-bottom:1rem; font-size:14px;">Search</button>       
+                        placeholder="Search" aria-label="Search" style="font-family: Times New Roman, Times, serif;">
+                    <button class="btn btn-outline-success" type="submit" style="margin-bottom:1rem; font-size:14px; font-family: Times New Roman, Times, serif;">Search</button>       
             
             </form>
     </div>
@@ -28,7 +28,7 @@
         <p>{{ $pesan }}</p>
     @elseif (!empty($data))
     <div class="table-responsive">
-        <table class="table" style="text-align:center; font-size:14px; ">
+        <table class="table" style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif; ">
             <thead>
                 <tr style="text-wrap:nowrap;">
                     <th scope="col">Nomor Agenda</th>
@@ -67,15 +67,15 @@
                         <td>{{ $row->keterangan }}</td>
                         <td>
                             <a href="dokumensuratmasuk/{{ $row->file }}" class="btn btn-success"
-                                style="font-size: 13px">Download</a>
+                                style="font-size: 13px; font-family: Times New Roman, Times, serif;">Download</a>
                         </td>
                         <td scope="row"><a href="/tampilkandatamasuk/{{ $row->id }}" class="btn btn-primary"
-                                style="font-size: 13px">Edit</td>
+                                style="font-size: 13px; font-family: Times New Roman, Times, serif;">Edit</td>
                         <!-- <td scope="row"><a href="/deletemasuk/{{ $row->id }}" class="btn btn-danger"
                                 style="font-size: 13px">Delete -->
                                 <td scope="row">
     <a href="#" class="btn btn-danger delete-button"
-       data-id="{{ $row->id }}" style="font-size: 13px">Delete</a>
+       data-id="{{ $row->id }}" style="font-size: 13px; font-family: Times New Roman, Times, serif;">Delete</a>
 </td>
                     </tr>
                 @endforeach
