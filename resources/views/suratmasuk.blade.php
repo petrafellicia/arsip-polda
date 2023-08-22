@@ -15,7 +15,7 @@
                 <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
                     style="margin-top:30px; margin-bottom:10px;" role="search">
                     <div class="col-auto">
-                    <a href="/pilih-bulan-masuk" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem; font-family: Times New Roman, Times, serif;">Rekap Surat</a>
+                    <a href="/pilih-bulan-masuk" class="btn btn-info" style="margin-bottom:1rem; margin-right:45rem; font-family: Times New Roman, Times, serif; ">Rekap Surat</a>
                 <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
             </div>
                     <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"

@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <h2 class="text-center">Input-Update Data Surat Masuk</h2>
+    <h2 class="text-center" style="font-family: Times New Roman, Times, serif">Input-Update Data Surat Masuk</h2>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="font-family: Times New Roman, Times, serif">
                         <form action="/insertsurat" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
@@ -63,7 +63,8 @@
                                     <label for="kka" class="form-label">KKA</label>
                                     <select class="form-select 
               @error('kka') is-ivalid @enderror"
-                                        value="{{ old('kka') }}" name="kka" aria-label="Default select example" required>
+                                        value="{{ old('kka') }}" name="kka" aria-label="Default select example"
+                                        required>
                                         <option selected>Pilih KKA</option>
                                         <option>KEP</option>
                                         <option>BIN</option>
@@ -190,7 +191,8 @@
                                     <label for="formFile" class="form-label">Upload Dokumen</label>
                                     <input class="form-control 
               @error('file') is-ivalid @enderror"
-                                        value="{{ old('file') }}" name="file" type="file" id="formFile" required>
+                                        value="{{ old('file') }}" name="file" type="file" id="formFile"
+                                        required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

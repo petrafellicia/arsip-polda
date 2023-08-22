@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="content" style="width:style; display:flex; padding-top:4rem; justify-content:center;">
+    <div class="content" style="width:style; display:flex; padding-top:4rem; justify-content-center;">
         <div class="daftar" style="margin:auto; justify-content:center; position: relative;">
             <h1 style="font-size:35px; font-family: Times New Roman, Times, serif;">Silakan Pilih Keperluan Anda</h1>
 

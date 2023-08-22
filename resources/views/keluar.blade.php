@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <h2 class="text-center">Input-Update Data Surat Keluar</h2>
+    <h2 class="text-center" style="font-family: Times New Roman, Times, serif">Input-Update Data Surat Keluar</h2>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="font-family: Times New Roman, Times, serif">
                         <form method="POST" action="/insertsuratkeluar" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
