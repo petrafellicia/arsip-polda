@@ -100,7 +100,7 @@ class SuratMasukController extends Controller
         //     'distribusi' => 'required',
         //     'isi_disposisi' => 'required',
         //     'keterangan' => 'required',
-        //     'file' => 'required|mimes:pdf,jpeg,jpg'
+        //     'file' => 'required|mimes:pdf,word,jpeg,png,jpg',
         // ]);
 
         $disposisi_kepada = "";

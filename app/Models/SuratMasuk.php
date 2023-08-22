@@ -35,4 +35,12 @@ class SuratMasuk extends Model
         'file'
     ];
 
+    // public static function deleteDocument($id){
+    //     $file = SuratMasuk::findorFail($id);
+
+    //     dokumennsuratmasuk::delete($file->file_path);
+
+    //     $file->delete();
+    // }
+
 }

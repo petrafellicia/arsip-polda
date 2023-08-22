@@ -73,19 +73,23 @@ class SuratKeluarController extends Controller
 
     public function insertsuratkeluar(Request $request)
     {
-        // dd($request->all());
-        // Hapus field "options" dari data request
-        // $requestData = $request->except('options');
-
-        // Simpan data tunggal ke model SuratKeluar
-        // $data = SuratKeluar::create($requestData);
-
-        // Lakukan operasi untuk file jika ada
-        // if ($request->hasFile('file')) {
-        //     $request->file('file')->move('dokumensuratkeluar/', $request->file('file')->getClientOriginalName());
-        //     $data->file = $request->file('file')->getClientOriginalName();
-        //     $data->save();
-        // }
+        dd($request->all());
+        $request->validate([
+            'no_agenda' => 'required',
+            'no_surat' => 'required',
+            'jenis_surat' => 'required',
+            'asal_surat' => 'required',
+            'perihal' => 'required',
+            'kka' => 'required',
+            'dasar_surat' => 'required',
+            'tgl_surat' => 'required',
+            'jam_surat' => 'required',
+            'disposisi' => 'required',
+            'distribusi' => 'required',
+            'isi_disposisi' => 'required',
+            'feedback' => 'required',
+            'file' => 'required|mimes:pdf,word,jpeg,png,jpg',
+        ]);
 
         $request->validate([
             'no_agenda' => 'required',
@@ -182,7 +186,7 @@ class SuratKeluarController extends Controller
         //     'distribusi' => 'required',
         //     'isi_disposisi' => 'required',
         //     'feedback' => 'required',
-        //     'dokumen' => 'mimes:pdf'
+        //     'file' => 'required|mimes:pdf,word,jpeg,png,jpg',
         // ]);
         // $dokumen =  $request->file('dokumen');
         // $nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
@@ -260,6 +264,20 @@ class SuratKeluarController extends Controller
             Alert::success('Data Berhasil Dihapus', 'Data surat keluar telah berhasil dihapus dari database.')->toHtml();
         }
         return redirect()->back()->with('success', 'Data surat keluar berhasil dihapus.');
+    }
+
+    public function destroy($id)
+    {
+        $hapus = SuratKeluar::findorfail($id);
+
+        $file = public_path('/dokumensuratkeluar') . $hapus->gambar;
+        if (file_exists($file)) {
+            @unlink($file);
+        }
+
+        $hapus->delete();
+        return back();
+
     }
 
     public function showForm()
