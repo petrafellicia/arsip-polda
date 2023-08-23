@@ -26,7 +26,7 @@
     </div>
 
     {!! $chart->script() !!}
-
+<!-- 
     <script>
   Highcharts.chart('chartSurat', {
     chart: {
@@ -70,7 +70,7 @@
         }
     ]
 });
-</script>
+</script> -->
 @endsection
 
 

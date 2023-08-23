@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 style="font-family: Times New Roman, Times, serif; padding-top:2rem;">Daftar Surat Keluar</h1>
+    <h1 style="font-family: Times New Roman, Times, serif; padding-top:3rem;">Daftar Surat Keluar</h1>
     <hr>
     </hr>
     <div class="container-fluid">
