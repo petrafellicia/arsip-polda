@@ -9,20 +9,16 @@
         <button type="button"
             style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
             <a style="color:white; justify-content:center; text-decoration:none;font-family: Times New Roman, Times, serif;" href="/masuk">Tambah Surat</a></button>
-
-        
-            
                 <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
                     style="margin-top:30px; margin-bottom:10px;" role="search">
                     <div class="col-auto">
-                    <a href="/pilih-bulan-masuk" class="btn btn-info btn-responsive" style="margin-bottom:1rem; margin-right:45rem; font-family: Times New Roman, Times, serif; ">Rekap Surat</a>
+                        <a href="/pilih-bulan-masuk" class="btn btn-info btn-responsive" style="margin-bottom:1rem; margin-right:45rem; font-family: Times New Roman, Times, serif; ">Rekap Surat</a>
                 <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
-            </div>
+                    </div>
                     <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
                         placeholder="Search" aria-label="Search" style="font-family: Times New Roman, Times, serif;">
-                    <button class="btn btn-outline-success flex-shrink-0" type="submit" style="margin-bottom:1rem; font-size:14px; margin-bottom:3rem; display:flex; font-family: Times New Roman, Times, serif;">Search</button>       
-            
-            </form>
+                    <button class="btn btn-outline-success flex-shrink-0" type="submit" style="margin-bottom:1rem; font-size:14px; display:flex; font-family: Times New Roman, Times, serif;">Search</button>                   
+                </form>
     </div>
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
