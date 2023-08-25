@@ -91,22 +91,22 @@ class SuratKeluarController extends Controller
         //     'file' => 'required|mimes:pdf,word,jpeg,png,jpg',
         // ]);
 
-        $request->validate([
-            'no_agenda' => 'required',
-            'no_surat' => 'required',
-            'jenis_surat' => 'required',
-            'asal_surat' => 'required',
-            'perihal' => 'required',
-            'kka' => 'required',
-            'dasar_surat' => 'required',
-            'tgl_surat' => 'required',
-            'jam_surat' => 'required',
-            'disposisi' => 'required',
-            'distribusi' => 'required',
-            'isi_disposisi' => 'required',
-            'feedback' => 'required',
-            'file' => 'required|mimes:pdf,jpeg,jpg'
-        ]);
+        // $request->validate([
+        //     'no_agenda' => 'required',
+        //     'no_surat' => 'required',
+        //     'jenis_surat' => 'required',
+        //     'asal_surat' => 'required',
+        //     'perihal' => 'required',
+        //     'kka' => 'required',
+        //     'dasar_surat' => 'required',
+        //     'tgl_surat' => 'required',
+        //     'jam_surat' => 'required',
+        //     'disposisi' => 'required',
+        //     'distribusi' => 'required',
+        //     'isi_disposisi' => 'required',
+        //     'feedback' => 'required',
+        //     'file' => 'required|mimes:pdf,jpeg,jpg'
+        // ]);
 
         $disposisi = "";
         for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
