@@ -24,7 +24,7 @@ use App\Http\Controllers\LoginController;
 Route::get('/', function () {
     return view('depan');
 });
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
 Route::get('/logout', [LoginController::class, 'logout']);

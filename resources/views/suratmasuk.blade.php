@@ -10,12 +10,12 @@
                 <a href="/mails" class="btn btn-primary">Back to Mails</a>
             </div>
             <div class="col text-right">
-                <a href="/masuk" class="btn btn-primary">Tambah Surat</a>
+                <a href="/masuk" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Tambah Surat</a>
             </div>
         </div>
         <form action="/daftar-surat-masuk/search" method="GET" class="d-flex flex-wrap justify-content-between mx-auto" style="gap:1.25rem" role="search">
             <div class="col-auto align-items-center">
-                <a href="/pilih-bulan-masuk" class="btn btn-info">Rekap Surat</a>
+                <a href="/pilih-bulan-masuk" class="btn btn-info" style="font-family: Times New Roman, Times, serif;">Rekap Surat</a>
         <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
             </div>
             <div class="col-auto d-flex align-items-center">
