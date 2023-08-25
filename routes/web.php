@@ -77,7 +77,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/deletekeluar/{id}', [SuratKeluarController::class, 'deletekeluar'])->name('deletekeluar');
     Route::get('/deletefilemasuk/{id}', [SuratMasukController::class, 'destroy'])->name('deletefilemasuk');
     Route::get('/deletefilekeluar/{id}', [SuratKeluarController::class, 'destroy'])->name('deletefilekeluar');
-   
+
 
     //exportpdf
     Route::get('/pilih-bulan-masuk', [SuratMasukController::class, 'showForm'])->name('pilih-bulan-masuk');

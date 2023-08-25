@@ -116,7 +116,7 @@ class GrafikController extends Controller
         ];
 
         return view('home', [
-            'title' => 'Daftar Surat Masuk',
+            'title' => 'Home',
             'data' => $data,
         ]);
     }

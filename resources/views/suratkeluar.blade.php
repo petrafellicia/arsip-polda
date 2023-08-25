@@ -24,7 +24,7 @@
             </div>
         </form>
     </div>
-    
+
     <!-- <div class="container-fluid">
         <a href="/mails" style="font-family: Times New Roman, Times, serif;">Back to Mails</a>
         <button type="button"
@@ -66,6 +66,7 @@
                         <th scope="col">Feedback</th>
                         <th scope="col">File</th>
                         <th scope="col">Aksi</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
