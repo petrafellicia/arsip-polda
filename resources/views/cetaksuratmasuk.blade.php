@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <div class="form-group">
+    <div class="form-group" style="font-size:14px;">
         <p align="center"><b>Laporan Surat Masuk Bulan {{ date('F', mktime(0, 0, 0, $bulan, 1)) }}</b></p>
         <table id="customers">
             <tr>

@@ -20,6 +20,11 @@
         <label for="password" style="font-family: Times New Roman, Times, serif;">Password</label>
         <input type="password" name="password" placeholder="Password" style="font-family: Times New Roman, Times, serif;">
         <button name="submit" type="submit" style="font-family: Times New Roman, Times, serif;">Login now!</button>
+        @if($errors->any())
+        <div style="color:red;text-align:center;" role="alert">
+          {{ $errors->first() }}
+        </div>
+        @endif
       </form>
     </div>
     <div class="right">

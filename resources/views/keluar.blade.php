@@ -21,15 +21,15 @@
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nomor Agenda</label>
                                 <input type="text" name="no_agenda" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                    aria-describedby="emailHelp" required autofocus>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Nomor Surat</label>
-                                <input type="text" name="no_surat" class="form-control" id="exampleInputPassword1">
+                                <input type="text" name="no_surat" class="form-control" id="exampleInputPassword1" required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
-                                <select class="form-select" name="jenis_surat" aria-label="Default select example">
+                                <select class="form-select" name="jenis_surat" aria-label="Default select example" required>
                                     <option selected>Open this select menu</option>
                                     <option>Surat Biasa</option>
                                     <option>Nota Dinas</option>
@@ -41,11 +41,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Asal Surat</label>
-                                <input type="text" name="asal_surat" class="form-control" id="exampleInputPassword1">
+                                <input type="text" name="asal_surat" class="form-control" id="exampleInputPassword1" required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Perihal</label>
-                                <input type="text" name="perihal" class="form-control" id="exampleInputPassword1">
+                                <input type="text" name="perihal" class="form-control" id="exampleInputPassword1" required>
                             </div>
                             <!-- <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Perihal</label>
@@ -70,7 +70,7 @@
               </div> -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">KKA</label>
-                                <select class="form-select" name="kka" aria-label="Default select example">
+                                <select class="form-select" name="kka" aria-label="Default select example" required>
                                     <option selected>Open this select menu</option>
                                     <option>KEP</option>
                                     <option>BIN</option>
@@ -93,17 +93,17 @@
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Dasar Pembuatan Surat</label>
                                 <input type="text" name="dasar_surat" class="form-control"
-                                    id="exampleInputPassword1">
+                                    id="exampleInputPassword1" required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Tanggal Surat</label>
                                 <input type="date" name="tgl_surat" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                    aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Jam Terima</label>
                                 <input type="text" name="jam_surat" class="form-control"
-                                    id="exampleInputPassword1">
+                                    id="exampleInputPassword1" required>
                             </div>
                             <div class="mb-3">
                             <label for="disposisi" class="form-label">Disposisi Kepada</label>
@@ -144,7 +144,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Distribusi</label>
-                                <select class="form-select" name="distribusi" aria-label="Default select example">
+                                <select class="form-select" name="distribusi" aria-label="Default select example" required>
                                     <option selected>Open this select menu</option>
                                     <option>Mabes POLRI</option>
                                     <option>Kapolda DIY</option>
@@ -182,18 +182,18 @@
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Isi Disposisi</label>
                                 <input type="text" name="isi_disposisi" class="form-control"
-                                    id="exampleInputPassword1">
+                                    id="exampleInputPassword1" required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Feedback</label>
                                 <input type="text" name="feedback" class="form-control"
-                                    id="exampleInputPassword1">
+                                    id="exampleInputPassword1" required>
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Upload Dokumen</label>
                                 <!-- <input class="form-control 
               @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile"> -->
-                                <input class="form-control" name="file" type="file" id="formFile">
+                                <input class="form-control" name="file" type="file" id="formFile" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

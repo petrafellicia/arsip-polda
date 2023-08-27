@@ -10,10 +10,11 @@ use App\Http\Controllers\Controller;
 class MailController extends Controller
 {
     //
-    public function index(){
-         return view('mails',[
+    public function index()
+    {
+        return view('mails', [
             "title" => "Mails",
-           //"mails" => Mail::all()
+            //"mails" => Mail::all()
         ]);
     }
 

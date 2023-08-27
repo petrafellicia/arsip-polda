@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <div class="form-group">
+    <div class="form-group" style="font-size:14px;">
         <p align="center"><b>Laporan Surat Keluar Bulan {{ date('F', mktime(0, 0, 0, $bulan, 1)) }}</b></p>
         <table id="customers">
             <tr>
@@ -53,10 +53,9 @@
                 <th>Jenis Surat</th>
                 <th>Surat dari</th>
                 <th>Perihal</th>
-                <th>KKA</th>
+                <!-- <th>KKA</th> -->
                 <th>Dasar Pembuatan Surat</th>
-                <th>Tanggal Surat</th>
-                <th>Jam Diterima Surat</th>
+                <th>Tanggal dan Jam Diterima Surat</th>
                 <th>Disposisi kepada</th>
                 <th>Distribusi</th>
                 <th>Isi Disposisi</th>
@@ -73,10 +72,9 @@
                     <td>{{ $row->jenis_surat }}</td>
                     <td>{{ $row->asal_surat }}</td>
                     <td>{{ $row->perihal }}</td>
-                    <td>{{ $row->kka }}</td>
+                    <!-- <td>{{ $row->kka }}</td> -->
                     <td>{{ $row->dasar_surat }}</td>
-                    <td>{{ date('d-m-Y', strtotime($row->tgl_surat)) }}</td>
-                    <td>{{ $row->jam_surat }}</td>
+                    <td>{{ date('d-m-Y H:i', strtotime($row->tgl_surat.' '.$row->jam_surat)) }}</td>
                     <td>{{ $row->disposisi }}</td>
                     <td>{{ $row->distribusi }}</td>
                     <td>{{ $row->isi_disposisi }}</td>

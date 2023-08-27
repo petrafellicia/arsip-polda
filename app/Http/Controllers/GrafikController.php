@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 //use Charts;
-use ConsoleTVs\Charts\Facades\Charts;
+// use ConsoleTVs\Charts\Facades\Charts;
 use App\Models\SuratMasuk;
 use App\Models\SuratKeluar;
 //use ConsoleTVs\Charts\Facades\Charts;
-use ConsoleTVs\Charts\Classes\Chartjs\Chart;
+// use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
@@ -100,16 +100,24 @@ class GrafikController extends Controller
             $months[] = $data->month;
         }
 
-        $chart = new Chart('bar', 'chartjs');
-        $chart->title('Monthly Surat');
-        $chart->labels($months);
+        // $chart = new Chart('bar', 'chartjs');
+        // $chart->title('Monthly Surat');
+        // $chart->labels($months);
 
-        $chart->dataset('Surat Masuk', 'bar', $dailyDataMasuk->pluck('total_surat'))->color('blue');
-        $chart->dataset('Surat Keluar', 'bar', $dailyDataKeluar->pluck('total_surat'))->color('red');
+        // $chart->dataset('Surat Masuk', 'bar', $dailyDataMasuk->pluck('total_surat'))->color('blue');
+        // $chart->dataset('Surat Keluar', 'bar', $dailyDataKeluar->pluck('total_surat'))->color('red');
+
+        // dd($months, $dailyDataMasuk->pluck('total_surat'), $dailyDataKeluar->pluck('total_surat'));
+
+        $data = [
+            'labels' => $months,
+            'surat_masuk' => $dailyDataMasuk->pluck('total_surat'),
+            'surat_keluar' => $dailyDataKeluar->pluck('total_surat')
+        ];
 
         return view('home', [
-            'title' => 'Daftar Surat Masuk',
-            'chart' => $chart,
+            'title' => 'Home',
+            'data' => $data,
         ]);
     }
 

@@ -1,59 +1,83 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 style="font-family: Times New Roman, Times, serif; padding-top:2rem;">Daftar Surat Masuk</h1>
+    <h1 style="font-family: Times New Roman, Times, serif; padding-top:3rem;">Daftar Surat Masuk</h1>
     <hr>
     </hr>
-    <div class="container-fluid">
-        <a href="/mails" style="font-family: Times New Roman, Times, serif;">Back to Mails</a>
-        <button type="button"
-            style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
-            <a style="color:white; justify-content:center; text-decoration:none;font-family: Times New Roman, Times, serif;"
-                href="/masuk">Tambah Surat</a></button>
-
-
-
-        <form action="/daftar-surat-masuk/search" method="GET" class="d-flex justify-content-end"
-            style="margin-top:10px; margin-bottom:10px;" role="search">
-            <div class="col-auto">
-                <a href="/pilih-bulan-masuk" class="btn btn-info"
-                    style="margin-bottom:rem; margin-right:rem; font-family: Times New Roman, Times, serif; margin-top:20px; ">Rekap
-                    Surat</a>
-
-                <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
-                    placeholder="Search" aria-label="Search"
-                    style="font-family: Times New Roman, Times, serif; margin-left:25rem;">
-                <button class="btn btn-outline-success" type="submit"
-                    style="margin-bottom:rem; font-size:14px; font-family: Times New Roman, Times, serif;">Search</button>
+    <div class="container-fluid mb-3">
+        <div class="row mx-auto mb-3">
+            <div class="col">
+                <a href="/mails" class="btn btn-primary">Back to Mails</a>
             </div>
-            {{-- <input class="form-control w-25 me-2" name="search" type="search" value="{{ request('search') }}"
-                        placeholder="Search" aria-label="Search" style="font-family: Times New Roman, Times, serif;">
-                    <button class="btn btn-outline-success" type="submit" style="margin-bottom:1rem; font-size:14px; font-family: Times New Roman, Times, serif;">Search</button>       
-             --}}
-
+            <div class="col text-right">
+                <a href="/masuk" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Tambah Surat</a>
+            </div>
+        </div>
+        <form action="/daftar-surat-masuk/search" method="GET" class="d-flex flex-wrap justify-content-between mx-auto" style="gap:1.25rem" role="search">
+            <div class="col-auto align-items-center">
+                <a href="/pilih-bulan-masuk" class="btn btn-info" style="font-family: Times New Roman, Times, serif;">Rekap Surat</a>
+        <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
+            </div>
+            <div class="col-auto d-flex align-items-center">
+                <input class="form-control me-2" name="search" type="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>                   
+            </div>
         </form>
     </div>
     @if (!empty($pesan))
         <p>{{ $pesan }}</p>
     @elseif (!empty($data))
-        <div class="table-responsive">
-            <table class="table" style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif; ">
-                <thead>
-                    <tr style="text-wrap:nowrap;">
-                        <th scope="col">Nomor Agenda</th>
-                        <th scope="col">Nomor Surat</th>
-                        <th scope="col">Jenis Surat</th>
-                        <th scope="col">Surat dari</th>
-                        <th scope="col">Perihal</th>
-                        <th scope="col">KKA</th>
-                        <th scope="col">Tanggal Surat</th>
-                        <th scope="col">Jam Diterima </th>
-                        <th scope="col">Disposisi</th>
-                        <th scope="col">Distribusi</th>
-                        <th scope="col">Isi Disposisi</th>
-                        <th scope="col">Keterangan</th>
-                        <th scope="col">Dokumen</th>
-                        <th scope="col">Aksi</th>
+    <div class="table-responsive">
+        <table class="table" style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif; ">
+            <thead>
+                <tr style="text-wrap:nowrap;">
+                    <th scope="col">Nomor Agenda</th>
+                    <th scope="col">Nomor Surat</th>
+                    <th scope="col">Jenis Surat</th>
+                    <th scope="col">Surat dari</th>
+                    <th scope="col">Perihal</th>
+                    <th scope="col">KKA</th>
+                    <th scope="col">Tanggal Surat</th>
+                    <th scope="col">Jam Diterima </th>
+                    <th scope="col">Disposisi</th>
+                    <th scope="col">Distribusi</th>
+                    <th scope="col">Isi Disposisi</th>
+                    <th scope="col">Keterangan</th>
+                    <th scope="col">Dokumen</th>
+                    <th scope="col">Aksi</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody class="table-group-divider">
+
+
+                @foreach ($data as $row)
+                    <tr>
+                        <th scope="row">{{ $row->nomor_agenda }}</th>
+                        <td>{{ $row->nomor_surat }}</td>
+                        <td>{{ $row->jenis_surat }}</td>
+                        <td>{{ $row->asal_surat }}</td>
+                        <td>{{ $row->perihal }}</td>
+                        <td>{{ $row->kka }}</td>
+                        <td>{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
+                        <td>{{ $row->jam_terima }}</td>
+                        <td>{{ $row->disposisi_kepada }}</td>
+                        <td>{{ $row->distribusi }}</td>
+                        <td>{{ $row->isi_disposisi }}</td>
+                        <td>{{ $row->keterangan }}</td>
+                        <td>
+                            <a href="dokumensuratmasuk/{{ $row->file }}" class="btn btn-success"
+                                style="font-size: 13px; font-family: Times New Roman, Times, serif;">Download</a>
+                        </td>
+                        <td scope="row"><a href="/tampilkandatamasuk/{{ $row->id }}" class="btn btn-primary"
+                                style="font-size: 13px; font-family: Times New Roman, Times, serif;">Edit</td>
+                        <!-- <td scope="row"><a href="/deletemasuk/{{ $row->id }}" class="btn btn-danger"
+                                style="font-size: 13px">Delete -->
+                                <td scope="row">
+    <a href="#" class="btn btn-danger delete-button"
+       data-id="{{ $row->id }}" style="font-size: 13px; font-family: Times New Roman, Times, serif;">Delete</a>
+</td>
                     </tr>
                 </thead>
 

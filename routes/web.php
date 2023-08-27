@@ -24,7 +24,7 @@ use App\Http\Controllers\LoginController;
 Route::get('/', function () {
     return view('depan');
 });
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -77,7 +77,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::get('/deletekeluar/{id}', [SuratKeluarController::class, 'deletekeluar'])->name('deletekeluar');
     Route::get('/deletefilemasuk/{id}', [SuratMasukController::class, 'destroy'])->name('deletefilemasuk');
     Route::get('/deletefilekeluar/{id}', [SuratKeluarController::class, 'destroy'])->name('deletefilekeluar');
-   
+
 
     //exportpdf
     Route::get('/pilih-bulan-masuk', [SuratMasukController::class, 'showForm'])->name('pilih-bulan-masuk');

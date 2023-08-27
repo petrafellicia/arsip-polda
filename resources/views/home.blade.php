@@ -15,18 +15,17 @@
 
 @section('footer')
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 <div style="width: 80%; margin: auto;">
         <!-- <h2>{{ $title }}</h2> -->
         <div id="chart-container">
-            {!! $chart->container() !!}
+            <canvas id="myChart" class="mx-auto" style="width:80%!important;height:auto!imporant;  "></canvas>
         </div>
     </div>
-
-    {!! $chart->script() !!}
-
+<!-- 
     <script>
   Highcharts.chart('chartSurat', {
     chart: {
@@ -70,6 +69,29 @@
         }
     ]
 });
+</script> -->
+<script>
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: @json($data['labels']),
+        datasets: [{
+            label: 'Surat Masuk',
+            data: @json($data['surat_masuk']),
+        },{
+            label: 'Surat Keluar',
+            data: @json($data['surat_keluar']),
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+    });
 </script>
 @endsection
 
