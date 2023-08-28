@@ -242,11 +242,11 @@ class SuratKeluarController extends Controller
             $file->move('dokumensuratkeluar/', $filename);
             $data->file = $filename;
             $data->save();
-            Alert::success('Data Berhasil DiUpdate', 'Data surat keluar telah berhasil diupdate ke database.')->toHtml();
         }
 
 
         // $data->update($request->all());
+        Alert::success('Data Berhasil DiUpdate', 'Data surat keluar telah berhasil diupdate ke database.')->toHtml();
         return redirect('/daftar-surat-keluar');
         // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
     }

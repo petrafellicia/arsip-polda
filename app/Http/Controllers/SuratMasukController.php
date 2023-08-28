@@ -192,11 +192,11 @@ class SuratMasukController extends Controller
             $file->move('dokumensuratmasuk/', $filename);
             $data->file = $filename;
             $data->save();
-            Alert::success('Data Berhasil DiUpdate', 'Data surat masuk telah berhasil diupdate ke database.')->toHtml();
         }
 
         // $data->update($request->all());
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Update');
+        Alert::success('Data Berhasil DiUpdate', 'Data surat masuk telah berhasil diupdate ke database.')->toHtml();
         return redirect('/daftar-surat-masuk');
     }
 

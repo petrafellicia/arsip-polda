@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h2 class="text-center" style="font-family: Times New Roman, Times, serif">Input-Update Data Surat Keluar</h2>
+    <h2 class="text-center" style="font-family: Times New Roman, Times, serif;">Input Data Surat Keluar</h2>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
@@ -190,7 +190,7 @@
                                     id="exampleInputPassword1" required>
                             </div>
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Upload Dokumen</label>
+                                <label for="formFile" class="form-label" required>Upload Dokumen</label>
                                 <!-- <input class="form-control 
               @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile"> -->
                                 <input class="form-control" name="file" type="file" id="formFile" required>

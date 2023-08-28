@@ -46,7 +46,7 @@
                         <th scope="col">Distribusi</th>
                         <th scope="col">Isi Disposisi</th>
                         <th scope="col">Keterangan</th>
-                        <th scope="col">Dokumen</th>
+                        <th scope="col">File</th>
                         <th scope="col">Aksi</th>
                         <th scope="col"></th>
                     </tr>

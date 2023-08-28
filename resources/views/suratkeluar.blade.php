@@ -59,7 +59,7 @@
                         <th scope="col">KKA</th>
                         <th scope="col">Dasar Pembuatan Surat</th>
                         <th scope="col">Tanggal Surat</th>
-                        <th scope="col">Jam Diterima Surat</th>
+                        <th scope="col">Jam Diterima</th>
                         <th scope="col">Disposisi kepada</th>
                         <th scope="col">Distribusi</th>
                         <th scope="col">Isi Disposisi</th>

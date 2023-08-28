@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body>
-    <h2 class="text-center">Edit Data Surat Keluar</h2>
+    <h2 class="text-center" style="font-family: Times New Roman, Times, serif;">Edit Data Surat Keluar</h2>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-8">

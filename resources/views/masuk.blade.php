@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h2 class="text-center" style="font-family: Times New Roman, Times, serif">Input-Update Data Surat Masuk</h2>
+    <h2 class="text-center" style="font-family: Times New Roman, Times, serif;">Input Data Surat Masuk</h2>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
