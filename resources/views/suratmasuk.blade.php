@@ -7,7 +7,7 @@
     <div class="container-fluid mb-3">
         <div class="row mx-auto mb-3">
             <div class="col">
-                <a href="/mails" class="btn btn-primary">Back to Mails</a>
+                <a href="/mails" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Back to Mails</a>
             </div>
             <div class="col text-right">
                 <a href="/masuk" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Tambah Surat</a>

@@ -65,7 +65,7 @@ class SuratMasukController extends Controller
             $data = DB::table('surat_masuks')->paginate(5);
         }
 
-        $pesan = empty($data) ? "File tidak ditemukan" : "";
+        $pesan = $data->isEmpty() ? "File tidak ditemukan" : "";
 
         return view(
             'suratmasuk',

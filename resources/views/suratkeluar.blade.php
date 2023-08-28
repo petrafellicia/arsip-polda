@@ -7,15 +7,15 @@
     <div class="container-fluid mb-3">
         <div class="row mx-auto mb-3">
             <div class="col">
-                <a href="/mails" class="btn btn-primary">Back to Mails</a>
+                <a href="/mails" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Back to Mails</a>
             </div>
             <div class="col text-right">
-                <a href="/keluar" class="btn btn-primary">Tambah Surat</a>
+                <a href="/keluar" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Tambah Surat</a>
             </div>
         </div>
         <form action="/daftar-surat-keluar/search" method="GET" class="d-flex flex-wrap justify-content-between mx-auto" style="gap:1.25rem" role="search">
             <div class="col-auto align-items-center">
-                <a href="/pilih-bulan-keluar" class="btn btn-info">Rekap Surat</a>
+                <a href="/pilih-bulan-keluar" class="btn btn-info" style="font-family: Times New Roman, Times, serif;">Rekap Surat</a>
         <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
             </div>
             <div class="col-auto d-flex align-items-center">
