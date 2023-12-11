@@ -205,27 +205,6 @@
               <label for="exampleInputPassword1" class="form-label">Isi Disposisi</label>
               <input type="text" name="isi_disposisi" value="{{ $data->isi_disposisi}} " class="form-control" id="exampleInputPassword1">
             </div>
-            <!-- <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Isi Disposisi</label>
-              <div class="form-check">
-                <input class="form-check-input" name="isi_disposisi" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Sudah Terlaksana
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="isi_disposisi" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Dalam Proses
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="isi_disposisi" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Menunggu Disposisi Pimpinan
-                </label>
-              </div>
-            </div> -->
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Feedback</label>
               <input type="text" name="feedback" value="{{ $data->feedback }}" class="form-control" id="exampleInputPassword1">

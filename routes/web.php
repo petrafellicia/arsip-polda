@@ -84,10 +84,8 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     Route::post('/exportpdfmasuk', [SuratMasukController::class, 'exportpdfmasuk'])->name('exportpdfmasuk');
     Route::get('/pilih-bulan-keluar', [SuratKeluarController::class, 'showForm'])->name('pilih-bulan-keluar');
     Route::post('/exportpdfkeluar', [SuratKeluarController::class, 'exportpdfkeluar'])->name('exportpdfkeluar');
-
-
-
 });
+
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",

@@ -28,6 +28,6 @@ class RedirectIfAuthenticated
         }
 
         // return $next($request);
-        return $next($login);
+        // return $next($login);
     }
 }

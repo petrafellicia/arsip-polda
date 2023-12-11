@@ -134,7 +134,6 @@ class SuratMasukController extends Controller
             $file->move('dokumensuratmasuk/', $filename);
             $data->file = $filename;
             $data->save();
-
         }
 
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');

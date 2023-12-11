@@ -16,12 +16,7 @@ class SuratKeluarController extends Controller
     public function index(Request $request)
     {
         $data = SuratKeluar::query();
-
-        // if ($request->has('search')) {
-        //     $data = SuratKeluar::where('no_surat', 'LIKE', '%' . $request->search . '%')->paginate(5);
-        // } else {
         $data = SuratKeluar::paginate(5);
-        //}
         return view(
             'suratkeluar',
             compact('data'),
@@ -33,15 +28,6 @@ class SuratKeluarController extends Controller
 
     public function cari(Request $request)
     {
-
-        // if($request->has('search')){
-        //     $data = DB::select("SELECT * FROM surat_keluars WHERE no_surat = ? OR tgl_surat = ? OR kka = ?", [$request->search, $request->search,$request->search]);
-        // } else{
-        //     $data = DB::paginate(5);
-        // }
-        // return view('suratkeluar', compact('data'),[
-        //     "title" => "Daftar Surat Keluar"
-        // ]);
         $searchTerm = $request->search;
         $data = [];
 
@@ -73,41 +59,6 @@ class SuratKeluarController extends Controller
 
     public function insertsuratkeluar(Request $request)
     {
-        // dd($request->all());
-        // $request->validate([
-        //     'no_agenda' => 'required',
-        //     'no_surat' => 'required',
-        //     'jenis_surat' => 'required',
-        //     'asal_surat' => 'required',
-        //     'perihal' => 'required',
-        //     'kka' => 'required',
-        //     'dasar_surat' => 'required',
-        //     'tgl_surat' => 'required',
-        //     'jam_surat' => 'required',
-        //     'disposisi' => 'required',
-        //     'distribusi' => 'required',
-        //     'isi_disposisi' => 'required',
-        //     'feedback' => 'required',
-        //     'file' => 'required|mimes:pdf,word,jpeg,png,jpg',
-        // ]);
-
-        // $request->validate([
-        //     'no_agenda' => 'required',
-        //     'no_surat' => 'required',
-        //     'jenis_surat' => 'required',
-        //     'asal_surat' => 'required',
-        //     'perihal' => 'required',
-        //     'kka' => 'required',
-        //     'dasar_surat' => 'required',
-        //     'tgl_surat' => 'required',
-        //     'jam_surat' => 'required',
-        //     'disposisi' => 'required',
-        //     'distribusi' => 'required',
-        //     'isi_disposisi' => 'required',
-        //     'feedback' => 'required',
-        //     'file' => 'required|mimes:pdf,jpeg,jpg'
-        // ]);
-
         $disposisi = "";
         for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
             if ($request->get('disposisi')[$i] != null) {
@@ -145,26 +96,7 @@ class SuratKeluarController extends Controller
 
         Alert::success('Data Berhasil Disimpan', 'Data surat keluar telah berhasil disimpan ke database.')->toHtml();
         return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
-
-        // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Tambahkan');
     }
-
-    // public function processFormKeluar(Request $request)
-    // {
-    //     $selectedOptions = $request->input('options', []);
-
-    //     // Cek apakah "other" dicentang, jika ya, maka ambil nilainya dari input teks
-    //     if (in_array('other', $selectedOptions) && $request->has('other_text')) {
-    //         $otherOptionValue = $request->input('other_text');
-
-    //         // Lakukan operasi atau simpan nilai "other" sesuai kebutuhan Anda
-    //     }
-
-    //     // Lakukan operasi atau simpan nilai opsi lain sesuai kebutuhan Anda
-
-    //     // Redirect kembali ke halaman form dengan pesan sukses
-    //     return redirect()->route('showFormKeluar')->with('success', 'Form berhasil dikirim');
-    // }
 
     public function download(Request $request, $file)
     {
@@ -173,28 +105,6 @@ class SuratKeluarController extends Controller
 
     public function simpan(Request $request)
     {
-        // $this->validate($request, [
-        //     'no_agenda' => 'unique:tb_suratkeluar',
-        //     'no_surat' => 'required',
-        //     'jenis_surat' => 'required',
-        //     'asal_surat' => 'required',
-        //     'perihal' => 'required',
-        //     'kka' => 'required',
-        //     'dasar_surat' => 'required',
-        //     'tgl_surat' => 'required',
-        //     'jam_surat' => 'required',
-        //     'disposisi' => 'required',
-        //     'distribusi' => 'required',
-        //     'isi_disposisi' => 'required',
-        //     'feedback' => 'required',
-        //     'file' => 'required|mimes:pdf,word,jpeg,png,jpg',
-        // ]);
-        // $dokumen =  $request->file('dokumen');
-        // $nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
-        // $dokumen->move('dokumen/', $nama_dokumen);
-
-        // $data = new SuratKeluar();
-        // $data->dokumen = $nama_dokumen;
     }
     public function tampilkandatakeluar($id)
     {
@@ -205,12 +115,6 @@ class SuratKeluarController extends Controller
     public function updatedatakeluar(Request $request, $id)
     {
         $data = SuratKeluar::find($id);
-        // if ($request->hasFile('file')) {
-        //     $request->file('file')->move('dokumensuratkeluar/', $request->file('file')->getClientOriginalName());
-        //     $data->file = $request->file('file')->getClientOriginalName();
-        //     $data->save();
-        // }
-
         $disposisi = "";
         for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
             if ($request->get('disposisi')[$i] != null) {
@@ -243,12 +147,8 @@ class SuratKeluarController extends Controller
             $data->file = $filename;
             $data->save();
         }
-
-
-        // $data->update($request->all());
         Alert::success('Data Berhasil DiUpdate', 'Data surat keluar telah berhasil diupdate ke database.')->toHtml();
         return redirect('/daftar-surat-keluar');
-        // return redirect()->route('daftar-surat-keluar')->with('success', 'Data Berhasil di Update');
     }
 
     public function deletekeluar($id)
@@ -295,14 +195,4 @@ class SuratKeluarController extends Controller
 
         return $pdf->download('suratkeluar' . $bulan . '.pdf');
     }
-    // public function exportpdfkeluar()
-    // {
-    //     $data = SuratKeluar::all();
-
-    //     view()->share('data', $data);
-    //     $pdf = PDF::loadview('cetaksuratkeluar');
-    //     return $pdf->download('suratkeluar.pdf');
-
-    // }
-
 }

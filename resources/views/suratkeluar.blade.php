@@ -87,16 +87,12 @@
                             <td>{{ $row->feedback }}</td>
                             <td>
                                 <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success"
-                                    style="font-size: 13px;">Download</a>
-                            </td>
+                                    style="font-size: 13px;">Download</a></td>
                             <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary"
                                     style="font-size: 13px;">Edit</button></td>
-                            <!-- <td><a href="/deletekeluar/{{ $row->id }}" class="btn btn-danger"
-                                    style="font-size: 13px;">Delete</button></td> -->
                             <td scope="row">
                                 <a href="#" class="btn btn-danger delete-button" data-id="{{ $row->id }}"
-                                    style="font-size: 13px">Delete</a>
-                            </td>
+                                    style="font-size: 13px">Delete</a></td>
                         </tr>
                     @endforeach
     @endif
@@ -104,7 +100,6 @@
     </table>
     </div>
     @include('sweetalert::alert')
-    <!-- Masukkan ini di dalam bagian <head> atau sebelum penutup </body> -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var deleteButtons = document.querySelectorAll(".delete-button");
@@ -123,6 +118,5 @@
             });
         });
     </script>
-
     {{ $data->links() }}
 @endsection

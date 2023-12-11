@@ -51,10 +51,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-
                 <tbody class="table-group-divider">
-
-
                     @foreach ($data as $row)
                         <tr>
                             <th scope="row">{{ $row->nomor_agenda }}</th>
@@ -71,20 +68,15 @@
                             <td>{{ $row->keterangan }}</td>
                             <td>
                                 <a href="dokumensuratmasuk/{{ $row->file }}" class="btn btn-success"
-                                    style="font-size: 13px; font-family: Times New Roman, Times, serif;">Download</a>
-                            </td>
+                                    style="font-size: 13px; font-family: Times New Roman, Times, serif;">Download</a></td>
                             <td scope="row"><a href="/tampilkandatamasuk/{{ $row->id }}" class="btn btn-primary"
                                     style="font-size: 13px; font-family: Times New Roman, Times, serif;">Edit</td>
-                            <!-- <td scope="row"><a href="/deletemasuk/{{ $row->id }}" class="btn btn-danger"
-                                    style="font-size: 13px">Delete -->
                             <td scope="row">
                                 <a href="#" class="btn btn-danger delete-button" data-id="{{ $row->id }}"
-                                    style="font-size: 13px; font-family: Times New Roman, Times, serif;">Delete</a>
-                            </td>
+                                    style="font-size: 13px; font-family: Times New Roman, Times, serif;">Delete</a></td>
                         </tr>
                     @endforeach
-    @endif
-
+                @endif
     </tbody>
     </table>
     </div>
@@ -108,6 +100,9 @@
             });
         });
     </script>
+     {{ $data->links() }}
+@endsection
+
     <!-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             var rekapButton = document.getElementById("rekapButton");
@@ -155,5 +150,4 @@
         </form>
     </div> -->
 
-    {{ $data->links() }}
-@endsection
+   

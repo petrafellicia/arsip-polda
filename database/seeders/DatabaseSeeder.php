@@ -19,11 +19,5 @@ class DatabaseSeeder extends Seeder
             SuratKeluarSeeder::class,
             SuratMasukSeeder::class,
         ]);
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

@@ -191,8 +191,6 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label" required>Upload Dokumen</label>
-                                <!-- <input class="form-control 
-              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile"> -->
                                 <input class="form-control" name="file" type="file" id="formFile" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>

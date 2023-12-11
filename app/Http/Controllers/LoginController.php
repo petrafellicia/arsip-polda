@@ -11,16 +11,6 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-    //
-    // use AuthenticatesUsers;
-
-    // public function showLoginForm()
-    // {
-    //     return view('auth.login');
-    // }
-
-
-
     public function index()
     {
         return view('login.index', [
@@ -42,7 +32,6 @@ class LoginController extends Controller
                 'password.required' => 'Password wajib diisi',
             ]
         );
-
         //autentikasi
         $infologin = [
             'username' => $request->username,
@@ -59,10 +48,8 @@ class LoginController extends Controller
         }
     }
 
-    public function logout()
-    {
+    public function logout(){
         Auth::logout();
         return redirect('login');
     }
-
 }
