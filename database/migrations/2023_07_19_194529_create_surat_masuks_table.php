@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('nomor_agenda');
             $table->string('nomor_surat')->unique();
             $table->string('jenis_surat');
-            $table->string('asal_surat');
+            $table->string('pengirim');
             $table->text('perihal');
             $table->string('kka');
             $table->date('tanggal_surat');
             $table->string('jam_terima');
             $table->string('disposisi_kepada');
-            $table->string('distribusi');
+            $table->string('penerima');
             $table->text('isi_disposisi');
             $table->string('keterangan');
             $table->string('file')->nullable(true);

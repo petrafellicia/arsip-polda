@@ -19,18 +19,21 @@ class SuratMasuk extends Model
     //     });
     // }
 
+    public function surattypes()
+    {
+        return $this->belongsTo(SuratType::class, 'jenis_surat', 'nama');
+    }
+
     protected $fillable = [
         'nomor_agenda',
         'nomor_surat',
         'jenis_surat',
-        'asal_surat',
+        'pengirim',
         'perihal',
         'kka',
         'tanggal_surat',
         'jam_terima',
-        'disposisi_kepada',
-        'distribusi',
-        'isi_disposisi',
+        'penerima',
         'keterangan',
         'file'
     ];

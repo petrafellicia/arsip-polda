@@ -7,19 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class SuratKeluar extends Model{
     use HasFactory;
     protected $guarded = [];
+
+    public function surattypes()
+    {
+        return $this->belongsTo(SuratType::class, 'jenis_surat', 'nama');
+    }
     protected $fillable = [
         'no_agenda',
         'no_surat',
         'jenis_surat',
-        'asal_surat',
+        'pengirim',
         'perihal',
         'kka',
         'dasar_surat',
         'tgl_surat',
         'jam_surat',
-        'disposisi',
-        'distribusi',
-        'isi_disposisi',
+        'penerima',
         'feedback',
         'file'
     ];
