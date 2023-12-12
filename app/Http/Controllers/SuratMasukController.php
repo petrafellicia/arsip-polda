@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mail;
 use App\Models\SuratMasuk;
+use App\Models\SuratType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -78,7 +79,8 @@ class SuratMasukController extends Controller
 
     public function tambahdata()
     {
-        return view('masuk', [
+        $datasurat = SuratType::all();
+        return view('masuk', compact('datasurat'), [
             "title" => "Input Surat Masuk"
         ]);
     }
@@ -114,7 +116,7 @@ class SuratMasukController extends Controller
             [
                 'nomor_agenda' => $request->nomor_agenda,
                 'nomor_surat' => $request->nomor_surat,
-                'jenis_surat' => $request->jenis_surat,
+                'id_type' => $request->id_type,
                 'pengirim' => $request->pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
@@ -172,7 +174,7 @@ class SuratMasukController extends Controller
             [
                 'nomor_agenda' => $request->nomor_agenda,
                 'nomor_surat' => $request->nomor_surat,
-                'jenis_surat' => $request->jenis_surat,
+                'id_type' => $request->id_type,
                 'pengirim' => $request->pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,

@@ -30,15 +30,18 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
-                                <select class="form-select" name="jenis_surat" aria-label="Default select example"
+                                <select class="form-select" name="id_type" aria-label="Default select example"
                                     required>
                                     <option selected>Open this select menu</option>
-                                    <option>Surat Biasa</option>
+                                    @foreach ($datasurat as $data)
+                                    <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                    @endforeach
+                                    <!-- <option>Surat Biasa</option>
                                     <option>Nota Dinas</option>
                                     <option>Telegram</option>
                                     <option>Sprin</option>
                                     <option>Surat Izin</option>
-                                    <option>Surat Rahasia</option>
+                                    <option>Surat Rahasia</option> -->
                                 </select>
                             </div>
                             <div class="mb-3">

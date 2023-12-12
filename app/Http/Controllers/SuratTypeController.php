@@ -16,7 +16,8 @@ class SuratTypeController extends Controller
     public function index()
     {
         //
-        $data = SuratType::query();
+        $data = SuratType::all();
+        return view();
     }
 
     /**
@@ -38,6 +39,8 @@ class SuratTypeController extends Controller
     public function store(StoreSuratTypeRequest $request)
     {
         //
+        $data = SuratType::create($request->all());
+
     }
 
     /**

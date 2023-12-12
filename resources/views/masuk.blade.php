@@ -20,51 +20,44 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nomor_agenda" class="form-label">Nomor Agenda</label>
-                                <input type="text" id="nomor_agenda" name="nomor_agenda"
-                                    class="form-control 
-               @error('nomor_agenda') is-ivalid @enderror"
-                                    value="{{ old('nomor_agenda') }}" required autofocus>
+                                <input type="text" id="nomor_agenda" name="nomor_agenda" class="form-control 
+               @error('nomor_agenda') is-ivalid @enderror" value="{{ old('nomor_agenda') }}" required autofocus>
                             </div>
                             <div class="mb-3">
                                 <label for="nomor_surat" class="form-label">Nomor Surat</label>
-                                <input type="text" id="nomor_surat" name="nomor_surat"
-                                    class="form-control
-              @error('nomor_agenda') is-ivalid @enderror"
-                                    value="{{ old('nomor_agenda') }}" required>
+                                <input type="text" id="nomor_surat" name="nomor_surat" class="form-control
+              @error('nomor_agenda') is-ivalid @enderror" value="{{ old('nomor_agenda') }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="jenis_surat" class="form-label">Jenis Surat</label>
-                                <select class="form-select  @error('jenis_surat') is-ivalid @enderror"
-                                    value="{{ old('jenis_surat') }}" name="jenis_surat"
-                                    aria-label="Default select example" required>
+                                <label for="id_type" class="form-label">Jenis Surat</label>
+                                <select class="form-select  @error('id_type') is-ivalid @enderror"
+                                    value="{{ old('id_type') }}" name="id_type" aria-label="Default select example"
+                                    required>
                                     <option selected>Pilih Jenis Surat</option>
-                                    <option>Surat Biasa</option>
-                                    <option>Nota Dinas</option>
+                                    @foreach ($datasurat as $data)
+                                    <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                    @endforeach
+                                    <!-- <option>Nota Dinas</option>
                                     <option>Telegram</option>
                                     <option>Sprin</option>
                                     <option>Surat Izin</option>
-                                    <option>Surat Rahasia</option>
+                                    <option>Surat Rahasia</option> -->
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="pengirim" class="form-label">Pengirim</label>
-                                <input type="text" name="pengirim"
-                                    class="form-control 
-              @error('pengirim') is-ivalid @enderror"
-                                    value="{{ old('pengirim') }}" id="pengirim" required>
+                                <input type="text" name="pengirim" class="form-control 
+              @error('pengirim') is-ivalid @enderror" value="{{ old('pengirim') }}" id="pengirim" required>
                             </div>
                             <div class="mb-3">
                                 <label for="perihal" class="form-label">Perihal</label>
-                                <input type="text" name="perihal"
-                                    class="form-control
-              @error('perihal') is-ivalid @enderror"
-                                    value="{{ old('perihal') }}" id="perihal">
+                                <input type="text" name="perihal" class="form-control
+              @error('perihal') is-ivalid @enderror" value="{{ old('perihal') }}" id="perihal">
                                 <div class="mb-3">
                                     <label for="kka" class="form-label">KKA</label>
                                     <select class="form-select 
-              @error('kka') is-ivalid @enderror"
-                                        value="{{ old('kka') }}" name="kka" aria-label="Default select example"
-                                        required>
+              @error('kka') is-ivalid @enderror" value="{{ old('kka') }}" name="kka"
+                                        aria-label="Default select example" required>
                                         <option selected>Pilih KKA</option>
                                         <option>KEP</option>
                                         <option>BIN</option>
@@ -86,17 +79,14 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="tanggal_surat" class="form-label">Tanggal Surat</label>
-                                    <input type="date" name="tanggal_surat"
-                                        class="form-control
-              @error('tanggal_surat') is-ivalid @enderror"
-                                        value="{{ old('tanggal_surat') }}" id="tanggal_surat" required>
+                                    <input type="date" name="tanggal_surat" class="form-control
+              @error('tanggal_surat') is-ivalid @enderror" value="{{ old('tanggal_surat') }}" id="tanggal_surat"
+                                        required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jam_terima" class="form-label">Jam Terima</label>
-                                    <input type="text" name="jam_terima"
-                                        class="form-control 
-              @error('jam_terima') is-ivalid @enderror"
-                                        value="{{ old('jam_terima') }}" required>
+                                    <input type="text" name="jam_terima" class="form-control 
+              @error('jam_terima') is-ivalid @enderror" value="{{ old('jam_terima') }}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
@@ -129,15 +119,13 @@
                                         Yth. ...
                                     </label>
 
-                                    <input type="text" name="disposisi[]" id="other_text_input"
-                                        style="display: none;">
+                                    <input type="text" name="disposisi[]" id="other_text_input" style="display: none;">
 
                                 </div>
                                 <div class="mb-3">
                                     <label for="penerima" class="form-label">Penerima</label>
                                     <select class="form-select 
-              @error('penerima') is-ivalid @enderror"
-                                        value="{{ old('penerima') }}" name="penerima"
+              @error('penerima') is-ivalid @enderror" value="{{ old('penerima') }}" name="penerima"
                                         aria-label="Default select example" required>
                                         <option selected>Pilih Penerima</option>
                                         <option>Mabes POLRI</option>
@@ -175,23 +163,19 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="isi_disposisi" class="form-label">Isi Disposisi</label>
-                                    <input type="text" name="isi_disposisi"
-                                        class="form-control
-               @error('isi_disposisi') is-ivalid @enderror"
-                                        value="{{ old('isi_disposisi') }}" id="isi_disposisi" required>
+                                    <input type="text" name="isi_disposisi" class="form-control
+               @error('isi_disposisi') is-ivalid @enderror" value="{{ old('isi_disposisi') }}" id="isi_disposisi"
+                                        required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="keterangan" class="form-label">Keterangan</label>
-                                    <input type="text" name="keterangan"
-                                        class="form-control 
-              @error('keterangan') is-ivalid @enderror"
-                                        value="{{ old('keterangan') }}" id="keterangan" required>
+                                    <input type="text" name="keterangan" class="form-control 
+              @error('keterangan') is-ivalid @enderror" value="{{ old('keterangan') }}" id="keterangan" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Dokumen</label>
                                     <input class="form-control 
-              @error('file') is-ivalid @enderror"
-                                        value="{{ old('file') }}" name="file" type="file" id="formFile"
+              @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile"
                                         required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -203,16 +187,14 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
+        </script>
     <script>
-        document.getElementById('other_checkbox').addEventListener('change', function() {
+        document.getElementById('other_checkbox').addEventListener('change', fun ction() {
             var otherTextInput = document.getElementById('other_text_input');
             otherTextInput.style.display = this.checked ? 'block' : 'none';
             otherTextInput.value = this.checked ? '' : '';
         }); <
-        script src = "https://code.jquery.com/jquery-3.7.0.slim.min.js"
-        integrity = "sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE="
-        crossorigin = "anonymous" >
+            scritsrc = "https://code.jquery.com/jquery-3.7.0.slim.min.                    itgrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz / r4y                      cosorigin = "anony" >
     </script>
 </body>
 

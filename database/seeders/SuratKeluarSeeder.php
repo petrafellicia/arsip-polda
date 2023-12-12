@@ -23,7 +23,7 @@ class SuratKeluarSeeder extends Seeder
             'id' => '1',
             'no_agenda' => 'Sprin/ /VIII/KEP/2023',
             'no_surat' => 'Sprin/118/VIII/KEP/2023',
-            'jenis_surat' => 'Surat Perintah',
+            'id_type' => '1',
             'pengirim' => 'Kabid TIK',
             'perihal' => 'Surat Perintah Mengikuti Donor Darah HUT Polwan',
             'kka' => 'HUM',

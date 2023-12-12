@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomor_agenda');
             $table->string('nomor_surat')->unique();
-            $table->string('jenis_surat');
+            $table->integer('id_type')->nullable();
             $table->string('pengirim');
             $table->text('perihal');
             $table->string('kka');

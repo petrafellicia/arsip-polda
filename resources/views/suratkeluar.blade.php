@@ -1,31 +1,36 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 style="font-family: Times New Roman, Times, serif; padding-top:3rem;">Daftar Surat Keluar</h1>
-    <hr>
-    </hr>
-    <div class="container-fluid mb-3">
-        <div class="row mx-auto mb-3">
-            <div class="col">
-                <a href="/mails" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Back to Mails</a>
-            </div>
-            <div class="col text-right">
-                <a href="/keluar" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Tambah Surat</a>
-            </div>
+<h1 style="font-family: Times New Roman, Times, serif; padding-top:3rem;">Daftar Surat Keluar</h1>
+<hr>
+</hr>
+<div class="container-fluid mb-3">
+    <div class="row mx-auto mb-3">
+        <div class="col">
+            <a href="/mails" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Back to
+                Mails</a>
         </div>
-        <form action="/daftar-surat-keluar/search" method="GET" class="d-flex flex-wrap justify-content-between mx-auto" style="gap:1.25rem" role="search">
-            <div class="col-auto align-items-center">
-                <a href="/pilih-bulan-keluar" class="btn btn-info" style="font-family: Times New Roman, Times, serif;">Rekap Surat</a>
-        <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
-            </div>
-            <div class="col-auto d-flex align-items-center">
-                <input class="form-control me-2" name="search" type="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>                   
-            </div>
-        </form>
+        <div class="col text-right">
+            <a href="/keluar" class="btn btn-primary" style="font-family: Times New Roman, Times, serif;">Tambah
+                Surat</a>
+        </div>
     </div>
+    <form action="/daftar-surat-keluar/search" method="GET" class="d-flex flex-wrap justify-content-between mx-auto"
+        style="gap:1.25rem" role="search">
+        <div class="col-auto align-items-center">
+            <a href="/pilih-bulan-keluar" class="btn btn-info" style="font-family: Times New Roman, Times, serif;">Rekap
+                Surat</a>
+            <!-- <button button id="rekapButton" class="btn btn-info" style="margin-bottom: 1rem; margin-right:45rem;">Rekap Surat</button> -->
+        </div>
+        <div class="col-auto d-flex align-items-center">
+            <input class="form-control me-2" name="search" type="search" value="{{ request('search') }}"
+                placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+    </form>
+</div>
 
-    <!-- <div class="container-fluid">
+<!-- <div class="container-fluid">
         <a href="/mails" style="font-family: Times New Roman, Times, serif;">Back to Mails</a>
         <button type="button"
             style=" float:right; width:150px; height:40px; border-radius:26.5px; --bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; border:none; outline:none; padding:8px; cursor:pointer; background:#216588;">
@@ -44,79 +49,81 @@
         </form>
     </div> -->
 
-    @if (!empty($message))
-        <p>{{ $message }}</p>
-    @elseif (!empty($data))
-        <div class="table-responsive">
-            <table class="table" style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif;">
-                <thead>
-                    <tr style="text-wrap:nowrap;">
-                        <th scope="col">Nomor Agenda</th>
-                        <th scope="col">Nomor Surat</th>
-                        <th scope="col">Jenis Surat</th>
-                        <th scope="col">Pengirim</th>
-                        <th scope="col">Perihal</th>
-                        <th scope="col">KKA</th>
-                        <th scope="col">Dasar Pembuatan Surat</th>
-                        <th scope="col">Tanggal Surat</th>
-                        <th scope="col">Jam Diterima</th>
-                        <!-- <th scope="col">Disposisi kepada</th> -->
-                        <th scope="col">Penerima</th>
-                        <!-- <th scope="col">Isi Disposisi</th> -->
-                        <th scope="col">Feedback</th>
-                        <th scope="col">File</th>
-                        <th scope="col">Aksi</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    @foreach ($data as $row)
-                        <tr>
-                            <th scope="row">{{ $row->no_agenda }}</th>
-                            <td>{{ $row->no_surat }}</td>
-                            <td>{{ $row->jenis_surat }}</td>
-                            <td>{{ $row->pengirim }}</td>
-                            <td>{{ $row->perihal }}</td>
-                            <td>{{ $row->kka }}</td>
-                            <td>{{ $row->dasar_surat }}</td>
-                            <td>{{ date('d-m-Y', strtotime($row->tgl_surat)) }}</td>
-                            <td>{{ $row->jam_surat }}</td>
-                            <!-- <td>{{ $row->disposisi }}</td> -->
-                            <td>{{ $row->penerima }}</td>
-                            <!-- <td>{{ $row->isi_disposisi }}</td> -->
-                            <td>{{ $row->feedback }}</td>
-                            <td>
-                                <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success"
-                                    style="font-size: 13px;">Download</a></td>
-                            <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary"
-                                    style="font-size: 13px;">Edit</button></td>
-                            <td scope="row">
-                                <a href="#" class="btn btn-danger delete-button" data-id="{{ $row->id }}"
-                                    style="font-size: 13px">Delete</a></td>
-                        </tr>
-                    @endforeach
-    @endif
-    </tbody>
+@if (!empty($message))
+<p>{{ $message }}</p>
+@elseif (!empty($data))
+<div class="table-responsive">
+    <table class="table" style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif;">
+        <thead>
+            <tr style="text-wrap:nowrap;">
+                <th scope="col">Nomor Agenda</th>
+                <th scope="col">Nomor Surat</th>
+                <th scope="col">Jenis Surat</th>
+                <th scope="col">Pengirim</th>
+                <th scope="col">Perihal</th>
+                <th scope="col">KKA</th>
+                <th scope="col">Dasar Pembuatan Surat</th>
+                <th scope="col">Tanggal Surat</th>
+                <th scope="col">Jam Diterima</th>
+                <!-- <th scope="col">Disposisi kepada</th> -->
+                <th scope="col">Penerima</th>
+                <!-- <th scope="col">Isi Disposisi</th> -->
+                <th scope="col">Feedback</th>
+                <th scope="col">File</th>
+                <th scope="col">Aksi</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach ($data as $row)
+            <tr>
+                <th scope="row">{{ $row->no_agenda }}</th>
+                <td>{{ $row->no_surat }}</td>
+                <td>{{ $row->surattypes->nama }}</td>
+                <td>{{ $row->pengirim }}</td>
+                <td>{{ $row->perihal }}</td>
+                <td>{{ $row->kka }}</td>
+                <td>{{ $row->dasar_surat }}</td>
+                <td>{{ date('d-m-Y', strtotime($row->tgl_surat)) }}</td>
+                <td>{{ $row->jam_surat }}</td>
+                <!-- <td>{{ $row->disposisi }}</td> -->
+                <td>{{ $row->penerima }}</td>
+                <!-- <td>{{ $row->isi_disposisi }}</td> -->
+                <td>{{ $row->feedback }}</td>
+                <td>
+                    <a href="dokumensuratkeluar/{{ $row->file }}" class="btn btn-success"
+                        style="font-size: 13px;">Download</a>
+                </td>
+                <td><a href="/tampilkandatakeluar/{{ $row->id }}" class="btn btn-primary"
+                        style="font-size: 13px;">Edit</button></td>
+                <td scope="row">
+                    <a href="#" class="btn btn-danger delete-button" data-id="{{ $row->id }}"
+                        style="font-size: 13px">Delete</a>
+                </td>
+            </tr>
+            @endforeach
+            @endif
+        </tbody>
     </table>
-    </div>
-    @include('sweetalert::alert')
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var deleteButtons = document.querySelectorAll(".delete-button");
+</div>
+@include('sweetalert::alert')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var deleteButtons = document.querySelectorAll(".delete-button");
 
-            deleteButtons.forEach(function(button) {
-                button.addEventListener("click", function(event) {
-                    event.preventDefault();
+        deleteButtons.forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
 
-                    var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
-                    if (confirmDelete) {
-                        var dataId = this.getAttribute("data-id");
-                        window.location.href = '/deletekeluar/' +
+                var confirmDelete = confirm("Apakah Anda yakin ingin menghapus data ini?");
+                if (confirmDelete) {
+                    var dataId = this.getAttribute("data-id");
+                    window.location.href = '/deletekeluar/' +
                         dataId; // Ganti dengan URL delete yang sesuai
-                    }
-                });
+                }
             });
         });
-    </script>
-    {{ $data->links() }}
+    });
+</script>
+{{ $data->links() }}
 @endsection

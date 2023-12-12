@@ -10,12 +10,12 @@ class SuratKeluar extends Model{
 
     public function surattypes()
     {
-        return $this->belongsTo(SuratType::class, 'jenis_surat', 'nama');
+        return $this->belongsTo(SuratType::class, 'id_type', 'id');
     }
     protected $fillable = [
         'no_agenda',
         'no_surat',
-        'jenis_surat',
+        'id_type',
         'pengirim',
         'perihal',
         'kka',

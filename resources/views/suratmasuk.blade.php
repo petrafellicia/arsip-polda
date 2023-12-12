@@ -56,7 +56,7 @@
                         <tr>
                             <th scope="row">{{ $row->nomor_agenda }}</th>
                             <td>{{ $row->nomor_surat }}</td>
-                            <td>{{ $row->jenis_surat }}</td>
+                            <td>{{ $row->surattypes->nama }}</td>
                             <td>{{ $row->pengirim }}</td>
                             <td>{{ $row->perihal }}</td>
                             <td>{{ $row->kka }}</td>

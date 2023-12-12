@@ -22,7 +22,7 @@ class SuratMasukSeeder extends Seeder
             'id' => '1',
             'nomor_agenda' => 'B/ /VIII/HUM.9.1/2023',
             'nomor_surat' => 'B/297/VIII/HUM.9.1/2023',
-            'jenis_surat' => 'Surat Biasa',
+            'id_type' => '1',
             'pengirim' => 'Kabid Humas',
             'perihal' => 'Majalah Tribrata News',
             'kka' => 'HUM',

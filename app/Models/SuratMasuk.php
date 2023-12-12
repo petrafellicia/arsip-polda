@@ -21,19 +21,21 @@ class SuratMasuk extends Model
 
     public function surattypes()
     {
-        return $this->belongsTo(SuratType::class, 'jenis_surat', 'nama');
+        return $this->belongsTo(SuratType::class, 'id_type', 'id');
     }
 
     protected $fillable = [
         'nomor_agenda',
         'nomor_surat',
-        'jenis_surat',
+        'id_type',
         'pengirim',
         'perihal',
         'kka',
         'tanggal_surat',
         'jam_terima',
+        'disposisi_kepada',
         'penerima',
+        'isi_disposisi',
         'keterangan',
         'file'
     ];
