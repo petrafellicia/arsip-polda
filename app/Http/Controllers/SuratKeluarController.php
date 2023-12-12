@@ -71,13 +71,13 @@ class SuratKeluarController extends Controller
                 'no_agenda' => $request->no_agenda,
                 'no_surat' => $request->no_surat,
                 'jenis_surat' => $request->jenis_surat,
-                'pengirim' => $request->asal_surat,
+                'pengirim' => $request->pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'dasar_surat' => $request->dasar_surat,
                 'tgl_surat' => $request->tgl_surat,
                 'jam_surat' => $request->jam_surat,
-                'penerima' => $request->distribusi,
+                'penerima' => $request->penerima,
                 'feedback' => $request->feedback,
             ]
         );
@@ -125,13 +125,13 @@ class SuratKeluarController extends Controller
                 'no_agenda' => $request->no_agenda,
                 'no_surat' => $request->no_surat,
                 'jenis_surat' => $request->jenis_surat,
-                'pengirim' => $request->asal_surat,
+                'pengirim' => $request->pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'dasar_surat' => $request->dasar_surat,
                 'tgl_surat' => $request->tgl_surat,
                 'jam_surat' => $request->jam_surat,
-                'penerima' => $request->distribusi,
+                'penerima' => $request->penerima,
                 'feedback' => $request->feedback,
             ]
         );
