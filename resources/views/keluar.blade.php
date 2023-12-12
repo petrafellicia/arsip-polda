@@ -25,11 +25,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Nomor Surat</label>
-                                <input type="text" name="no_surat" class="form-control" id="exampleInputPassword1" required>
+                                <input type="text" name="no_surat" class="form-control" id="exampleInputPassword1"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
-                                <select class="form-select" name="jenis_surat" aria-label="Default select example" required>
+                                <select class="form-select" name="jenis_surat" aria-label="Default select example"
+                                    required>
                                     <option selected>Open this select menu</option>
                                     <option>Surat Biasa</option>
                                     <option>Nota Dinas</option>
@@ -40,12 +42,14 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Asal Surat</label>
-                                <input type="text" name="asal_surat" class="form-control" id="exampleInputPassword1" required>
+                                <label for="exampleInputPassword1" class="form-label">Pengirim</label>
+                                <input type="text" name="pengirim" class="form-control" id="exampleInputPassword1"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Perihal</label>
-                                <input type="text" name="perihal" class="form-control" id="exampleInputPassword1" required>
+                                <input type="text" name="perihal" class="form-control" id="exampleInputPassword1"
+                                    required>
                             </div>
                             <!-- <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Perihal</label>
@@ -92,8 +96,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Dasar Pembuatan Surat</label>
-                                <input type="text" name="dasar_surat" class="form-control"
-                                    id="exampleInputPassword1" required>
+                                <input type="text" name="dasar_surat" class="form-control" id="exampleInputPassword1"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Tanggal Surat</label>
@@ -102,10 +106,10 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Jam Terima</label>
-                                <input type="text" name="jam_surat" class="form-control"
-                                    id="exampleInputPassword1" required>
+                                <input type="text" name="jam_surat" class="form-control" id="exampleInputPassword1"
+                                    required>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                             <label for="disposisi" class="form-label">Disposisi Kepada</label>
                                 
                                 <br>
@@ -141,10 +145,11 @@
 
                                 <br>
 
-                            </div>
+                            </div> -->
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Distribusi</label>
-                                <select class="form-select" name="distribusi" aria-label="Default select example" required>
+                                <label for="exampleInputPassword1" class="form-label">Penerima</label>
+                                <select class="form-select" name="penerima" aria-label="Default select example"
+                                    required>
                                     <option selected>Open this select menu</option>
                                     <option>Mabes POLRI</option>
                                     <option>Kapolda DIY</option>
@@ -179,15 +184,15 @@
                                     <option>Instansi Luar POLDA</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Isi Disposisi</label>
                                 <input type="text" name="isi_disposisi" class="form-control"
                                     id="exampleInputPassword1" required>
-                            </div>
+                            </div> -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Feedback</label>
-                                <input type="text" name="feedback" class="form-control"
-                                    id="exampleInputPassword1" required>
+                                <input type="text" name="feedback" class="form-control" id="exampleInputPassword1"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label" required>Upload Dokumen</label>
@@ -202,9 +207,9 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-     <script>
-        document.getElementById('other_checkbox').addEventListener('change', function() {
+        </script>
+    <script>
+        document.getElementById('other_checkbox').addEventListener('change', function () {
             var otherTextInput = document.getElementById('other_text_input');
             otherTextInput.style.display = this.checked ? 'block' : 'none';
             otherTextInput.value = this.checked ? '' : '';

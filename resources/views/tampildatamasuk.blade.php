@@ -37,8 +37,8 @@
               </select>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Asal Surat</label>
-              <input type="text" name="asal_surat" value="{{ $data->asal_surat }}" class="form-control" id="exampleInputPassword1">
+              <label for="exampleInputPassword1" class="form-label">Pengirim</label>
+              <input type="text" name="pengirim" value="{{ $data->pengirim }}" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Perihal</label>
@@ -113,9 +113,9 @@
               <input type="text" name="disposisi_kepada" value="{{ $data->disposisi_kepada }}" class="form-control" id="exampleInputEmail1">
             </div> -->
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Distribusi</label>
-              <select class="form-select" name="distribusi" aria-label="Default select example">
-                <option selected>{{ $data->distribusi }}</option>
+              <label for="exampleInputPassword1" class="form-label">Penerima</label>
+              <select class="form-select" name="penerima" aria-label="Default select example">
+                <option selected>{{ $data->penerima }}</option>
                 <option >Mabes POLRI</option>
                 <option >Kapolda DIY</option>
                 <option >Wakapolda DIY</option>

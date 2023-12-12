@@ -47,18 +47,18 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="asal_surat" class="form-label">Asal Surat</label>
-                                <input type="text" name="asal_surat"
+                                <label for="pengirim" class="form-label">Pengirim</label>
+                                <input type="text" name="pengirim"
                                     class="form-control 
-              @error('asal_surat') is-ivalid @enderror"
-                                    value="{{ old('asal_surat') }}" id="asal_surat" required>
+              @error('pengirim') is-ivalid @enderror"
+                                    value="{{ old('pengirim') }}" id="pengirim" required>
                             </div>
                             <div class="mb-3">
                                 <label for="perihal" class="form-label">Perihal</label>
                                 <input type="text" name="perihal"
                                     class="form-control
               @error('perihal') is-ivalid @enderror"
-                                    value="{{ old('perihal') }}" id="periihal">
+                                    value="{{ old('perihal') }}" id="perihal">
                                 <div class="mb-3">
                                     <label for="kka" class="form-label">KKA</label>
                                     <select class="form-select 
@@ -134,12 +134,12 @@
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="distribusi" class="form-label">Distribusi</label>
+                                    <label for="penerima" class="form-label">Penerima</label>
                                     <select class="form-select 
-              @error('distribusi') is-ivalid @enderror"
-                                        value="{{ old('distribusi') }}" name="distribusi"
+              @error('penerima') is-ivalid @enderror"
+                                        value="{{ old('penerima') }}" name="penerima"
                                         aria-label="Default select example" required>
-                                        <option selected>Pilih Distribusi</option>
+                                        <option selected>Pilih Penerima</option>
                                         <option>Mabes POLRI</option>
                                         <option>Kapolda DIY</option>
                                         <option>Wakapolda DIY</option>

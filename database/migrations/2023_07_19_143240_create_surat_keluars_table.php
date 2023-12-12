@@ -17,15 +17,13 @@ return new class extends Migration {
             $table->string('no_agenda');
             $table->string('no_surat');
             $table->string('jenis_surat');
-            $table->string('asal_surat');
+            $table->string('pengirim');
             $table->text('perihal');
             $table->string('kka');
             $table->string('dasar_surat');
             $table->date('tgl_surat');
             $table->string('jam_surat');
-            $table->string('disposisi');
-            $table->string('distribusi');
-            $table->text('isi_disposisi');
+            $table->string('penerima');
             $table->string('feedback');
             $table->string('file')->nullable(true);
             $table->timestamps();
