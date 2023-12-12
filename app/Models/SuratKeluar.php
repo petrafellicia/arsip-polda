@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratKeluar extends Model{
     use HasFactory;
+<<<<<<< Updated upstream
+=======
+
+   // $->notify(new DataBerhasilDieksekusi());
+
+>>>>>>> Stashed changes
     protected $guarded = [];
     protected $fillable = [
         'no_agenda',
