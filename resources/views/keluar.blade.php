@@ -30,8 +30,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
-                                <select class="form-select" name="id_type" aria-label="Default select example"
-                                    required>
+                                <select class="form-select" name="id_type" aria-label="Default select example" required>
                                     <option selected>Open this select menu</option>
                                     @foreach ($datasurat as $data)
                                     <option value="{{ $data->id }}">{{ $data->nama }}</option>

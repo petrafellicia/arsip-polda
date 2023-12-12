@@ -61,6 +61,9 @@ class SuratMasukController extends Controller
                 ->where('nomor_surat', $searchTerm)
                 ->orWhere('tanggal_surat', $searchTerm)
                 ->orWhere('kka', $searchTerm)
+                ->orWhere('pengirim', $searchTerm)
+                ->orWhere('penerima', $searchTerm)
+                ->orWhere('id_type', $searchTerm)
                 ->paginate(5);
         } else {
             $data = DB::table('surat_masuks')->paginate(5);
@@ -152,8 +155,19 @@ class SuratMasukController extends Controller
 
     public function tampilkandatamasuk($id)
     {
-        $data = SuratMasuk::find($id);
-        return view('tampildatamasuk', compact('data'));
+        $dataBaru = DB::table('surat_masuks')
+            ->join('surat_types', 'surat_masuks.id_type', '=', 'surat_types.id')
+            ->select('surat_masuks.*', 'surat_types.nama as type_name')
+            ->where('surat_masuks.id', $id)
+            ->get();
+
+        $datasurat = SuratType::all();
+        // dd($dataBaru);
+        $data = $dataBaru[0];
+        return view('tampildatamasuk', compact('data', 'datasurat'));
+        // $data = SuratMasuk::find($id);
+        // $datasurat = SuratType::all();
+        // return view('tampildatamasuk', compact('datasurat'), compact('data'));
     }
 
     public function updatedatamasuk(Request $request, $id)

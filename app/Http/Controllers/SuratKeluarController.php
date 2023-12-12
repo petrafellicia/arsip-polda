@@ -37,6 +37,9 @@ class SuratKeluarController extends Controller
                 ->where('no_surat', $searchTerm)
                 ->orWhere('tgl_surat', $searchTerm)
                 ->orWhere('kka', $searchTerm)
+                ->orWhere('pengirim', $searchTerm)
+                ->orWhere('penerima', $searchTerm)
+                ->orWhere('id_type', $searchTerm)
                 ->paginate(5);
         } else {
             $data = DB::table('surat_keluars')->paginate(5);
@@ -108,8 +111,23 @@ class SuratKeluarController extends Controller
     }
     public function tampilkandatakeluar($id)
     {
-        $data = SuratKeluar::find($id);
-        return view('tampildatakeluar', compact('data'));
+        $dataBaru = DB::table('surat_keluars')
+            ->join('surat_types', 'surat_keluars.id_type', '=', 'surat_types.id')
+            ->select('surat_keluars.*', 'surat_types.nama as type_name')
+            ->where('surat_keluars.id', $id)
+            ->get();
+
+        $datasurat = SuratType::all();
+        // dd($dataBaru);
+        $data = $dataBaru[0];
+        return view('tampildatakeluar', compact('data', 'datasurat'));
+
+        // $data = SuratKeluar::find($id);
+        // $datasurat = SuratType::all();
+        // // dd($data);
+        // dd($datasurat);
+        // return view('tampildatakeluar', compact('data', 'datasurat'));
+
     }
 
     public function updatedatakeluar(Request $request, $id)
