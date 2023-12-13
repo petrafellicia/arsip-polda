@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Database\Eloquent\Collection;
 use PDF;
 
 // use Alert;
@@ -56,18 +57,43 @@ class SuratMasukController extends Controller
         //     $data = DB::select("SELECT * FROM surat_masuks WHERE nomor_surat = ? OR tanggal_surat = ? OR kka = ?", [$searchTerm, $searchTerm, $searchTerm]);
         // }
 
-        if ($searchTerm) {
-            $data = DB::table('surat_masuks')
-                ->where('nomor_surat', $searchTerm)
-                ->orWhere('tanggal_surat', $searchTerm)
-                ->orWhere('kka', $searchTerm)
-                ->orWhere('pengirim', $searchTerm)
-                ->orWhere('penerima', $searchTerm)
-                ->orWhere('id_type', $searchTerm)
+        // if ($searchTerm) {
+        //     $data = DB::table('surat_masuks')
+        //         ->where('nomor_surat', 'like', '%' . request('$searchTerm') . '%')
+        //         ->orWhere('tanggal_surat', 'like', '%' . request('$searchTerm') . '%')
+        //         ->orWhere('kka', 'like', '%' . request('$searchTerm') . '%')
+        //         ->orWhere('pengirim', 'like', '%' . request('$searchTerm') . '%')
+        //         ->orWhere('penerima', 'like', '%' . request('$searchTerm') . '%')
+        //         ->orWhere('id_type', 'like', '%' . request('$searchTerm') . '%')
+        //         ->paginate(5);
+        // } else {
+        //     $data = DB::table('surat_masuks')->paginate(5);
+        // }
+        // if ($searchTerm) {
+        //     // $data = DB::table('surat_masuks')
+        //     $data = SuratMasuk::where('nomor_surat', 'like', '%' . $searchTerm . '%')
+        //         ->orWhere('tanggal_surat', 'like', '%' . $searchTerm . '%')
+        //         ->orWhere('kka', 'like', '%' . $searchTerm . '%')
+        //         ->orWhere('pengirim', 'like', '%' . $searchTerm . '%')
+        //         ->orWhere('penerima', 'like', '%' . $searchTerm . '%')
+        //         ->paginate(5);
+        //     // $datasurat = SuratType::where('nama', 'like', '%' . $searchTerm . '%');
+        // } else {
+        //     // $data = DB::table('surat_masuks')->paginate(5);
+        //     $data = SuratMasuk::paginate(5);
+        // }
+        $data = SuratMasuk::where(function ($query) use ($searchTerm) {
+            $query->where('nomor_surat', 'like', "%$searchTerm%")
+                ->orWhere('tanggal_surat', 'like', "%$searchTerm%")
+                ->orWhere('kka', 'like', "%$searchTerm%")
+                ->orWhere('pengirim', 'like', "%$searchTerm%")
+                ->orWhere('penerima', 'like', "%$searchTerm%")
+                ->orWhereHas('surattypes', function ($query) use ($searchTerm) {
+                    $query->where('nama', 'like', '%' . $searchTerm . '%');
+                })
                 ->paginate(5);
-        } else {
-            $data = DB::table('surat_masuks')->paginate(5);
-        }
+        })
+            ->get();
 
         $pesan = $data->isEmpty() ? "File tidak ditemukan" : "";
 
