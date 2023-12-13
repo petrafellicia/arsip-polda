@@ -182,7 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
+        // Yajra\DataTables\DataTablesServiceProvider::class,
 
             /*
              * Package Service Providers...
@@ -215,6 +215,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        // 'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ])->toArray(),
 

@@ -33,19 +33,20 @@
 <p>{{ $pesan }}</p>
 @elseif (!empty($data))
 <div class="table-responsive">
-    <table class="table" style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif; ">
+    <table class="table" id="datatable"
+        style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif; ">
         <thead>
             <tr style="text-wrap:nowrap;">
                 <th scope="col">Nomor Agenda</th>
                 <th scope="col">Nomor Surat</th>
                 <th scope="col">Jenis Surat</th>
-                <th scope="col">Surat dari</th>
+                <th scope="col">Pengirim</th>
                 <th scope="col">Perihal</th>
                 <th scope="col">KKA</th>
                 <th scope="col">Tanggal Surat</th>
                 <th scope="col">Jam Diterima </th>
                 <th scope="col">Disposisi</th>
-                <th scope="col">Distribusi</th>
+                <th scope="col">Penerima</th>
                 <th scope="col">Isi Disposisi</th>
                 <th scope="col">Keterangan</th>
                 <th scope="col">File</th>
@@ -104,7 +105,13 @@
         });
     });
 </script>
-<!-- $data->links() -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            pageLength: 5
+        });
+    });
+</script>
 @endsection
 
 <!-- <script>

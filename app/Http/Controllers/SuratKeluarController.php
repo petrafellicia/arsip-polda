@@ -7,6 +7,8 @@ use App\Models\SuratType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Collection;
+// use Yajra\DataTables\DataTables;
 
 use RealRashid\SweetAlert\Facades\Alert;
 use PDF;
@@ -17,7 +19,9 @@ class SuratKeluarController extends Controller
     public function index(Request $request)
     {
         $data = SuratKeluar::query();
-        $data = SuratKeluar::paginate(5);
+        $data = SuratKeluar::paginate(100);
+        // dd($data);
+        // $data = SuratKeluar::limit(5);
         return view(
             'suratkeluar',
             compact('data'),
@@ -32,18 +36,31 @@ class SuratKeluarController extends Controller
         $searchTerm = $request->search;
         $data = [];
 
-        if ($searchTerm) {
-            $data = DB::table('surat_keluars')
-                ->where('no_surat', $searchTerm)
-                ->orWhere('tgl_surat', $searchTerm)
-                ->orWhere('kka', $searchTerm)
-                ->orWhere('pengirim', $searchTerm)
-                ->orWhere('penerima', $searchTerm)
-                ->orWhere('id_type', $searchTerm)
-                ->paginate(5);
-        } else {
-            $data = DB::table('surat_keluars')->paginate(5);
-        }
+        $data = SuratKeluar::where(function ($query) use ($searchTerm) {
+            $query->where('no_surat', 'like', "%$searchTerm%")
+                ->orWhere('tgl_surat', 'like', "%$searchTerm%")
+                ->orWhere('kka', 'like', "%$searchTerm%")
+                ->orWhere('pengirim', 'like', "%$searchTerm%")
+                ->orWhere('penerima', 'like', "%$searchTerm%")
+                ->orWhereHas('surattypes', function ($query) use ($searchTerm) {
+                    $query->where('nama', 'like', '%' . $searchTerm . '%');
+                })
+                ->paginate(100);
+        })
+            ->get();
+
+        // if ($searchTerm) {
+        //     $data = DB::table('surat_keluars')
+        //         ->where('no_surat', $searchTerm)
+        //         ->orWhere('tgl_surat', $searchTerm)
+        //         ->orWhere('kka', $searchTerm)
+        //         ->orWhere('pengirim', $searchTerm)
+        //         ->orWhere('penerima', $searchTerm)
+        //         ->orWhere('id_type', $searchTerm)
+        //         ->paginate(5);
+        // } else {
+        //     $data = DB::table('surat_keluars')->paginate(5);
+        // }
         $message = $data->isEmpty() ? "File tidak ditemukan" : "";
 
         return view(

@@ -32,7 +32,7 @@ class SuratMasukController extends Controller
         //                             // ->orWhere('kka', 'LIKE', '%' .$request->search.'%')->paginate(5);
         // }
         // else{
-        $data = SuratMasuk::paginate(5);
+        $data = SuratMasuk::paginate(100);
         // }
         return view(
             'suratmasuk',
@@ -91,7 +91,7 @@ class SuratMasukController extends Controller
                 ->orWhereHas('surattypes', function ($query) use ($searchTerm) {
                     $query->where('nama', 'like', '%' . $searchTerm . '%');
                 })
-                ->paginate(5);
+                ->paginate(100);
         })
             ->get();
 
