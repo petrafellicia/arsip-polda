@@ -43,6 +43,12 @@
         div.dataTables_wrapper div.dataTables_length label {
             display: none;
         }
+
+        div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+            margin: 15px 0;
+            white-space: nowrap;
+            justify-content: flex-end;
+        }
     </style>
 </head>
 

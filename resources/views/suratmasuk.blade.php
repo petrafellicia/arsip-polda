@@ -32,7 +32,7 @@
 @if (!empty($pesan))
 <p>{{ $pesan }}</p>
 @elseif (!empty($data))
-<div class="table-responsive">
+<div class="table-responsive d-flex">
     <table class="table" id="datatable"
         style="text-align:center; font-size:14px; font-family: Times New Roman, Times, serif; ">
         <thead>
