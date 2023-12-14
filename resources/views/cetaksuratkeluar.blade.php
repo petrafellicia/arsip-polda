@@ -51,35 +51,29 @@
                 <th>Nomor Agenda</th>
                 <th>Nomor Surat</th>
                 <th>Jenis Surat</th>
-                <th>Surat dari</th>
+                <th>Pengirim</th>
                 <th>Perihal</th>
-                <!-- <th>KKA</th> -->
                 <th>Dasar Pembuatan Surat</th>
                 <th>Tanggal dan Jam Diterima Surat</th>
-                <th>Disposisi kepada</th>
-                <th>Distribusi</th>
-                <th>Isi Disposisi</th>
+                <th>Penerima</th>
                 <th>Feedback</th>
             </tr>
             @php
-                $no = 1;
+            $no = 1;
             @endphp
             @foreach ($data as $row)
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    <td scope="row">{{ $row->no_agenda }}</td>
-                    <td>{{ $row->no_surat }}</td>
-                    <td>{{ $row->jenis_surat }}</td>
-                    <td>{{ $row->asal_surat }}</td>
-                    <td>{{ $row->perihal }}</td>
-                    <!-- <td>{{ $row->kka }}</td> -->
-                    <td>{{ $row->dasar_surat }}</td>
-                    <td>{{ date('d-m-Y H:i', strtotime($row->tgl_surat.' '.$row->jam_surat)) }}</td>
-                    <td>{{ $row->disposisi }}</td>
-                    <td>{{ $row->distribusi }}</td>
-                    <td>{{ $row->isi_disposisi }}</td>
-                    <td>{{ $row->feedback }}</td>
-                </tr>
+            <tr>
+                <td>{{ $no++ }}</td>
+                <td scope="row">{{ $row->no_agenda }}</td>
+                <td>{{ $row->no_surat }}</td>
+                <td>{{ $row->surattypes->nama }}</td>
+                <td>{{ $row->pengirim }}</td>
+                <td>{{ $row->perihal }}</td>
+                <td>{{ $row->dasar_surat }}</td>
+                <td>{{ date('d-m-Y H:i', strtotime($row->tgl_surat.' '.$row->jam_surat)) }}</td>
+                <td>{{ $row->penerima }}</td>
+                <td>{{ $row->feedback }}</td>
+            </tr>
             @endforeach
 
         </table>

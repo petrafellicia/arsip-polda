@@ -51,35 +51,35 @@
                 <th>Nomor Agenda</th>
                 <th>Nomor Surat</th>
                 <th>Jenis Surat</th>
-                <th>Surat Dari</th>
+                <th>Penerima</th>
                 <th>Perihal</th>
                 <th>KKA</th>
                 <th>Tanggal Surat</th>
                 <th>Jam Diterima</th>
                 <th>Disposisi</th>
-                <th>Distribusi</th>
+                <th>Penerima</th>
                 <th>Isi Disposisi</th>
                 <th>Keterangan</th>
             </tr>
             @php
-                $no = 1;
+            $no = 1;
             @endphp
             @foreach ($data as $row)
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    <td scope="row">{{ $row->nomor_agenda }}</td>
-                    <td>{{ $row->nomor_surat }}</td>
-                    <td>{{ $row->jenis_surat }}</td>
-                    <td>{{ $row->asal_surat }}</td>
-                    <td>{{ $row->perihal }}</td>
-                    <td>{{ $row->kka }}</td>
-                    <td>{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
-                    <td>{{ $row->jam_terima }}</td>
-                    <td>{{ $row->disposisi_kepada }}</td>
-                    <td>{{ $row->distribusi }}</td>
-                    <td>{{ $row->isi_disposisi }}</td>
-                    <td>{{ $row->keterangan }}</td>
-                </tr>
+            <tr>
+                <td>{{ $no++ }}</td>
+                <td scope="row">{{ $row->nomor_agenda }}</td>
+                <td>{{ $row->nomor_surat }}</td>
+                <td>{{ $row->surattypes->nama }}</td>
+                <td>{{ $row->pengirim }}</td>
+                <td>{{ $row->perihal }}</td>
+                <td>{{ $row->kka }}</td>
+                <td>{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
+                <td>{{ $row->jam_terima }}</td>
+                <td>{{ $row->disposisi_kepada }}</td>
+                <td>{{ $row->penerima }}</td>
+                <td>{{ $row->isi_disposisi }}</td>
+                <td>{{ $row->keterangan }}</td>
+            </tr>
             @endforeach
 
         </table>
