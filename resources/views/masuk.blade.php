@@ -31,12 +31,9 @@
                             <div class="mb-3">
                                 <label for="id_type" class="form-label">Jenis Surat</label>
                                 <select class="form-select  @error('jenis_surat') is-ivalid @enderror"
-                                    value="{{ old('jenis_surat') }}" name="jenis_surat" aria-label="Default select example"
-                                    required>
-                                    <option selected>Pilih Jenis Surat</option> 
-                                    <!-- @foreach ($datasurat as $data)
-                                    <option value="{{ $data->id }}">{{ $data->nama }}</option>
-                                    @endforeach  -->
+                                    value="{{ old('jenis_surat') }}" name="jenis_surat"
+                                    aria-label="Default select example" required>
+                                    <option selected>Pilih Jenis Surat</option>
                                     <option>Surat Biasa</option>
                                     <option>Nota Dinas</option>
                                     <option>Telegram</option>
