@@ -19,17 +19,17 @@ class SuratMasukSeeder extends Seeder
         DB::table('surat_masuks')->delete();
 
         DB::table('surat_masuks')->insert([
-            'id' => '1',
+            // 'id' => '1',
             'nomor_agenda' => 'B/ /VIII/HUM.9.1/2023',
             'nomor_surat' => 'B/297/VIII/HUM.9.1/2023',
-            'jenis_surat' => '1',
-            'id_pengirim' => 'Kabid Humas',
+            'jenis_surat' => 'Telegram',
+            'id_pengirim' => 1,
             'perihal' => 'Majalah Tribrata News',
             'kka' => 'HUM',
             'tanggal_surat' => '2023-08-10',
             'jam_terima' => '10.00 WIB',
             'disposisi_kepada' => 'Ksbd.Renmin;',
-            'id_penerima' => 'Kapolda DIY',
+            'id_penerima' => 1,
             'isi_disposisi' => 'Dibaca',
             'keterangan' => 'Baca',
             'file' => '',
