@@ -161,6 +161,9 @@ class SuratMasukController extends Controller
             ]
         );
 
+        $pengirim = $data->pengirim;
+        $penerima = $data->penerima;
+
         // $data = SuratMasuk::create($request->all());
         if ($request->hasFile('file')) {
             $file = $request->file('file');
@@ -173,8 +176,6 @@ class SuratMasukController extends Controller
         // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Tambahkan');
         Alert::success('Data Berhasil Disimpan', 'Data surat masuk telah berhasil disimpan ke database.')->toHtml();
         return redirect('/daftar-surat-masuk');
-
-
     }
 
     public function download(Request $request, $file)
