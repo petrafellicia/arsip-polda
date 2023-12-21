@@ -44,10 +44,10 @@
                             </div>
                             <div class="mb-3">
                                 <label for="id_pengirim" class="form-label">Pengirim</label>
-                                @foreach ($datapengirim as $data)
-                                <input type="text" name="id_pengirim" class="form-control 
-              @error('id_pengirim') is-ivalid @enderror" value="{{ old('id_pengirim') }}" id="id_pengirim" required>
-                                @endforeach
+                                <!-- @foreach ($datasurat1 as $dt) -->
+                                <input type="text" name="id_pengirim" class="form-control"
+                                    value="{{ $data->id_pengirim }}" id="id_pengirim" required>
+                                <!-- @endforeach -->
                             </div>
                             <div class="mb-3">
                                 <label for="perihal" class="form-label">Perihal</label>
@@ -128,10 +128,10 @@
               @error('id_penerima') is-ivalid @enderror" value="{{ old('id_penerima') }}" name="id_penerima"
                                         aria-label="Default select example" required>
                                         <!-- <option selected>Pilih Penerima</option> -->
-                                        @foreach ($datapenerima as $data)
-                                        <option value="{{ $data->id }}">{{ $data->nama_penerima }}</option>
+                                        @foreach ($datasurat2 as $dta)
+                                        <option value="{{ $dta->id }}">{{ $dta->nama_penerima }}</option>
                                         @endforeach
-                                        <option>Mabes POLRI</option>
+                                        <!-- <option>Mabes POLRI</option>
                                         <option>Kapolda DIY</option>
                                         <option>Wakapolda DIY</option>
                                         <option>Irwasda</option>
@@ -161,7 +161,7 @@
                                         <option>Polres Bantul</option>
                                         <option>Polres KLP</option>
                                         <option>Polres ONK/option>
-                                        <option>Instansi Luar POLDA</option>
+                                        <option>Instansi Luar POLDA</option> -->
                                     </select>
                                 </div>
                                 <div class="mb-3">

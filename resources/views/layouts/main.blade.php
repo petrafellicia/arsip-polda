@@ -82,11 +82,11 @@ crossorigin="anonymous"> -->
 <!-- My Style -->
 <!-- <link rel="stylesheet" href="/css/style.css"> -->
 
-<title>Arsip-Polda Blog | {{ $title }}</title> -->
-{{-- 
+<title>Arsip-Polda Blog | {{ $title }}</title>
+{{--
 <script>
-   
-    @if (SuratMasuk::has('success'))
-        toastr.success("{(SuratMasuk::get('success')})")
+
+    @if (SuratMasuk:: has('success'))
+    toastr.success("{(SuratMasuk::get('success')})")
     @endif
 </script> --}}
