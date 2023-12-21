@@ -40,10 +40,11 @@ class SuratKeluarController extends Controller
             $query->where('no_surat', 'like', "%$searchTerm%")
                 ->orWhere('tgl_surat', 'like', "%$searchTerm%")
                 ->orWhere('kka', 'like', "%$searchTerm%")
-                ->orWhere('pengirim', 'like', "%$searchTerm%")
-                ->orWhere('penerima', 'like', "%$searchTerm%")
-                ->orWhereHas('surattypes', function ($query) use ($searchTerm) {
-                    $query->where('nama', 'like', '%' . $searchTerm . '%');
+                ->orWhereHas('pengirims', function ($query) use ($searchTerm) {
+                    $query->where('nama_pengirim', 'like', '%' . $searchTerm . '%');
+                })
+                ->orWhereHas('penerimas', function ($query) use ($searchTerm) {
+                    $query->where('nama_penerima', 'like', '%' . $searchTerm . '%');
                 })
                 ->paginate(100);
         })
@@ -92,14 +93,14 @@ class SuratKeluarController extends Controller
             [
                 'no_agenda' => $request->no_agenda,
                 'no_surat' => $request->no_surat,
-                'id_type' => $request->id_type,
-                'pengirim' => $request->pengirim,
+                'jenis_surat' => $request->jenis_surat,
+                'id_pengirim' => $request->id_pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'dasar_surat' => $request->dasar_surat,
                 'tgl_surat' => $request->tgl_surat,
                 'jam_surat' => $request->jam_surat,
-                'penerima' => $request->penerima,
+                'id_penerima' => $request->id_penerima,
                 'feedback' => $request->feedback,
             ]
         );
@@ -128,16 +129,24 @@ class SuratKeluarController extends Controller
     }
     public function tampilkandatakeluar($id)
     {
-        $dataBaru = DB::table('surat_keluars')
-            ->join('surat_types', 'surat_keluars.id_type', '=', 'surat_types.id')
-            ->select('surat_keluars.*', 'surat_types.nama as type_name')
+        $dataBaru1 = DB::table('surat_keluars')
+            ->join('pengirims', 'surat_keluars.id_pengirim', '=', 'pengirims.id')
+            ->select('surat_keluars.*', 'pengirims.nama_pengirim as sender_name')
             ->where('surat_keluars.id', $id)
             ->get();
 
-        $datasurat = SuratType::all();
+        $dataBaru2 = DB::table('surat_keluars')
+            ->join('penerimas', 'surat_keluars.id_penerima', '=', 'penerimas.id')
+            ->select('surat_keluars.*', 'penerimas.nama_penerima as receiver_name')
+            ->where('surat_keluars.id', $id)
+            ->get();
+
+        $datapengirim = Pengirim::all();
+        $datapenerima = Penerima::all();
         // dd($dataBaru);
-        $data = $dataBaru[0];
-        return view('tampildatakeluar', compact('data', 'datasurat'));
+        $data = $dataBaru1[0];
+        $data = $dataBaru2[0];
+        return view('tampildatakeluar', compact('data', 'datapengirim', 'datapenerima'));
 
         // $data = SuratKeluar::find($id);
         // $datasurat = SuratType::all();
@@ -161,14 +170,14 @@ class SuratKeluarController extends Controller
             [
                 'no_agenda' => $request->no_agenda,
                 'no_surat' => $request->no_surat,
-                'id_type' => $request->id_type,
-                'pengirim' => $request->pengirim,
+                'jenis_surat' => $request->jenis_surat,
+                'id_pengirim' => $request->id_pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'dasar_surat' => $request->dasar_surat,
                 'tgl_surat' => $request->tgl_surat,
                 'jam_surat' => $request->jam_surat,
-                'penerima' => $request->penerima,
+                'id_penerima' => $request->id_penerima,
                 'feedback' => $request->feedback,
             ]
         );

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -17,14 +16,14 @@ return new class extends Migration
             $table->id();
             $table->string('nomor_agenda');
             $table->string('nomor_surat')->unique();
-            $table->integer('id_type')->nullable();
-            $table->string('pengirim');
+            $table->string('jenis_surat');
+            $table->foreignId('id_pengirim')->nullable();
             $table->text('perihal');
             $table->string('kka');
             $table->date('tanggal_surat');
             $table->string('jam_terima');
             $table->string('disposisi_kepada');
-            $table->string('penerima');
+            $table->foreignId('id_penerima')->nullable();
             $table->text('isi_disposisi');
             $table->string('keterangan');
             $table->string('file')->nullable(true);

@@ -30,23 +30,26 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
-                                <select class="form-select" name="id_type" aria-label="Default select example" required>
+                                <select class="form-select" name="jenis_surat" aria-label="Default select example"
+                                    required>
                                     <option selected>Open this select menu</option>
-                                    @foreach ($datasurat as $data)
+                                    <!-- @foreach ($datasurat as $data)
                                     <option value="{{ $data->id }}">{{ $data->nama }}</option>
-                                    @endforeach
-                                    <!-- <option>Surat Biasa</option>
+                                    @endforeach -->
+                                    <option>Surat Biasa</option>
                                     <option>Nota Dinas</option>
                                     <option>Telegram</option>
                                     <option>Sprin</option>
                                     <option>Surat Izin</option>
-                                    <option>Surat Rahasia</option> -->
+                                    <option>Surat Rahasia</option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
-                                <input type="text" name="pengirim" class="form-control" id="exampleInputPassword1"
+                                @foreach ($datapengirim as $data)
+                                <input type="text" name="id_pengirim" class="form-control" id="exampleInputPassword1"
                                     required>
+                                @endforeach
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Perihal</label>
@@ -150,10 +153,13 @@
                             </div> -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Penerima</label>
-                                <select class="form-select" name="penerima" aria-label="Default select example"
+                                <select class="form-select" name="id_penerima" aria-label="Default select example"
                                     required>
-                                    <option selected>Open this select menu</option>
-                                    <option>Mabes POLRI</option>
+                                    <!-- <option selected>Open this select menu</option> -->
+                                    @foreach ($datapenerima as $data)
+                                    <option value="{{ $data->id }}">{{ $data->nama_penerima }}</option>
+                                    @endforeach
+                                    <!-- <option>Mabes POLRI</option>
                                     <option>Kapolda DIY</option>
                                     <option>Wakapolda DIY</option>
                                     <option>Irwasda</option>
@@ -183,7 +189,7 @@
                                     <option>Polres Bantul</option>
                                     <option>Polres KLP</option>
                                     <option>Polres ONK/option>
-                                    <option>Instansi Luar POLDA</option>
+                                    <option>Instansi Luar POLDA</option> -->
                                 </select>
                             </div>
                             <!-- <div class="mb-3">

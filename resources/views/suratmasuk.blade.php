@@ -59,14 +59,14 @@
             <tr>
                 <th scope="row">{{ $row->nomor_agenda }}</th>
                 <td>{{ $row->nomor_surat }}</td>
-                <td>{{ $row->surattypes->nama }}</td>
-                <td>{{ $row->pengirim }}</td>
+                <td>{{ $row->jenis_surat }}</td>
+                <td>{{ $row->pengirims->nama_pengirim }}</td>
                 <td>{{ $row->perihal }}</td>
                 <td>{{ $row->kka }}</td>
                 <td>{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
                 <td>{{ $row->jam_terima }}</td>
                 <td>{{ $row->disposisi_kepada }}</td>
-                <td>{{ $row->penerima }}</td>
+                <td>{{ $row->penerimas->nama_penerima }}</td>
                 <td>{{ $row->isi_disposisi }}</td>
                 <td>{{ $row->keterangan }}</td>
                 <td>

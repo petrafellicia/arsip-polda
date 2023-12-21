@@ -31,11 +31,11 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
-                <select class="form-select" name="id_type" aria-label="Default select example">
-                  <option selected>{{ $data->type_name }}</option>
-                  @foreach ($datasurat as $dt)
+                <select class="form-select" name="jenis_surat" aria-label="Default select example">
+                  <option selected>{{ $data->jenis_surat }}</option>
+                  <!-- @foreach ($datasurat as $dt)
                   <option value="{{ $dt->id }}">{{ $dt->nama }}</option>
-                  @endforeach
+                  @endforeach -->
                   <!-- <option >Surat Biasa</option>
                 <option >Nota Dinas</option>
                 <option >Telegram</option>
@@ -46,7 +46,7 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
-                <input type="text" name="pengirim" value="{{ $data->pengirim }}" class="form-control"
+                <input type="text" name="id_pengirim" value="{{ $data->sender_name }}" class="form-control"
                   id="exampleInputPassword1">
               </div>
               <div class="mb-3">
@@ -124,8 +124,8 @@
             </div> -->
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Penerima</label>
-                  <select class="form-select" name="penerima" aria-label="Default select example">
-                    <option selected>{{ $data->penerima }}</option>
+                  <select class="form-select" name="id_penerima" aria-label="Default select example">
+                    <option selected>{{ $data->receiver_name }}</option>
                     <option>Mabes POLRI</option>
                     <option>Kapolda DIY</option>
                     <option>Wakapolda DIY</option>

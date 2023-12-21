@@ -30,24 +30,27 @@
                             </div>
                             <div class="mb-3">
                                 <label for="id_type" class="form-label">Jenis Surat</label>
-                                <select class="form-select  @error('id_type') is-ivalid @enderror"
-                                    value="{{ old('id_type') }}" name="id_type" aria-label="Default select example"
+                                <select class="form-select  @error('jenis_surat') is-ivalid @enderror"
+                                    value="{{ old('jenis_surat') }}" name="jenis_surat" aria-label="Default select example"
                                     required>
-                                    <option selected>Pilih Jenis Surat</option>
-                                    @foreach ($datasurat as $data)
+                                    <option selected>Pilih Jenis Surat</option> 
+                                    <!-- @foreach ($datasurat as $data)
                                     <option value="{{ $data->id }}">{{ $data->nama }}</option>
-                                    @endforeach
-                                    <!-- <option>Nota Dinas</option>
+                                    @endforeach  -->
+                                    <option>Surat Biasa</option>
+                                    <option>Nota Dinas</option>
                                     <option>Telegram</option>
                                     <option>Sprin</option>
                                     <option>Surat Izin</option>
-                                    <option>Surat Rahasia</option> -->
+                                    <option>Surat Rahasia</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="pengirim" class="form-label">Pengirim</label>
-                                <input type="text" name="pengirim" class="form-control 
-              @error('pengirim') is-ivalid @enderror" value="{{ old('pengirim') }}" id="pengirim" required>
+                                <label for="id_pengirim" class="form-label">Pengirim</label>
+                                @foreach ($datapengirim as $data)
+                                <input type="text" name="id_pengirim" class="form-control 
+              @error('id_pengirim') is-ivalid @enderror" value="{{ old('id_pengirim') }}" id="id_pengirim" required>
+                                @endforeach
                             </div>
                             <div class="mb-3">
                                 <label for="perihal" class="form-label">Perihal</label>
@@ -125,9 +128,12 @@
                                 <div class="mb-3">
                                     <label for="penerima" class="form-label">Penerima</label>
                                     <select class="form-select 
-              @error('penerima') is-ivalid @enderror" value="{{ old('penerima') }}" name="penerima"
+              @error('id_penerima') is-ivalid @enderror" value="{{ old('id_penerima') }}" name="id_penerima"
                                         aria-label="Default select example" required>
-                                        <option selected>Pilih Penerima</option>
+                                        <!-- <option selected>Pilih Penerima</option> -->
+                                        @foreach ($datapenerima as $data)
+                                        <option value="{{ $data->id }}">{{ $data->nama_penerima }}</option>
+                                        @endforeach
                                         <option>Mabes POLRI</option>
                                         <option>Kapolda DIY</option>
                                         <option>Wakapolda DIY</option>

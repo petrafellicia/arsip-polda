@@ -86,10 +86,11 @@ class SuratMasukController extends Controller
             $query->where('nomor_surat', 'like', "%$searchTerm%")
                 ->orWhere('tanggal_surat', 'like', "%$searchTerm%")
                 ->orWhere('kka', 'like', "%$searchTerm%")
-                ->orWhere('pengirim', 'like', "%$searchTerm%")
-                ->orWhere('penerima', 'like', "%$searchTerm%")
-                ->orWhereHas('surattypes', function ($query) use ($searchTerm) {
-                    $query->where('nama', 'like', '%' . $searchTerm . '%');
+                ->orWhereHas('pengirims', function ($query) use ($searchTerm) {
+                    $query->where('nama_pengirim', 'like', '%' . $searchTerm . '%');
+                })
+                ->orWhereHas('penerimas', function ($query) use ($searchTerm) {
+                    $query->where('nama_penerima', 'like', '%' . $searchTerm . '%');
                 })
                 ->paginate(100);
         })
@@ -145,14 +146,14 @@ class SuratMasukController extends Controller
             [
                 'nomor_agenda' => $request->nomor_agenda,
                 'nomor_surat' => $request->nomor_surat,
-                'id_type' => $request->id_type,
-                'pengirim' => $request->pengirim,
+                'jenis_surat' => $request->jenis_surat,
+                'id_pengirim' => $request->id_pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'tanggal_surat' => $request->tanggal_surat,
                 'jam_terima' => $request->jam_terima,
                 'disposisi_kepada' => $disposisi_kepada,
-                'penerima' => $request->penerima,
+                'id_penerima' => $request->id_penerima,
                 'isi_disposisi' => $request->isi_disposisi,
                 'keterangan' => $request->keterangan,
             ]
@@ -181,16 +182,35 @@ class SuratMasukController extends Controller
 
     public function tampilkandatamasuk($id)
     {
-        $dataBaru = DB::table('surat_masuks')
-            ->join('surat_types', 'surat_masuks.id_type', '=', 'surat_types.id')
-            ->select('surat_masuks.*', 'surat_types.nama as type_name')
+        $dataBaru1 = DB::table('surat_masuks')
+            ->join('pengirims', 'surat_masuks.id_pengirim', '=', 'pengirims.id')
+            ->select('surat_masuks.*', 'pengirims.nama_pengirim as sender_name')
             ->where('surat_masuks.id', $id)
             ->get();
 
-        $datasurat = SuratType::all();
-        // dd($dataBaru);
-        $data = $dataBaru[0];
-        return view('tampildatamasuk', compact('data', 'datasurat'));
+        $dataBaru2 = DB::table('surat_masuks')
+            ->join('penerimas', 'surat_masuks.id_penerima', '=', 'penerimas.id')
+            ->select('surat_masuks.*', 'penerimas.nama_penerima as receiver_name')
+            ->where('surat_masuks.id', $id)
+            ->get();
+
+        $datapengirim = Pengirim::all();
+        $datapenerima = Penerima::all();
+
+        $data = $dataBaru1[0];
+        $data = $dataBaru2[0];
+        return view('tampildatamasuk', compact('data', 'datapengirim', 'datapenerima'));
+
+        // $dataBaru = DB::table('surat_masuks')
+        //     ->join('surat_types', 'surat_masuks.id_type', '=', 'surat_types.id')
+        //     ->select('surat_masuks.*', 'surat_types.nama as type_name')
+        //     ->where('surat_masuks.id', $id)
+        //     ->get();
+
+        // $datasurat = SuratType::all();
+        // // dd($dataBaru);
+        // $data = $dataBaru[0];
+        // return view('tampildatamasuk', compact('data', 'datasurat'));
         // $data = SuratMasuk::find($id);
         // $datasurat = SuratType::all();
         // return view('tampildatamasuk', compact('datasurat'), compact('data'));
@@ -214,14 +234,14 @@ class SuratMasukController extends Controller
             [
                 'nomor_agenda' => $request->nomor_agenda,
                 'nomor_surat' => $request->nomor_surat,
-                'id_type' => $request->id_type,
-                'pengirim' => $request->pengirim,
+                'jenis_surat' => $request->jenis_surat,
+                'id_pengirim' => $request->id_pengirim,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'tanggal_surat' => $request->tanggal_surat,
                 'jam_terima' => $request->jam_terima,
                 'disposisi_kepada' => $disposisi_kepada,
-                'penerima' => $request->penerima,
+                'id_penerima' => $request->id_penerima,
                 'isi_disposisi' => $request->isi_disposisi,
                 'keterangan' => $request->keterangan,
             ]

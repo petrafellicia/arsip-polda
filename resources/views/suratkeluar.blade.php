@@ -81,15 +81,15 @@
             <tr>
                 <th scope="row">{{ $row->no_agenda }}</th>
                 <td>{{ $row->no_surat }}</td>
-                <td>{{ $row->surattypes->nama }}</td>
-                <td>{{ $row->pengirim }}</td>
+                <td>{{ $row->jenis_surat }}</td>
+                <td>{{ $row->pengirims->nama_pengirim }}</td>
                 <td>{{ $row->perihal }}</td>
                 <td>{{ $row->kka }}</td>
                 <td>{{ $row->dasar_surat }}</td>
                 <td>{{ date('d-m-Y', strtotime($row->tgl_surat)) }}</td>
                 <td>{{ $row->jam_surat }}</td>
                 <!-- <td>{{ $row->disposisi }}</td> -->
-                <td>{{ $row->penerima }}</td>
+                <td>{{ $row->penerimas->nama_penerima }}</td>
                 <!-- <td>{{ $row->isi_disposisi }}</td> -->
                 <td>{{ $row->feedback }}</td>
                 <td>

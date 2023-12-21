@@ -12,17 +12,29 @@ class SuratKeluar extends Model{
     {
         return $this->belongsTo(SuratType::class, 'id_type', 'id');
     }
+
+    public function pengirims()
+    {
+        return $this->belongsTo(Pengirim::class, 'id_pengirim', 'id');
+    }
+
+    public function penerimas()
+    {
+        return $this->belongsTo(Penerima::class, 'id_penerima', 'id');
+    }
+
+
     protected $fillable = [
         'no_agenda',
         'no_surat',
-        'id_type',
-        'pengirim',
+        'jenis_surat',
+        'id_pengirim',
         'perihal',
         'kka',
         'dasar_surat',
         'tgl_surat',
         'jam_surat',
-        'penerima',
+        'id_penerima',
         'feedback',
         'file'
     ];

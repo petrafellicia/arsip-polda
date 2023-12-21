@@ -16,14 +16,14 @@ return new class extends Migration {
             $table->id();
             $table->string('no_agenda');
             $table->string('no_surat');
-            $table->integer('id_type')->nullable();
-            $table->string('pengirim');
+            $table->string('jenis_surat');
+            $table->foreignId('id_pengirim')->nullable();
             $table->text('perihal');
             $table->string('kka');
             $table->string('dasar_surat');
             $table->date('tgl_surat');
             $table->string('jam_surat');
-            $table->string('penerima');
+            $table->foreignId('id_penerima')->nullable();
             $table->string('feedback');
             $table->string('file')->nullable(true);
             $table->timestamps();
