@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Mail;
 use App\Models\SuratMasuk;
-use App\Models\SuratType;
+use App\Models\Pengirim;
+use App\Models\Penerima;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -109,8 +110,9 @@ class SuratMasukController extends Controller
 
     public function tambahdata()
     {
-        $datasurat = SuratType::all();
-        return view('masuk', compact('datasurat'), [
+        $datasurat1 = Pengirim::all();
+        $datasurat2 = Penerima::all();
+        return view('masuk', compact('datasurat1', 'datasurat2'), [
             "title" => "Input Surat Masuk"
         ]);
     }

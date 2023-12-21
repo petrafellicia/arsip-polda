@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuratKeluar;
-use App\Models\SuratType;
+use App\Models\Pengirim;
+use App\Models\Penerima;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;

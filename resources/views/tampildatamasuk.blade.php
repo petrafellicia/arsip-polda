@@ -33,9 +33,7 @@
                 <label for="exampleInputEmail1" class="form-label">Jenis Surat</label>
                 <select class="form-select" name="jenis_surat" aria-label="Default select example">
                   <option selected>{{ $data->jenis_surat }}</option>
-                  <!-- @foreach ($datasurat as $dt)
-                  <option value="{{ $dt->id }}">{{ $dt->nama }}</option>
-                  @endforeach -->
+
                   <!-- <option >Surat Biasa</option>
                 <option >Nota Dinas</option>
                 <option >Telegram</option>
@@ -46,8 +44,10 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
-                <input type="text" name="id_pengirim" value="{{ $data->sender_name }}" class="form-control"
+                @foreach ($datapengirim as $dt)
+                <input type="text" name="id_pengirim" value="{{ $dt->nama_pengirim }}" class="form-control"
                   id="exampleInputPassword1">
+                @endforeach
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Perihal</label>
