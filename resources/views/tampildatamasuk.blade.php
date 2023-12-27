@@ -45,7 +45,7 @@
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
                 @foreach ($datapengirim as $dt)
-                <input type="text" name="id_pengirim" value="{{ $dt->nama_pengirim }}" class="form-control"
+                <input type="text" name="pengirim_id" value="{{ $dt->nama_pengirim }}" class="form-control"
                   id="exampleInputPassword1">
                 @endforeach
               </div>
@@ -124,7 +124,7 @@
             </div> -->
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Penerima</label>
-                  <select class="form-select" name="id_penerima" aria-label="Default select example">
+                  <select class="form-select" name="penerima_id" aria-label="Default select example">
                     <option selected>{{ $data->receiver_name }}</option>
                     <option>Mabes POLRI</option>
                     <option>Kapolda DIY</option>

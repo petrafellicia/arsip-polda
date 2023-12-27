@@ -47,7 +47,7 @@
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
                                 @foreach ($datapengirim as $data)
-                                <input type="text" name="id_pengirim" class="form-control" id="exampleInputPassword1"
+                                <input type="text" name="pengirim_id" class="form-control" id="exampleInputPassword1"
                                     required>
                                 @endforeach
                             </div>
@@ -153,7 +153,7 @@
                             </div> -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Penerima</label>
-                                <select class="form-select" name="id_penerima" aria-label="Default select example"
+                                <select class="form-select" name="penerima_id" aria-label="Default select example"
                                     required>
                                     <!-- <option selected>Open this select menu</option> -->
                                     @foreach ($datapenerima as $data)

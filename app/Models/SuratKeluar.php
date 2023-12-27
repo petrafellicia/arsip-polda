@@ -15,12 +15,12 @@ class SuratKeluar extends Model{
 
     public function pengirims()
     {
-        return $this->belongsTo(Pengirim::class, 'id_pengirim', 'id');
+        return $this->belongsTo(Pengirim::class, 'pengirim_id', 'id');
     }
 
     public function penerimas()
     {
-        return $this->belongsTo(Penerima::class, 'id_penerima', 'id');
+        return $this->belongsTo(Penerima::class, 'penerima_id', 'id');
     }
 
 
@@ -28,13 +28,13 @@ class SuratKeluar extends Model{
         'no_agenda',
         'no_surat',
         'jenis_surat',
-        'id_pengirim',
+        'pengirim_id',
         'perihal',
         'kka',
         'dasar_surat',
         'tgl_surat',
         'jam_surat',
-        'id_penerima',
+        'penerima_id',
         'feedback',
         'file'
     ];

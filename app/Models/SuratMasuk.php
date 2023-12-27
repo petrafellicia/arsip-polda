@@ -26,25 +26,25 @@ class SuratMasuk extends Model
 
     public function pengirims()
     {
-        return $this->belongsTo(Pengirim::class, 'id_pengirim', 'id');
+        return $this->belongsTo(Pengirim::class, 'pengirim_id', 'id');
     }
 
     public function penerimas()
     {
-        return $this->belongsTo(Penerima::class, 'id_penerima', 'id');
+        return $this->belongsTo(Penerima::class, 'penerima_id', 'id');
     }
 
     protected $fillable = [
         'nomor_agenda',
         'nomor_surat',
         'jenis_surat',
-        'id_pengirim',
+        'pengirim_id',
         'perihal',
         'kka',
         'tanggal_surat',
         'jam_terima',
         'disposisi_kepada',
-        'id_penerima',
+        'penerima_id',
         'isi_disposisi',
         'keterangan',
         'file'

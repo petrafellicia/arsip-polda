@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PengirimSeeder::class,
             PenerimaSeeder::class,
+            UnitSeeder::class,
             SuratTypeSeeder::class,
             SuratKeluarSeeder::class,
             SuratMasukSeeder::class,
-
         ]);
     }
 }

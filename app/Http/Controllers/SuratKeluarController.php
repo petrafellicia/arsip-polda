@@ -95,13 +95,13 @@ class SuratKeluarController extends Controller
                 'no_agenda' => $request->no_agenda,
                 'no_surat' => $request->no_surat,
                 'jenis_surat' => $request->jenis_surat,
-                'id_pengirim' => $request->id_pengirim,
+                'pengirim_id' => $request->pengirim_id,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'dasar_surat' => $request->dasar_surat,
                 'tgl_surat' => $request->tgl_surat,
                 'jam_surat' => $request->jam_surat,
-                'id_penerima' => $request->id_penerima,
+                'penerima_id' => $request->penerima_id,
                 'feedback' => $request->feedback,
             ]
         );
@@ -131,13 +131,13 @@ class SuratKeluarController extends Controller
     public function tampilkandatakeluar($id)
     {
         $dataBaru1 = DB::table('surat_keluars')
-            ->join('pengirims', 'surat_keluars.id_pengirim', '=', 'pengirims.id')
+            ->join('pengirims', 'surat_keluars.pengirim_id', '=', 'pengirims.id')
             ->select('surat_keluars.*', 'pengirims.nama_pengirim as sender_name')
             ->where('surat_keluars.id', $id)
             ->get();
 
         $dataBaru2 = DB::table('surat_keluars')
-            ->join('penerimas', 'surat_keluars.id_penerima', '=', 'penerimas.id')
+            ->join('penerimas', 'surat_keluars.penerima_id', '=', 'penerimas.id')
             ->select('surat_keluars.*', 'penerimas.nama_penerima as receiver_name')
             ->where('surat_keluars.id', $id)
             ->get();
@@ -172,13 +172,13 @@ class SuratKeluarController extends Controller
                 'no_agenda' => $request->no_agenda,
                 'no_surat' => $request->no_surat,
                 'jenis_surat' => $request->jenis_surat,
-                'id_pengirim' => $request->id_pengirim,
+                'pengirim_id' => $request->pengirim_id,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'dasar_surat' => $request->dasar_surat,
                 'tgl_surat' => $request->tgl_surat,
                 'jam_surat' => $request->jam_surat,
-                'id_penerima' => $request->id_penerima,
+                'penerima_id' => $request->penerima_id,
                 'feedback' => $request->feedback,
             ]
         );

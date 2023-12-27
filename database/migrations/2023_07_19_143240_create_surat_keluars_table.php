@@ -17,13 +17,13 @@ return new class extends Migration {
             $table->string('no_agenda');
             $table->string('no_surat');
             $table->string('jenis_surat');
-            $table->foreignId('id_pengirim')->constrained('pengirims')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('pengirim_id');
             $table->text('perihal');
             $table->string('kka');
             $table->string('dasar_surat');
             $table->date('tgl_surat');
             $table->string('jam_surat');
-            $table->foreignId('id_penerima')->constrained('penerimas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('penerima_id');
             $table->string('feedback');
             $table->string('file')->nullable(true);
             $table->timestamps();

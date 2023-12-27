@@ -29,7 +29,7 @@
               @error('nomor_agenda') is-ivalid @enderror" value="{{ old('nomor_agenda') }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="id_type" class="form-label">Jenis Surat</label>
+                                <label for="jenis_surat" class="form-label">Jenis Surat</label>
                                 <select class="form-select  @error('jenis_surat') is-ivalid @enderror"
                                     value="{{ old('jenis_surat') }}" name="jenis_surat"
                                     aria-label="Default select example" required>
@@ -43,10 +43,10 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="id_pengirim" class="form-label">Pengirim</label>
+                                <label for="pengirim_id" class="form-label">Pengirim</label>
                                 <!-- @foreach ($datasurat1 as $dt) -->
-                                <input type="text" name="id_pengirim" class="form-control"
-                                    value="{{ $data->id_pengirim }}" id="id_pengirim" required>
+                                <input type="text" name="pengirim_id" class="form-control"
+                                    value="{{ $data->pengirim_id }}" id="pengirim_id" required>
                                 <!-- @endforeach -->
                             </div>
                             <div class="mb-3">
@@ -125,7 +125,7 @@
                                 <div class="mb-3">
                                     <label for="penerima" class="form-label">Penerima</label>
                                     <select class="form-select 
-              @error('id_penerima') is-ivalid @enderror" value="{{ old('id_penerima') }}" name="id_penerima"
+              @error('penerima_id') is-ivalid @enderror" value="{{ old('penerima_id') }}" name="penerima_id"
                                         aria-label="Default select example" required>
                                         <!-- <option selected>Pilih Penerima</option> -->
                                         @foreach ($datasurat2 as $dta)

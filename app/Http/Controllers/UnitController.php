@@ -16,6 +16,8 @@ class UnitController extends Controller
     public function index()
     {
         //
+        $data = Unit::all();
+        return view();
     }
 
     /**
@@ -37,6 +39,7 @@ class UnitController extends Controller
     public function store(StoreUnitRequest $request)
     {
         //
+        $data = Unit::create($request->all());
     }
 
     /**

@@ -17,6 +17,8 @@ class UnitSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('units')->delete();
+
         DB::table('units')->insert([
             'id' => '1',
             'nama_unit'=> 'BID TIK',

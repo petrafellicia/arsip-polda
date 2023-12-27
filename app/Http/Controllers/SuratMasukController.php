@@ -149,13 +149,13 @@ class SuratMasukController extends Controller
                 'nomor_agenda' => $request->nomor_agenda,
                 'nomor_surat' => $request->nomor_surat,
                 'jenis_surat' => $request->jenis_surat,
-                'id_pengirim' => $request->id_pengirim,
+                'pengirim_id' => $request->pengirim_id,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'tanggal_surat' => $request->tanggal_surat,
                 'jam_terima' => $request->jam_terima,
                 'disposisi_kepada' => $disposisi_kepada,
-                'id_penerima' => $request->id_penerima,
+                'penerima_id' => $request->penerima_id,
                 'isi_disposisi' => $request->isi_disposisi,
                 'keterangan' => $request->keterangan,
             ]
@@ -186,13 +186,13 @@ class SuratMasukController extends Controller
     public function tampilkandatamasuk($id)
     {
         $dataBaru1 = DB::table('surat_masuks')
-            ->join('pengirims', 'surat_masuks.id_pengirim', '=', 'pengirims.id')
+            ->join('pengirims', 'surat_masuks.pengirim_id', '=', 'pengirims.id')
             ->select('surat_masuks.*', 'pengirims.nama_pengirim as sender_name')
             ->where('surat_masuks.id', $id)
             ->get();
 
         $dataBaru2 = DB::table('surat_masuks')
-            ->join('penerimas', 'surat_masuks.id_penerima', '=', 'penerimas.id')
+            ->join('penerimas', 'surat_masuks.penerima_id', '=', 'penerimas.id')
             ->select('surat_masuks.*', 'penerimas.nama_penerima as receiver_name')
             ->where('surat_masuks.id', $id)
             ->get();
@@ -238,13 +238,13 @@ class SuratMasukController extends Controller
                 'nomor_agenda' => $request->nomor_agenda,
                 'nomor_surat' => $request->nomor_surat,
                 'jenis_surat' => $request->jenis_surat,
-                'id_pengirim' => $request->id_pengirim,
+                'pengirim_id' => $request->pengirim_id,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
                 'tanggal_surat' => $request->tanggal_surat,
                 'jam_terima' => $request->jam_terima,
                 'disposisi_kepada' => $disposisi_kepada,
-                'id_penerima' => $request->id_penerima,
+                'penerima_id' => $request->penerima_id,
                 'isi_disposisi' => $request->isi_disposisi,
                 'keterangan' => $request->keterangan,
             ]
