@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SuratKeluar;
+use App\Models\SuratType;
 use App\Models\Pengirim;
 use App\Models\Penerima;
 use Illuminate\Http\Request;
@@ -77,8 +78,10 @@ class SuratKeluarController extends Controller
 
     public function tambahsuratkeluar()
     {
-        $datasurat = SuratType::all();
-        return view('keluar', compact('datasurat'));
+        // $datasurat = SuratType::all();
+        $datapengirim = Pengirim::all();
+        $datapenerima = Penerima::all();
+        return view('keluar', compact('datapengirim', 'datapenerima'));
     }
 
     public function insertsuratkeluar(Request $request)

@@ -45,8 +45,8 @@
                             <div class="mb-3">
                                 <label for="pengirim_id" class="form-label">Pengirim</label>
                                 <!-- @foreach ($datasurat1 as $dt) -->
-                                <input type="text" name="pengirim_id" class="form-control"
-                                    value="{{ $data->pengirim_id }}" id="pengirim_id" required>
+                                <input type="text" name="pengirim_id" class="form-control" value="pengirim_id"
+                                    id="pengirim_id" required>
                                 <!-- @endforeach -->
                             </div>
                             <div class="mb-3">

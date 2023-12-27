@@ -33,9 +33,6 @@
                                 <select class="form-select" name="jenis_surat" aria-label="Default select example"
                                     required>
                                     <option selected>Open this select menu</option>
-                                    <!-- @foreach ($datasurat as $data)
-                                    <option value="{{ $data->id }}">{{ $data->nama }}</option>
-                                    @endforeach -->
                                     <option>Surat Biasa</option>
                                     <option>Nota Dinas</option>
                                     <option>Telegram</option>
@@ -46,10 +43,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
-                                @foreach ($datapengirim as $data)
                                 <input type="text" name="pengirim_id" class="form-control" id="exampleInputPassword1"
                                     required>
-                                @endforeach
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Perihal</label>
@@ -156,8 +151,8 @@
                                 <select class="form-select" name="penerima_id" aria-label="Default select example"
                                     required>
                                     <!-- <option selected>Open this select menu</option> -->
-                                    @foreach ($datapenerima as $data)
-                                    <option value="{{ $data->id }}">{{ $data->nama_penerima }}</option>
+                                    @foreach ($datapenerima as $dt)
+                                    <option value="{{ $dt->id }}">{{ $dt->nama_penerima }}</option>
                                     @endforeach
                                     <!-- <option>Mabes POLRI</option>
                                     <option>Kapolda DIY</option>
