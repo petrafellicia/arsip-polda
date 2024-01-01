@@ -26,5 +26,27 @@ class UnitSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
 
+        DB::table('units')->insert([
+            'id' => '2',
+            'nama_unit'=> 'KAURREN',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('units')->insert([
+            'id' => '3',
+            'nama_unit'=> 'KAURJAROM',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('units')->insert([
+            'id' => '4',
+            'nama_unit'=> 'KAURPULATAH',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+
     }
 }
