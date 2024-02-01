@@ -12,5 +12,15 @@ class Unit extends Model
     protected $fillable = [
         'id',
         'nama_unit'
-    ];
+    ];   
+
+    public function surat_masuks()
+    {
+        return $this->hasMany(SuratMasuk::class);
+    }
+
+    public function surat_keluars()
+    {
+        return $this->hasMany(SuratKeluar::class);
+    }
 }
