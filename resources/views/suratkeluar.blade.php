@@ -82,7 +82,7 @@
                 <th scope="row">{{ $row->no_agenda }}</th>
                 <td>{{ $row->no_surat }}</td>
                 <td>{{ $row->jenis_surat }}</td>
-                <td>{{ $row->pengirims->nama_pengirim }}</td>
+                <td>{{ $row->pengirims->nama_unit }}</td>
                 <td>{{ $row->perihal }}</td>
                 <td>{{ $row->kka }}</td>
                 <td>{{ $row->dasar_surat }}</td>

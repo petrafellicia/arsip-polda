@@ -21,9 +21,24 @@ class PenerimaSeeder extends Seeder
 
         DB::table('penerimas')->insert([
             'id' => '1',
-            'nama_penerima' => 'Rumah Sakit DL',
+            'nama_penerima' => 'Bid TIK',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        DB::table('penerimas')->insert([
+            'id' => '2',
+            'nama_penerima' => 'Bid Siber',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('penerimas')->insert([
+            'id' => '3',
+            'nama_penerima' => 'Bid Tekinfo',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
     }
 }

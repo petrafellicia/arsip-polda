@@ -6,8 +6,10 @@ use App\Models\Mail;
 use App\Models\SuratMasuk;
 use App\Models\Pengirim;
 use App\Models\Penerima;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -111,7 +113,8 @@ class SuratMasukController extends Controller
     public function tambahdata()
     {
         $datasurat1 = Pengirim::all();
-        $datasurat2 = Penerima::all();
+        // $datasurat2 = Penerima::all();
+        $datasurat2 = Unit::all();
         return view('masuk', compact('datasurat1', 'datasurat2'), [
             "title" => "Input Surat Masuk"
         ]);
@@ -119,24 +122,6 @@ class SuratMasukController extends Controller
 
     public function insertsurat(Request $request)
     {
-        // dd($request->all());
-
-        // $request->validate([
-        //     'nomor_agenda' => 'required',
-        //     'nomor_surat' => 'required',
-        //     'jenis_surat' => 'required',
-        //     'asal_surat' => 'required',
-        //     'perihal' => 'required',
-        //     'kka' => 'required',
-        //     'tanggal_surat' => 'required',
-        //     'jam_terima' => 'required',
-        //     'disposisi_kepada' => 'required',
-        //     'distribusi' => 'required',
-        //     'isi_disposisi' => 'required',
-        //     'keterangan' => 'required',
-        //     'file' => 'required|mimes:pdf,word,jpeg,png,jpg',
-        // ]);
-
         $disposisi_kepada = "";
         for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
             if ($request->get('disposisi')[$i] != null) {
@@ -161,8 +146,13 @@ class SuratMasukController extends Controller
             ]
         );
 
-        $pengirim = $data->pengirim;
-        $penerima = $data->penerima;
+        // $data->load('pengirim', 'penerima');
+
+        // $nama_pengirim = $data->pengirims->nama_pengirim ?? '';
+        // $nama_penerima = $data->penerimas->nama_penerima ?? '';
+
+        // $nama_pengirim = $data->pengirims->nama_pengirim;
+        // $nama_penerima = $data->penerimas->nama_penerima;
 
         // $data = SuratMasuk::create($request->all());
         if ($request->hasFile('file')) {
@@ -191,17 +181,31 @@ class SuratMasukController extends Controller
             ->where('surat_masuks.id', $id)
             ->get();
 
+        // $dataBaru2 = DB::table('surat_masuks')
+        //     ->join('penerimas', 'surat_masuks.penerima_id', '=', 'penerimas.id')
+        //     ->select('surat_masuks.*', 'penerimas.nama_penerima as receiver_name')
+        //     ->where('surat_masuks.id', $id)
+        //     ->get();
+        
         $dataBaru2 = DB::table('surat_masuks')
-            ->join('penerimas', 'surat_masuks.penerima_id', '=', 'penerimas.id')
-            ->select('surat_masuks.*', 'penerimas.nama_penerima as receiver_name')
-            ->where('surat_masuks.id', $id)
-            ->get();
+           ->join('penerimas', 'surat_masuks.penerima_id', '=', 'units.id')
+           ->select('surat_masuks.*', 'units.nama_unit as receiver_name')
+           ->where('surat_masuks.id', $id)
+           ->get();
 
         $datapengirim = Pengirim::all();
-        $datapenerima = Penerima::all();
+        $datapenerima = Unit::all();
 
-        $data = $dataBaru1[0];
-        $data = $dataBaru2[0];
+        $data = [
+            'dataBaru1' => $dataBaru1->first(),
+            'dataBaru2' => $dataBaru2->first(),
+        ];
+
+        // dd($data);
+
+        $data['dataBaru1_id'] = $data['dataBaru1'] ? $data['dataBaru1']->id : null;
+        $data['dataBaru2_id'] = $data['dataBaru2'] ? $data['dataBaru2']->id : null;
+
         return view('tampildatamasuk', compact('data', 'datapengirim', 'datapenerima'));
 
         // $dataBaru = DB::table('surat_masuks')
@@ -222,10 +226,7 @@ class SuratMasukController extends Controller
     public function updatedatamasuk(Request $request, $id)
     {
         $data = SuratMasuk::find($id);
-        // if ($request->hasFile('file')) {
-        //     $request->file('file')->move('dokumensuratmasuk/', $request->file('file')->getClientOriginalName());
-        //     $data->file = $request->file('file')->getClientOriginalName();
-        //     $data->save();
+
         $disposisi_kepada = "";
         for ($i = 0; $i < sizeof($request->get('disposisi')); $i++) {
             if ($request->get('disposisi')[$i] != null) {
@@ -241,7 +242,7 @@ class SuratMasukController extends Controller
                 'pengirim_id' => $request->pengirim_id,
                 'perihal' => $request->perihal,
                 'kka' => $request->kka,
-                'tanggal_surat' => $request->tanggal_surat,
+                'tanggal_surat' => 'required|date_format:m-d-Y',
                 'jam_terima' => $request->jam_terima,
                 'disposisi_kepada' => $disposisi_kepada,
                 'penerima_id' => $request->penerima_id,
@@ -258,8 +259,6 @@ class SuratMasukController extends Controller
             $data->save();
         }
 
-        // $data->update($request->all());
-        // return redirect()->route('daftar-surat-masuk')->with('success', 'Data Berhasil di Update');
         Alert::success('Data Berhasil DiUpdate', 'Data surat masuk telah berhasil diupdate ke database.')->toHtml();
         return redirect('/daftar-surat-masuk');
     }

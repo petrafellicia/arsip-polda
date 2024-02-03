@@ -6,6 +6,7 @@ use App\Models\SuratKeluar;
 use App\Models\SuratType;
 use App\Models\Pengirim;
 use App\Models\Penerima;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -79,7 +80,7 @@ class SuratKeluarController extends Controller
     public function tambahsuratkeluar()
     {
         // $datasurat = SuratType::all();
-        $datapengirim = Pengirim::all();
+        $datapengirim = Unit::all();
         $datapenerima = Penerima::all();
         return view('keluar', compact('datapengirim', 'datapenerima'));
     }
@@ -133,11 +134,17 @@ class SuratKeluarController extends Controller
     }
     public function tampilkandatakeluar($id)
     {
+        // $dataBaru1 = DB::table('surat_keluars')
+        //     ->join('pengirims', 'surat_keluars.pengirim_id', '=', 'pengirims.id')
+        //     ->select('surat_keluars.*', 'pengirims.nama_pengirim as sender_name')
+        //     ->where('surat_keluars.id', $id)
+        //     ->get();
+
         $dataBaru1 = DB::table('surat_keluars')
-            ->join('pengirims', 'surat_keluars.pengirim_id', '=', 'pengirims.id')
-            ->select('surat_keluars.*', 'pengirims.nama_pengirim as sender_name')
-            ->where('surat_keluars.id', $id)
-            ->get();
+           ->join('pengirims', 'surat_keluars.pengirim_id', '=', 'units.id')
+           ->select('surat_keluars.*', 'units.nama_unit as sender_name')
+           ->where('surat_keluars.id', $id)
+           ->get();
 
         $dataBaru2 = DB::table('surat_keluars')
             ->join('penerimas', 'surat_keluars.penerima_id', '=', 'penerimas.id')
@@ -145,11 +152,23 @@ class SuratKeluarController extends Controller
             ->where('surat_keluars.id', $id)
             ->get();
 
-        $datapengirim = Pengirim::all();
+        $datapengirim = Unit::all();
         $datapenerima = Penerima::all();
         // dd($dataBaru);
-        $data = $dataBaru1[0];
-        $data = $dataBaru2[0];
+
+        // $data = $dataBaru1[0];
+        // $data = $dataBaru2[0];
+
+        $data = [
+            'dataBaru1' => $dataBaru1->first(),
+            'dataBaru2' => $dataBaru2->first(),
+        ];
+
+        // dd($data);
+
+        $data['dataBaru1_id'] = $data['dataBaru1'] ? $data['dataBaru1']->id : null;
+        $data['dataBaru2_id'] = $data['dataBaru2'] ? $data['dataBaru2']->id : null;
+        
         return view('tampildatakeluar', compact('data', 'datapengirim', 'datapenerima'));
 
         // $data = SuratKeluar::find($id);

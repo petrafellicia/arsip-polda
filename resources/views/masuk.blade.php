@@ -44,94 +44,99 @@
                             </div>
                             <div class="mb-3">
                                 <label for="pengirim_id" class="form-label">Pengirim</label>
-                                <!-- @foreach ($datasurat1 as $dt) -->
-                                <input type="text" name="pengirim_id" class="form-control" value="pengirim_id"
-                                    id="pengirim_id" required>
-                                <!-- @endforeach -->
+                                <select class="form-select  @error('pengirim_id') is-ivalid @enderror"
+                                    value="{{ old('pengirim_id') }}" name="pengirim_id"
+                                    aria-label="Default select example" required>
+                                    <!-- <option selected>Pilih Jenis Surat</option> -->
+                                    @foreach ($datasurat1 as $dt)
+                                    <option value="{{ $dt->id }}">{{ $dt->nama_pengirim }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="perihal" class="form-label">Perihal</label>
-                                <input type="text" name="perihal" class="form-control
-              @error('perihal') is-ivalid @enderror" value="{{ old('perihal') }}" id="perihal">
-                                <div class="mb-3">
-                                    <label for="kka" class="form-label">KKA</label>
-                                    <select class="form-select 
+                                <input type="text" id="perihal" name="perihal" class="form-control
+              @error('perihal') is-ivalid @enderror" value="{{ old('perihal') }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="kka" class="form-label">KKA</label>
+                                <select class="form-select 
               @error('kka') is-ivalid @enderror" value="{{ old('kka') }}" name="kka"
-                                        aria-label="Default select example" required>
-                                        <option selected>Pilih KKA</option>
-                                        <option>KEP</option>
-                                        <option>BIN</option>
-                                        <option>OPS</option>
-                                        <option>REN</option>
-                                        <option>LOG</option>
-                                        <option>HUM</option>
-                                        <option>HUK</option>
-                                        <option>TIK</option>
-                                        <option>TUK</option>
-                                        <option>WAS</option>
-                                        <option>KEU</option>
-                                        <option>DIK</option>
-                                        <option>PAM</option>
-                                        <option>YAN</option>
-                                        <option>KES</option>
-                                        <option>RES</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="tanggal_surat" class="form-label">Tanggal Surat</label>
-                                    <input type="date" name="tanggal_surat" class="form-control
+                                    aria-label="Default select example" required>
+                                    <option selected>Pilih KKA</option>
+                                    <option>KEP</option>
+                                    <option>BIN</option>
+                                    <option>OPS</option>
+                                    <option>REN</option>
+                                    <option>LOG</option>
+                                    <option>HUM</option>
+                                    <option>HUK</option>
+                                    <option>TIK</option>
+                                    <option>TUK</option>
+                                    <option>WAS</option>
+                                    <option>KEU</option>
+                                    <option>DIK</option>
+                                    <option>PAM</option>
+                                    <option>YAN</option>
+                                    <option>KES</option>
+                                    <option>RES</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tanggal_surat" class="form-label">Tanggal Surat</label>
+                                <input type="date" name="tanggal_surat" class="form-control
               @error('tanggal_surat') is-ivalid @enderror" value="{{ old('tanggal_surat') }}" id="tanggal_surat"
-                                        required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="jam_terima" class="form-label">Jam Terima</label>
-                                    <input type="text" name="jam_terima" class="form-control 
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jam_terima" class="form-label">Jam Terima</label>
+                                <input type="text" name="jam_terima" class="form-control 
               @error('jam_terima') is-ivalid @enderror" value="{{ old('jam_terima') }}" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="disposisi_kepada" class="form-label">Disposisi Kepada</label>
 
-                                    <br>
+                                <br>
 
-                                    <label>
-                                        <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
-                                        Yth. Ksbd. Tekkom
-                                    </label>
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekkom">
+                                    Yth. Ksbd. Tekkom
+                                </label>
 
-                                    <br>
+                                <br>
 
-                                    <label>
-                                        <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
-                                        Yth. Ksbd. Tekinfo
-                                    </label>
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbd. Tekinfo">
+                                    Yth. Ksbd. Tekinfo
+                                </label>
 
-                                    <br>
+                                <br>
 
-                                    <label>
-                                        <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
-                                        Yth. Ksbg. Renmin
-                                    </label>
+                                <label>
+                                    <input type="checkbox" name="disposisi[]" value="Ksbg. Renmin">
+                                    Yth. Ksbg. Renmin
+                                </label>
 
-                                    <br>
+                                <br>
 
-                                    <label>
-                                        <input type="checkbox" id="other_checkbox">
-                                        Yth. ...
-                                    </label>
+                                <label>
+                                    <input type="checkbox" id="other_checkbox">
+                                    Yth. ...
+                                </label>
 
-                                    <input type="text" name="disposisi[]" id="other_text_input" style="display: none;">
+                                <input type="text" name="disposisi[]" id="other_text_input" style="display: none;">
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="penerima" class="form-label">Penerima</label>
-                                    <select class="form-select 
+                            </div>
+                            <div class="mb-3">
+                                <label for="penerima" class="form-label">Penerima</label>
+                                <select class="form-select 
               @error('penerima_id') is-ivalid @enderror" value="{{ old('penerima_id') }}" name="penerima_id"
-                                        aria-label="Default select example" required>
-                                        <!-- <option selected>Pilih Penerima</option> -->
-                                        @foreach ($datasurat2 as $dta)
-                                        <option value="{{ $dta->id }}">{{ $dta->nama_penerima }}</option>
-                                        @endforeach
-                                        <!-- <option>Mabes POLRI</option>
+                                    aria-label="Default select example" required>
+                                    <!-- <option selected>Pilih Penerima</option> -->
+                                    @foreach ($datasurat2 as $dta)
+                                    <option value="{{ $dta->id }}">{{ $dta->nama_unit }}</option>
+                                    @endforeach
+                                    <!-- <option>Mabes POLRI</option>
                                         <option>Kapolda DIY</option>
                                         <option>Wakapolda DIY</option>
                                         <option>Irwasda</option>
@@ -162,26 +167,26 @@
                                         <option>Polres KLP</option>
                                         <option>Polres ONK/option>
                                         <option>Instansi Luar POLDA</option> -->
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="isi_disposisi" class="form-label">Isi Disposisi</label>
-                                    <input type="text" name="isi_disposisi" class="form-control
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="isi_disposisi" class="form-label">Isi Disposisi</label>
+                                <input type="text" name="isi_disposisi" class="form-control
                @error('isi_disposisi') is-ivalid @enderror" value="{{ old('isi_disposisi') }}" id="isi_disposisi"
-                                        required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="keterangan" class="form-label">Keterangan</label>
-                                    <input type="text" name="keterangan" class="form-control 
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="keterangan" class="form-label">Keterangan</label>
+                                <input type="text" name="keterangan" class="form-control 
               @error('keterangan') is-ivalid @enderror" value="{{ old('keterangan') }}" id="keterangan" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Dokumen</label>
-                                    <input class="form-control 
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Upload Dokumen</label>
+                                <input class="form-control 
               @error('file') is-ivalid @enderror" value="{{ old('file') }}" name="file" type="file" id="formFile"
-                                        required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                    required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

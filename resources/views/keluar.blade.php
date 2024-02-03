@@ -43,8 +43,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
-                                <input type="text" name="pengirim_id" class="form-control" id="exampleInputPassword1"
+                                <select class="form-select" name="pengirim_id" aria-label="Default select example"
                                     required>
+                                    @foreach ($datapengirim as $dta)
+                                    <option value="{{ $dta->id }}">{{ $dta->nama_unit }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Perihal</label>

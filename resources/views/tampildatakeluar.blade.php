@@ -43,10 +43,12 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Pengirim</label>
-                @foreach ($datapenerima as $dt)
-                <input type="text" name="pengirim_id" value="{{ $dt->nama_penerima }}" class="form-control"
-                  id="exampleInputPassword1">
-                @endforeach
+                <select class="form-select" name="penerima_id" aria-label="Default select example">
+                  <option selected>{{ $data->sender_name }}</option>
+                  @foreach ($datapengirim as $dt)
+                  <option value="{{ $dt->id }}">{{ $dta->nama_unit }}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Perihal</label>
@@ -115,7 +117,10 @@
                 <label for="exampleInputPassword1" class="form-label">Penerima</label>
                 <select class="form-select" name="penerima_id" aria-label="Default select example">
                   <option selected>{{ $data->receiver_name }}</option>
-                  <option>Mabes POLRI</option>
+                  @foreach ($datapenerima as $dta)
+                  <option value="{{ $dta->id }}">{{ $dta->nama_penerima }}</option>
+                  @endforeach
+                  <!-- <option>Mabes POLRI</option>
                   <option>Kapolda DIY</option>
                   <option>Wakapolda DIY</option>
                   <option>Irwasda</option>
@@ -145,7 +150,7 @@
                   <option>Polres Bantul</option>
                   <option>Polres KLP</option>
                   <option>Polres ONK/option>
-                  <option>Instansi Luar POLDA</option>
+                  <option>Instansi Luar POLDA</option> -->
                 </select>
               </div>
               <div class="mb-3">

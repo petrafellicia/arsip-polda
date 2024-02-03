@@ -19,10 +19,10 @@ class SuratMasuk extends Model
     //     });
     // }
 
-    public function surattypes()
-    {
-        return $this->belongsTo(SuratType::class, 'id_type', 'id');
-    }
+    // public function surattypes()
+    // {
+    //     return $this->belongsTo(SuratType::class, 'id_type', 'id');
+    // }
 
     public function pengirims()
     {
@@ -31,7 +31,7 @@ class SuratMasuk extends Model
 
     public function penerimas()
     {
-        return $this->belongsTo(Penerima::class, 'penerima_id', 'id');
+        return $this->belongsTo(Unit::class, 'penerima_id', 'id');
     }
 
     protected $fillable = [

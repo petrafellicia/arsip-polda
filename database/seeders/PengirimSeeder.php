@@ -21,9 +21,31 @@ class PengirimSeeder extends Seeder
 
         DB::table('pengirims')->insert([
             'id' => '1',
-            'nama_pengirim' => 'Rumah Sakit DL',
+            'nama_pengirim' => 'Internal',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        DB::table('pengirims')->insert([
+            'id' => '2',
+            'nama_pengirim' => 'Lembaga Pemerintahan',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('pengirims')->insert([
+            'id' => '3',
+            'nama_pengirim' => 'Instansi Swasta',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('pengirims')->insert([
+            'id' => '4',
+            'nama_pengirim' => 'Masyarakat Umum',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
     }
 }

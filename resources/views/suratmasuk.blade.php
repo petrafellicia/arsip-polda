@@ -66,7 +66,7 @@
                 <td>{{ date('d-m-Y', strtotime($row->tanggal_surat)) }}</td>
                 <td>{{ $row->jam_terima }}</td>
                 <td>{{ $row->disposisi_kepada }}</td>
-                <td>{{ $row->penerimas->nama_penerima }}</td>
+                <td>{{ $row->penerimas->nama_unit }}</td>
                 <td>{{ $row->isi_disposisi }}</td>
                 <td>{{ $row->keterangan }}</td>
                 <td>

@@ -8,14 +8,14 @@ class SuratKeluar extends Model{
     use HasFactory;
     protected $guarded = [];
 
-    public function surattypes()
-    {
-        return $this->belongsTo(SuratType::class, 'id_type', 'id');
-    }
+    // public function surattypes()
+    // {
+    //     return $this->belongsTo(SuratType::class, 'id_type', 'id');
+    // }
 
     public function pengirims()
     {
-        return $this->belongsTo(Pengirim::class, 'pengirim_id', 'id');
+        return $this->belongsTo(Unit::class, 'pengirim_id', 'id');
     }
 
     public function penerimas()
