@@ -21,7 +21,7 @@ class UnitSeeder extends Seeder
 
         DB::table('units')->insert([
             'id' => '1',
-            'nama_unit'=> 'BID TIK',
+            'nama_unit' => 'BID TIK',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
