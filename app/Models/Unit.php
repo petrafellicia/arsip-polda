@@ -12,7 +12,7 @@ class Unit extends Model
     protected $fillable = [
         'id',
         'nama_unit'
-    ];
+    ];   
 
     public function surat_masuks()
     {
